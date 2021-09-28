@@ -1,13 +1,19 @@
 import styled from "styled-components";
 
-const ProfileWrapper = styled.div`
+type ProfileProps = {
+  headerRoom: number
+}
+
+const ProfileWrapper = styled.div<ProfileProps>`
   background-color: ${({theme}) => theme.profile};
-  height: 100vh;
+  padding-top: ${({headerRoom}) => headerRoom};
+  height: ${({headerRoom}) => `calc(100vh - ${headerRoom}px)`};
   width: '100%';
   display: flex;
   align-content: center;
   justify-content: center;
   align-items: center;
+  transition: background-color 0.50s linear;
 `
 
 const ProfileSection = styled.div`
@@ -22,9 +28,9 @@ const Logo = styled.img`
   height: 150px;
 `
 
-const Profile = () => {
+const Profile = (props: ProfileProps) => {
   return (
-    <ProfileWrapper>
+    <ProfileWrapper {...props}>
       <ProfileSection>
         <Logo alt="Zach Shaver" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/android/android-original-wordmark.svg" />
         <div>

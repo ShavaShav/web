@@ -12,6 +12,8 @@ const Main = styled.div`
   height: 200vh;
 `
 
+const headerHeight = 40;
+
 const App = () => {
   const [theme, toggleTheme] = useDarkMode();
   const [showHeader, setShowHeader] = useState(false);
@@ -19,7 +21,7 @@ const App = () => {
   useEffect(() => {
     if (typeof window !== "undefined") {
       const checkHeader = () => {
-        setShowHeader(window.pageYOffset + 50 > window.innerHeight);
+        setShowHeader(window.pageYOffset > window.innerHeight);
       }
       window.addEventListener("scroll", checkHeader);
       return () => window.removeEventListener("scroll", checkHeader);
@@ -30,8 +32,8 @@ const App = () => {
     <ThemeProvider theme={theme === 'light' ? lightTheme : darkTheme}>
       <>
         <GlobalStyles />
-        <Profile/>
-        <Header isShowing={showHeader}/>
+        <Profile headerRoom={headerHeight}/>
+        <Header height={headerHeight} isDark={theme === 'dark'} isShowing={showHeader} toggleTheme={toggleTheme}/>
         <Main>
         </Main>
         {/* <Profile/>
