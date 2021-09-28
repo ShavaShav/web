@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 const ProfileWrapper = styled.div`
   background-color: ${({theme}) => theme.profile};
-  min-height: calc(100vh - 80px);
+  height: 100vh;
   width: '100%';
   display: flex;
   align-content: center;

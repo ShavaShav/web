@@ -33,7 +33,6 @@ const App = () => {
         <Profile/>
         <Header isShowing={showHeader}/>
         <Main>
-          <button title={"Theme: " + theme} onClick={toggleTheme}>Hello</button>
         </Main>
         {/* <Profile/>
         <Projects>
