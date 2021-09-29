@@ -13,7 +13,7 @@ const ToggleButton = styled.button`
   color: ${({ theme }) => theme.text};
   background: ${({ theme }) => theme.body};
   border: 1px solid ${({ theme }) => theme.text};
-  border-radius: 5px;
+  border-radius: 10%;
 ` 
 
 const ThemeToggle = (props: ThemeToggleProps) => {

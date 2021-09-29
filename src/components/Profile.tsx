@@ -1,6 +1,7 @@
 import { Dispatch, SetStateAction, useEffect, useState } from "react";
 import styled from "styled-components";
 import Header from "./Header";
+import Headshot from "./Headshot";
 import ThemeToggle from "./ThemeToggle";
 
 type ProfileProps = {
@@ -32,19 +33,24 @@ const ProfileWrapper = styled.div<ProfileProps>`
 const ProfileSection = styled.div`
   display: flex;
   flex-direction: column;
+  align-content: center;
+  align-items: center;
   @media only screen and (min-width: 600px) {
     flex-direction: row;
   }
-`
-
-const Logo = styled.img`
-  height: 150px;
 `
 
 const PushedRight = styled.div`
   display: flex;
   justify-content: flex-end;
   padding: 10px;
+`
+
+const Title = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  align-items: center;
 `
 
 const Profile = (props: ProfileProps) => {
@@ -68,11 +74,11 @@ const Profile = (props: ProfileProps) => {
         </PushedRight>
         <ProfileWrapper {...props}>
           <ProfileSection>
-            <Logo alt="Zach Shaver" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/android/android-original-wordmark.svg" />
-            <div>
+            <Headshot round size={150}/>
+            <Title>
               <h1>Zach Shaver</h1>
               <h2>Software Developer</h2>
-            </div>
+            </Title>
           </ProfileSection>
         </ProfileWrapper>
       </Container>

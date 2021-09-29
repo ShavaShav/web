@@ -4,6 +4,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faGithub, faLinkedin } from '@fortawesome/free-brands-svg-icons'
 
 import ThemeToggle from "./ThemeToggle";
+import Headshot from "./Headshot";
 
 interface HeaderProps {
   readonly height: number;
@@ -35,12 +36,7 @@ const Hider = styled.div<HeaderProps>`
 
 const HeaderTitle = styled.div`
   font-size: 7vw;
-`
-
-const ButtonGroup = styled.div`
-  display: flex;
-  flex-direction: row;
-  align-items: center;
+  padding-left: 10px;
 `
 
 const Link = styled.a`
@@ -54,12 +50,21 @@ const LinkIcon = styled(FontAwesomeIcon)`
   margin-right: 15px;
 `
 
+const Row = styled.div`
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+`
+
 const Header = (props: HeaderProps) => {
   return (
     <Container {...props}>
       <Hider {...props}>
-        <HeaderTitle>Zach Shaver</HeaderTitle>
-        <ButtonGroup>
+        <Row>
+          <Headshot size={35}/>
+          <HeaderTitle>Zach Shaver</HeaderTitle>
+        </Row>
+        <Row>
           <Link href="https://www.github.com/ShavaShav">
             <LinkIcon size={'lg'} icon={faGithub}/>
           </Link>
@@ -67,7 +72,7 @@ const Header = (props: HeaderProps) => {
             <LinkIcon size={'lg'} icon={faLinkedin}/>
           </Link>
           <ThemeToggle isDark={props.isDark} onClick={props.toggleTheme}/>
-        </ButtonGroup>
+        </Row>
       </Hider>
     </Container>
   );
