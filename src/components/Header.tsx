@@ -6,7 +6,7 @@ import { faGithub, faLinkedin } from '@fortawesome/free-brands-svg-icons'
 import ThemeToggle from "./ThemeToggle";
 
 interface HeaderProps {
-  readonly height?: number;
+  readonly height: number;
   readonly isShowing: boolean;
   readonly isDark: boolean;
   readonly toggleTheme: Dispatch<SetStateAction<void>>;
@@ -16,7 +16,7 @@ const Container = styled.div<HeaderProps>`
   transition: background-color 0.50s linear;
   position: sticky;
   top: 0;
-  padding: 10px;
+  padding: 0px 10px;
   background-color: ${({theme}) => theme.profile};
 `
 
@@ -63,7 +63,9 @@ const Header = (props: HeaderProps) => {
           <Link href="https://www.github.com/ShavaShav">
             <LinkIcon size={'lg'} icon={faGithub}/>
           </Link>
-          <LinkIcon size={'lg'} icon={faLinkedin}/>
+          <Link href="https://ca.linkedin.com/in/zach-shaver">
+            <LinkIcon size={'lg'} icon={faLinkedin}/>
+          </Link>
           <ThemeToggle isDark={props.isDark} onClick={props.toggleTheme}/>
         </ButtonGroup>
       </Hider>

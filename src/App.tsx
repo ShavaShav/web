@@ -5,6 +5,7 @@ import { useDarkMode } from './useDarkMode';
 import Profile from './components/Profile';
 import { useEffect, useState } from 'react';
 import Header from './components/Header';
+import ThemeToggle from './components/ThemeToggle';
 
 const Main = styled.div`
   margin-top: 50px;
@@ -12,28 +13,24 @@ const Main = styled.div`
   height: 200vh;
 `
 
+const TopRightThemeToggle = styled(ThemeToggle)`
+  position: absolute;
+  top: 0;
+  right: 0;
+`
+
 const headerHeight = 40;
 
 const App = () => {
   const [theme, toggleTheme] = useDarkMode();
-  const [showHeader, setShowHeader] = useState(false);
-
-  useEffect(() => {
-    if (typeof window !== "undefined") {
-      const checkHeader = () => {
-        setShowHeader(window.pageYOffset > window.innerHeight);
-      }
-      window.addEventListener("scroll", checkHeader);
-      return () => window.removeEventListener("scroll", checkHeader);
-    }
-  }, [window]);
+  const isDark = theme === 'dark';
 
   return (
     <ThemeProvider theme={theme === 'light' ? lightTheme : darkTheme}>
       <>
         <GlobalStyles />
-        <Profile headerRoom={headerHeight}/>
-        <Header height={headerHeight} isDark={theme === 'dark'} isShowing={showHeader} toggleTheme={toggleTheme}/>
+        {/* <TopRightThemeToggle isDark={isDark} onClick={toggleTheme}/> */}
+        <Profile headerRoom={headerHeight} isDark={isDark} toggleTheme={toggleTheme}/>
         <Main>
         </Main>
         {/* <Profile/>
