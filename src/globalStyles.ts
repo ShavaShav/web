@@ -5,8 +5,15 @@ export default createGlobalStyle<{theme: Theme}>`
   body {
     background: ${({ theme }) => theme.body};
     color: ${({ theme }) => theme.text};
-    // font-family: Tahoma, Helvetica, Arial, Roboto, sans-serif;
+    font-family: Roboto, Tahoma, Helvetica, Arial, sans-serif;
     transition: all 0.50s linear;
+  }
+  button {
+    border: ${({theme}) => `1px solid ${theme.buttonBorder}`};
+    background-color: ${({theme}) => theme.button};
+    color: ${({theme}) => theme.buttonTint};
+    border-radius: 2px;
+    padding: 5px;
   }
   h1 {
     font-size: 8vw;

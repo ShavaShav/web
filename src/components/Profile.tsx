@@ -1,5 +1,8 @@
 import { Dispatch, SetStateAction, useEffect, useState } from "react";
 import styled from "styled-components";
+import { faGithub, faLinkedin } from '@fortawesome/free-brands-svg-icons'
+
+import Button from "./Button";
 import Header from "./Header";
 import Headshot from "./Headshot";
 import ThemeToggle from "./ThemeToggle";
@@ -40,6 +43,12 @@ const ProfileSection = styled.div`
   }
 `
 
+const Row = styled.div`
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+`
+
 const PushedRight = styled.div`
   display: flex;
   justify-content: flex-end;
@@ -53,13 +62,19 @@ const Title = styled.div`
   align-items: center;
 `
 
+const LinkButton = styled(Button)`
+  height: 40px;
+  width: 100px;
+  margin: 5px;
+`
+
 const Profile = (props: ProfileProps) => {
   const [showHeader, setShowHeader] = useState(false);
 
   useEffect(() => {
     if (typeof window !== "undefined") {
       const checkHeader = () => {
-        setShowHeader(window.pageYOffset > window.innerHeight);
+        setShowHeader(window.pageYOffset > window.innerHeight - headerHeight);
       }
       window.addEventListener("scroll", checkHeader);
       return () => window.removeEventListener("scroll", checkHeader);
@@ -80,6 +95,10 @@ const Profile = (props: ProfileProps) => {
               <h2>Software Developer</h2>
             </Title>
           </ProfileSection>
+          <Row>
+            <LinkButton icon={faGithub} color={'#333'} url='https://www.github.com/ShavaShav' title="Github"/>
+            <LinkButton icon={faLinkedin} color={'#0077b5'} url='https://ca.linkedin.com/in/zach-shaver' title="LinkedIn"/>
+          </Row>
         </ProfileWrapper>
       </Container>
       <Header height={headerHeight} isDark={props.isDark} isShowing={showHeader} toggleTheme={props.toggleTheme}/>
