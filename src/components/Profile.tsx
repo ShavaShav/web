@@ -1,6 +1,7 @@
 import { Dispatch, SetStateAction, useEffect, useState } from "react";
 import styled from "styled-components";
 import { faGithub, faLinkedin } from '@fortawesome/free-brands-svg-icons'
+import { Typewriter } from 'react-simple-typewriter'
 
 import Button from "./Button";
 import Header from "./Header";
@@ -92,7 +93,9 @@ const Profile = (props: ProfileProps) => {
             <Headshot round size={150}/>
             <Title>
               <h1>Zach Shaver</h1>
-              <h2>Software Developer</h2>
+              <h2>
+                <Typewriter cursor cursorStyle="|" words={['Software Developer','Awesome Boyfriend','Bad-Ass Bitch']} loop={0}/>
+              </h2>
             </Title>
           </ProfileSection>
           <Row>
