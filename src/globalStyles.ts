@@ -15,25 +15,17 @@ export default createGlobalStyle<{theme: Theme}>`
     border-radius: 2px;
     padding: 5px;
   }
+  h1, h2, h3, h4, h5 { 
+    line-height: 1em;
+  }
   h1 {
-    font-size: 8vw;
+    font-size: 2em;
   }
   h2 {
-    font-size: 4vw;
+    font-size: 1.25em;
   }
   p {
-    font-size: 12pt;
+    font-size: 1em;
   }
-  @media only screen and (min-width: 600px) {
-    /* For tablets and desktops: */
-    h1 {
-    font-size: 35pt;
-    }
-    h2 {
-      font-size: 18pt;
-    }
-    p {
-      font-size: 12pt;
-    }
-  }
+
 `

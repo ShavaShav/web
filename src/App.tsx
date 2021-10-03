@@ -9,8 +9,6 @@ const Main = styled.div`
   height: 200vh;
 `
 
-const headerHeight = 40;
-
 const App = () => {
   const [theme, toggleTheme] = useDarkMode();
   const isDark = theme === 'dark';
@@ -19,7 +17,7 @@ const App = () => {
     <ThemeProvider theme={theme === 'light' ? lightTheme : darkTheme}>
       <>
         <GlobalStyles />
-        <Profile headerRoom={headerHeight} isDark={isDark} toggleTheme={toggleTheme}/>
+        <Profile isDark={isDark} toggleTheme={toggleTheme}/>
         <Main>
           <p>Hello</p>
         </Main>

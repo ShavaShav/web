@@ -9,12 +9,17 @@ import Headshot from "./Headshot";
 import ThemeToggle from "./ThemeToggle";
 
 type ProfileProps = {
-  headerRoom: number;
   readonly isDark: boolean;
   readonly toggleTheme: Dispatch<SetStateAction<void>>;
 }
 
 const headerHeight = 50;
+
+const subtitles = [
+  'Software Developer',
+  'Awesome Boyfriend',
+  'Bad-Ass Bitch'
+]
 
 const Container = styled.div`
   height: ${() => `calc(100vh - ${headerHeight}px)`};
@@ -58,9 +63,19 @@ const PushedRight = styled.div`
 
 const Title = styled.div`
   display: flex;
+  flex: 1;
   flex-direction: column;
   align-content: center;
   align-items: center;
+  padding: 20px;
+  @media only screen and (min-width: 600px) {
+    align-items: flex-start;
+    width: 220px;
+  }
+`
+
+const Subtitle = styled.h2`
+ 
 `
 
 const LinkButton = styled(Button)`
@@ -93,9 +108,9 @@ const Profile = (props: ProfileProps) => {
             <Headshot round size={150}/>
             <Title>
               <h1>Zach Shaver</h1>
-              <h2>
-                <Typewriter cursor cursorStyle="|" words={['Software Developer','Awesome Boyfriend','Bad-Ass Bitch']} loop={0}/>
-              </h2>
+              <Subtitle>
+                <Typewriter cursor cursorStyle="|" words={subtitles} loop={0}/>
+              </Subtitle>
             </Title>
           </ProfileSection>
           <Row>
