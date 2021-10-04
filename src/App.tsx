@@ -3,10 +3,10 @@ import { lightTheme, darkTheme } from './themes';
 import GlobalStyles from './globalStyles';
 import { useDarkMode } from './useDarkMode';
 import Profile from './components/Profile';
+import Records from './components/Records';
 
-const Main = styled.div`
-  margin-top: 50px;
-  height: 200vh;
+const StyledRecords = styled(Records)`
+  min-height: 100vh;
 `
 
 const App = () => {
@@ -18,9 +18,7 @@ const App = () => {
       <>
         <GlobalStyles />
         <Profile isDark={isDark} toggleTheme={toggleTheme}/>
-        <Main>
-          <p>Hello</p>
-        </Main>
+        <StyledRecords/>
       </>
     </ThemeProvider>
   );

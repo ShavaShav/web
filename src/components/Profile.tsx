@@ -74,10 +74,6 @@ const Title = styled.div`
   }
 `
 
-const Subtitle = styled.h2`
- 
-`
-
 const LinkButton = styled(Button)`
   height: 40px;
   width: 100px;
@@ -108,9 +104,9 @@ const Profile = (props: ProfileProps) => {
             <Headshot round size={150}/>
             <Title>
               <h1>Zach Shaver</h1>
-              <Subtitle>
+              <h2>
                 <Typewriter cursor cursorStyle="|" words={subtitles} loop={0}/>
-              </Subtitle>
+              </h2>
             </Title>
           </ProfileSection>
           <Row>

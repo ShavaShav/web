@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { IconDefinition } from '@fortawesome/fontawesome-common-types';
 
-interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
+export interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   readonly icon?: IconDefinition;
   readonly size?: 'md'|'lg';
   readonly secondary?: boolean;
@@ -20,6 +20,7 @@ const StyledIcon = styled(FontAwesomeIcon)`
 const StyledButton = styled.button<ButtonProps>`
   background-color: ${({color}) => color};
   color: ${({tintColor}) => tintColor};
+  cursor: pointer;
 `
 
 const Button = (props: ButtonProps) => {

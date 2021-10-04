@@ -8,6 +8,10 @@ export type Theme = {
   button: string,
   buttonBorder: string,
   buttonTint: string,
+  cardBackground: string,
+  cardTint: string,
+  labelBackground: string,
+  labelTint: string,
 }
 
 export const lightTheme: Theme = {
@@ -21,6 +25,10 @@ export const lightTheme: Theme = {
   button: '#424282',
   buttonBorder: '#363537',
   buttonTint: '#FAFAFA',
+  cardBackground: '#EEE',
+  cardTint: '#363537',
+  labelBackground: '#FFF',
+  labelTint: '#363537',
 }
 
 export const darkTheme: Theme = {
@@ -34,4 +42,8 @@ export const darkTheme: Theme = {
   button: '#424282',
   buttonBorder: '#FAFAFA',
   buttonTint: '#FAFAFA',
+  cardBackground: '#262527',
+  cardTint: '#FAFAFA',
+  labelBackground: '#363537',
+  labelTint: '#FAFAFA',
 }
