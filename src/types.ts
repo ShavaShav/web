@@ -1,9 +1,10 @@
 export type DivProps = React.DetailedHTMLProps<React.HTMLAttributes<HTMLDivElement>, HTMLDivElement>
 
 export type Skill = 'hello' | 'goodbye'
-export type Language = 'java' | 'javascript'
-export type Library = 'hello' | 'goodbye'
-export type Framework = 'react' | 'react-native'
+export type Language = 'java' | 'javascript' | 'python' | 'c' | 'bash' | 'cplusplus'
+export type Database = 'postgresql' | 'neo4j' | 'mysql' | 'sqlserver'
+export type Framework = 'odoo'
+export type Library = 'react' | 'react-native'
 export type Platform = 'desktop' | 'mobile'
 
 export type CategoryData = {
@@ -25,6 +26,7 @@ export type Record = {
   end?: Date,
   logo: string,
   skills: Skill[],
+  databases: Database[],
   languages: Language[],
   frameworks: Framework[],
   libraries: Library[],

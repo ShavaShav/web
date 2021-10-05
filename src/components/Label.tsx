@@ -19,7 +19,7 @@ const Container = styled.div`
   flex-direction: row;
   align-items: center;
   border-radius: 15px;
-  background-color: ${({theme}) => theme.labelBackground};
+  border: 1px solid ${({theme}) => theme.labelBackground};
   color: ${({theme}) => theme.labelTint};
   font-size: 0.8em;
   padding: 8px;

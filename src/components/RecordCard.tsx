@@ -1,7 +1,10 @@
 import styled from "styled-components";
-import { Frameworks, Languages } from "../data";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faCalendar, faBriefcase } from '@fortawesome/free-solid-svg-icons';
+
+import { Databases, Frameworks, Languages } from "../data";
 import { DivProps, Link, Record } from "../types";
-import Label from "./Label";
+import CategoryLabel from "./CategoryLabel";
 import LinkButton from "./LinkButton";
 
 interface RecordCardProps {
@@ -10,7 +13,12 @@ interface RecordCardProps {
 }
 
 const Title = styled.span`
+  font-size: 1.2em;
   font-weight: bold;
+`
+
+const Subtitle = styled.span`
+  padding-left: 5px;
 `
 
 const Headline = styled.div`
@@ -26,51 +34,105 @@ const Container = styled.div`
   color: ${({theme}) => theme.cardTint};
   padding: 5px;
   justify-content: center;
-  align-items: center;
+  align-items: stretch;
 `
 
-const ItemsGroup = styled.div`
+const CategorySection = styled.div`
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+`
+
+const Row = styled.div`
   display: flex;
   flex-direction: row;
+`
+
+const ItemsGroup = styled(Row)`
   justify-content: center;
   flex-wrap: wrap;
 `
 
-const StyledLabel = styled(Label)`
-  margin: 2px;
+const StyledLabel = styled(CategoryLabel)`
+  margin: 1px;
 `
 
 const StyledLink = styled(LinkButton)`
-  margin: 2px;
+  margin: 1px;
+`
+
+const Body = styled.div`
+  background-color: ${({theme}) => theme.body};
+  padding: 10px;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  border: 1px solid ${({theme}) => theme.cardBackground};
+`
+
+const Description = styled.div`
 `
 
 const RecordCard : React.FC<RecordCardProps & DivProps> = ({className, record}) => {
   const {
     type, title, employer, description, start, end, logo, 
-    skills, languages, frameworks, libraries, platforms, 
+    skills, databases, languages, frameworks, libraries, isMobile, isDesktop, 
     links, screenshot, sourceCode, docs
   } = record;
   return (
     <Container className={className}>
-      <img alt={employer} src={logo} width={100} height={100}/>
-      <Title>{title}</Title>
-      {employer ? <span> @ {employer}</span> : undefined}
-      <p>{description}</p>
-      <ItemsGroup>
-        {links.map(link => <StyledLink link={link}/>)}
-      </ItemsGroup>
-      <ItemsGroup>
-        {languages.map(id => {
-          const language = Languages[id]
-          return <StyledLabel alt={language.name} iconSrc={language.image}>{language.name}</StyledLabel>
-        })}
-      </ItemsGroup>
-      <ItemsGroup>
-        {frameworks.map(id => {
-          const framework = Frameworks[id]
-          return <StyledLabel alt={framework.name} iconSrc={framework.image}>{framework.name}</StyledLabel>
-        })}
-      </ItemsGroup>
+      <Row>
+        <img alt={employer} src={logo} width={100} height={100}/>
+        <Headline>
+          <Title>{title}</Title>
+          {employer 
+            ? <Row>
+                <FontAwesomeIcon icon={faBriefcase}/>
+                <Subtitle>{employer}</Subtitle>
+              </Row>
+            : undefined
+          }
+          <Row>
+            <FontAwesomeIcon icon={faCalendar}/>
+            <Subtitle>
+              {start.toLocaleDateString('default', { month: 'long', year: 'numeric'})}
+              {end           
+                ? ` to ${end.toLocaleDateString('default', { month: 'long', year: 'numeric'})}`
+                : type === 'work' && ' to Present'
+              }
+            </Subtitle>
+          </Row>
+        </Headline>
+      </Row>
+      <Body>
+        <Description>
+          <span>{description}</span>
+        </Description>
+        <ItemsGroup>
+          {links.map(link => <StyledLink link={link}/>)}
+        </ItemsGroup>
+      </Body>
+      <CategorySection>
+        <ItemsGroup>
+          {languages.map(id => <StyledLabel data={Languages[id]}/>)}
+          {frameworks.map(id => <StyledLabel data={Frameworks[id]}/>)}
+          {databases.map(id => <StyledLabel data={Databases[id]}/>)}
+        </ItemsGroup>
+        {/* <Row>
+          <CategoryHeader>Languages</CategoryHeader>
+          <ItemsGroup>
+            {languages.map(id => <StyledLabel data={Languages[id]}/>)}
+          </ItemsGroup>
+        </Row>
+        <ItemsGroup>
+          {frameworks.map(id => <StyledLabel data={Frameworks[id]}/>)}
+        </ItemsGroup>
+        <ItemsGroup>
+          {databases.map(id => <StyledLabel data={Databases[id]}/>)}
+        </ItemsGroup> */}
+        {/* <ItemsGroup>
+          {skills.map(id => <CategoryLabel data={Skills[id]}/>)}
+        </ItemsGroup> */}
+      </CategorySection>
     </Container>
   );
 }
