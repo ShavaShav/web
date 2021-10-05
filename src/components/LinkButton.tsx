@@ -1,5 +1,5 @@
-import { faDownload, faLink } from '@fortawesome/free-solid-svg-icons'
-import { faGooglePlay } from '@fortawesome/free-brands-svg-icons'
+import { faDownload, faLink, faNewspaper } from '@fortawesome/free-solid-svg-icons'
+import { faGooglePlay, faGithub, faNpm } from '@fortawesome/free-brands-svg-icons'
 
 import { Link } from "../types";
 import Button, { ButtonProps } from "./Button";
@@ -15,20 +15,29 @@ const StyledButton = styled(Button)`
 
 const icon = {
   'google_play': faGooglePlay,
+  'npm': faNpm,
   'executable': faDownload,
   'website': faLink,
+  'source_code': faGithub,
+  'docs': faNewspaper,
 }
 
 const text = {
   'google_play': 'Google Play',
+  'npm': 'npm',
   'executable': 'Download',
   'website': 'Link',
+  'source_code': 'Source',
+  'docs': 'Documentation',
 }
 
 const color = {
   'google_play': 'green',
+  'npm': 'red',
   'executable': 'blue',
   'website': 'grey',
+  'source_code': 'black',
+  'docs': 'white',
 }
 
 const LinkButton: React.FC<LinkButtonProps> = ({className, link}) => {

@@ -8,7 +8,7 @@ interface CategoryLabelProps {
 
 const CategoryLabel: React.FC<CategoryLabelProps & DivProps> = ({className, data}) => {
   return (
-    <Label className={className} alt={data.name} iconSrc={data.image}>{data.name}</Label>
+    <Label className={className} alt={data.name} iconSrc={data.image} iconFA={data.icon}>{data.name}</Label>
   );
 }
 

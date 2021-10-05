@@ -1,19 +1,23 @@
+import { IconDefinition } from "@fortawesome/fontawesome-common-types"
+
 export type DivProps = React.DetailedHTMLProps<React.HTMLAttributes<HTMLDivElement>, HTMLDivElement>
 
-export type Skill = 'hello' | 'goodbye'
-export type Language = 'java' | 'javascript' | 'python' | 'c' | 'bash' | 'cplusplus'
-export type Database = 'postgresql' | 'neo4j' | 'mysql' | 'sqlserver'
-export type Framework = 'odoo'
-export type Library = 'react' | 'react-native'
-export type Platform = 'desktop' | 'mobile'
+export type Skill = 'robotics' | 'devops' | 'tdd' | 'bdd' | 'algorithms' | 'networking' | 'rest' | 'frontend' | 'backend' | 'concurrent' | 'agile' | 'testing' | 'qa'
+export type Language = 'java' | 'javascript' | 'typescript' | 'python' | 'c' | 'bash' | 'cplusplus' | 'html' | 'css'
+export type Database = 'postgresql' | 'mysql' | 'neo4j' | 'realm' | 'sqlserver'
+export type Tool =  'selenium' | 'docker' | 'cucumber' | 'gradle' | 'birt' | 'tomcat' | 'jenkins' | 'node' | 'aws' | 'gimp' | 'heroku' | 'jira' | 'nginx' | 'npm' | 'oracle' | 'slack'
+export type Framework = 'liferay' | 'odoo' | 'firebase' | 'qt'
+export type Library =  'jquery' | 'react' | 'reactnative' | 'express' | 'jest' | 'redux' | 'sequelize'
+export type Platform = 'android' | 'ios' | 'windows' | 'macos' | 'linux' | 'browser'
 
 export type CategoryData = {
   name: string,
-  image: string
+  image?: string,
+  icon?: IconDefinition
 }
 
 export type Link = {
-  type: 'google_play' | 'executable' | 'website', 
+  type: 'google_play' | 'executable' | 'website' | 'source_code' | 'docs'
   url: string,
   text?: string,
 }
@@ -21,7 +25,8 @@ export type Link = {
 export type Record = {
   type: 'work' | 'project'
   title: string,
-  description: string,
+  summary: string,
+  bullets: string[],
   start: Date,
   end?: Date,
   logo: string,
@@ -35,8 +40,6 @@ export type Record = {
   links: Link[],
   // Project specific
   screenshot?: string,
-  sourceCode?: string,
-  docs?: string, 
   // Work specific
   employer?: string,
 }

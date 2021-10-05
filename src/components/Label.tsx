@@ -18,6 +18,8 @@ const Container = styled.div`
   display: flex;
   flex-direction: row;
   align-items: center;
+  justify-content: center;
+  align-content: center;
   border-radius: 15px;
   border: 1px solid ${({theme}) => theme.labelBackground};
   color: ${({theme}) => theme.labelTint};
@@ -31,7 +33,7 @@ const Label: React.FC<LabelProps & DivProps> = ({className, alt, iconFA, iconSrc
     <Container className={className}>
       <Icon>
         {iconFA && <FontAwesomeIcon size={'sm'} icon={iconFA} color={theme.labelTint}/>}
-        {iconSrc !== '' && <img alt={alt} src={iconSrc} height={18}/>}
+        {iconSrc ? <img alt={alt} src={iconSrc} height={18}/> : undefined}
       </Icon>
       {children}
     </Container>

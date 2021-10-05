@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { WorkRecords } from "../data";
+import { AllRecords } from "../data";
 import RecordList from "./RecordList";
 import RecordsFilter from "./RecordsFilter";
 
@@ -11,7 +11,7 @@ const Records = (props: any) => {
   return (
     <Container className={props.className}>
       <RecordsFilter/>
-      <RecordList records={WorkRecords}/>
+      <RecordList records={AllRecords}/>
     </Container>
   );
 }

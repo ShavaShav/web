@@ -1,9 +1,9 @@
 import styled from "styled-components";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faCalendar, faBriefcase } from '@fortawesome/free-solid-svg-icons';
+import { faCalendar, faBriefcase, faDesktop, faMobileAlt } from '@fortawesome/free-solid-svg-icons';
 
-import { Databases, Frameworks, Languages } from "../data";
-import { DivProps, Link, Record } from "../types";
+import { Databases, Frameworks, Languages, Libraries, Skills } from "../categories";
+import { DivProps, Record } from "../types";
 import CategoryLabel from "./CategoryLabel";
 import LinkButton from "./LinkButton";
 
@@ -72,27 +72,35 @@ const Body = styled.div`
 const Description = styled.div`
 `
 
+const PlatformIcon = styled(FontAwesomeIcon)`
+  padding-left: 5px;
+`
+
 const RecordCard : React.FC<RecordCardProps & DivProps> = ({className, record}) => {
   const {
-    type, title, employer, description, start, end, logo, 
+    type, title, employer, summary, bullets, start, end, logo, 
     skills, databases, languages, frameworks, libraries, isMobile, isDesktop, 
-    links, screenshot, sourceCode, docs
+    links, screenshot
   } = record;
   return (
     <Container className={className}>
       <Row>
         <img alt={employer} src={logo} width={100} height={100}/>
         <Headline>
-          <Title>{title}</Title>
+          <Row>
+            <Title>{title}</Title>
+            {isDesktop && <PlatformIcon title="Desktop App" icon={faDesktop}/>}
+            {isMobile && <PlatformIcon title="Mobile App" icon={faMobileAlt}/>}
+          </Row>
           {employer 
             ? <Row>
-                <FontAwesomeIcon icon={faBriefcase}/>
+                <FontAwesomeIcon title="Employer" icon={faBriefcase} color='#C4A484' />
                 <Subtitle>{employer}</Subtitle>
               </Row>
             : undefined
           }
           <Row>
-            <FontAwesomeIcon icon={faCalendar}/>
+            <FontAwesomeIcon title="Date" icon={faCalendar} color='#286086'/>
             <Subtitle>
               {start.toLocaleDateString('default', { month: 'long', year: 'numeric'})}
               {end           
@@ -105,7 +113,10 @@ const RecordCard : React.FC<RecordCardProps & DivProps> = ({className, record}) 
       </Row>
       <Body>
         <Description>
-          <span>{description}</span>
+          <span>{summary}</span>
+          <ul>
+            {bullets.map(bullet => <li>{bullet}</li>)}
+          </ul>
         </Description>
         <ItemsGroup>
           {links.map(link => <StyledLink link={link}/>)}
@@ -113,7 +124,9 @@ const RecordCard : React.FC<RecordCardProps & DivProps> = ({className, record}) 
       </Body>
       <CategorySection>
         <ItemsGroup>
+          {skills.map(id => <StyledLabel data={Skills[id]}/>)}
           {languages.map(id => <StyledLabel data={Languages[id]}/>)}
+          {libraries.map(id => <StyledLabel data={Libraries[id]}/>)}
           {frameworks.map(id => <StyledLabel data={Frameworks[id]}/>)}
           {databases.map(id => <StyledLabel data={Databases[id]}/>)}
         </ItemsGroup>
