@@ -23,6 +23,7 @@ const Subtitle = styled.span`
 
 const Headline = styled.div`
   display: flex;
+  flex: 1;
   flex-direction: column;
   padding: 5px;
 `
@@ -48,6 +49,10 @@ const Row = styled.div`
   flex-direction: row;
 `
 
+const SpacedRow = styled(Row)`
+  justify-content: space-between;
+`
+
 const ItemsGroup = styled(Row)`
   justify-content: center;
   flex-wrap: wrap;
@@ -58,7 +63,9 @@ const StyledLabel = styled(CategoryLabel)`
 `
 
 const StyledLink = styled(LinkButton)`
-  margin: 1px;
+  flex: 1;
+  margin: 5px;
+  max-width: 225px;
 `
 
 const Body = styled.div`
@@ -87,11 +94,13 @@ const RecordCard : React.FC<RecordCardProps & DivProps> = ({className, record}) 
       <Row>
         <img alt={employer} src={logo} width={100} height={100}/>
         <Headline>
-          <Row>
+          <SpacedRow>
             <Title>{title}</Title>
-            {isDesktop && <PlatformIcon title="Desktop App" icon={faDesktop}/>}
-            {isMobile && <PlatformIcon title="Mobile App" icon={faMobileAlt}/>}
-          </Row>
+            <Row>
+              {isDesktop && <PlatformIcon title="Desktop App" icon={faDesktop}/>}
+              {isMobile && <PlatformIcon title="Mobile App" icon={faMobileAlt}/>}
+            </Row>
+          </SpacedRow>
           {employer 
             ? <Row>
                 <FontAwesomeIcon title="Employer" icon={faBriefcase} color='#C4A484' />

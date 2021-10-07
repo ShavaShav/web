@@ -10,6 +10,8 @@ interface LinkButtonProps extends ButtonProps {
 }
 
 const StyledButton = styled(Button)`
+  min-width: 175px;
+  min-height: 35px;
   border-width: 0;
 `
 
@@ -37,7 +39,7 @@ const color = {
   'executable': 'blue',
   'website': 'grey',
   'source_code': 'black',
-  'docs': 'white',
+  'docs': 'brown',
 }
 
 const LinkButton: React.FC<LinkButtonProps> = ({className, link}) => {
