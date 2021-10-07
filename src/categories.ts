@@ -22,6 +22,7 @@ import iconLiferay from './img/icons/odoo.png';
 
 const DEV_ICON_PATH = 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons'
 const devIcon = (name: string) => `${DEV_ICON_PATH}/${name}/${name}-original.svg`
+const devIconPlain = (name: string) => `${DEV_ICON_PATH}/${name}/${name}-plain.svg`
 
 export const Skills: Record<Skill, CategoryData> = {
   devops: {
@@ -139,7 +140,7 @@ export const Libraries: Record<Library, CategoryData> = {
   },
   jest: {
     name: 'Jest',
-    image:  devIcon('jest'),
+    image:  devIconPlain('jest'),
   },
   redux: {
     name: 'Redux',

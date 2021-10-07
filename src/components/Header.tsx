@@ -19,6 +19,7 @@ const Container = styled.div<HeaderProps>`
   top: 0;
   padding: 0px 10px;
   background-color: ${({theme}) => theme.profile};
+  z-index: 1;
 `
 
 const Hider = styled.div<HeaderProps>`

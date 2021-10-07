@@ -8,6 +8,7 @@ interface LabelProps {
   readonly alt: string;
   readonly iconFA?: IconDefinition;
   readonly iconSrc?: string;
+  readonly rounded?: boolean;
 }
 
 const Icon = styled.div`
@@ -20,8 +21,6 @@ const Container = styled.div`
   align-items: center;
   justify-content: center;
   align-content: center;
-  border-radius: 15px;
-  border: 1px solid ${({theme}) => theme.labelBackground};
   color: ${({theme}) => theme.labelTint};
   font-size: 0.8em;
   padding: 8px;

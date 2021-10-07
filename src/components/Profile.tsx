@@ -17,8 +17,8 @@ const headerHeight = 50;
 
 const subtitles = [
   'Software Developer',
-  'Awesome Boyfriend',
-  'Bad-Ass Bitch'
+  'Git Guru',
+  'DevOps Demon'
 ]
 
 const Container = styled.div`

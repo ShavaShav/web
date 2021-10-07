@@ -1,51 +1,67 @@
 import { useState } from "react";
-import Select, { MultiValue } from 'react-select';
+import Select, { ActionMeta, components, MultiValue, MultiValueGenericProps, OptionProps } from 'react-select';
 import styled from "styled-components";
 import { CategoryData } from "../types";
+import CategoryLabel from './CategoryLabel';
 
 interface CategorySelectProps {
   readonly className?: string;
   readonly categories: Record<string, CategoryData>;
-  // readonly selected: string[];
+  readonly onSelect: (values: string[]) => void;
 }
 
-const Container = styled.div`
-
-`
+interface CategoryDataOption {
+  categoryData: CategoryData;
+  value: string;
+  label: string,
+}
 
 const StyledSelect = styled(Select)`
   background-color: ${({theme}) => theme.body};
+  margin: 5px;
 `
 
-const CategorySelect: React.FC<CategorySelectProps> = ({categories}) => {
-  const [selected, setSelected] = useState<MultiValue<any>>();
+const MultiValueLabel = (props: MultiValueGenericProps<any>) => {
+  return (
+    <components.MultiValueLabel {...props}>
+      <CategoryLabel data={props.data.categoryData}/>
+    </components.MultiValueLabel>
+  )
+};
 
-  const options: Option[] = [];
+const Option = (props: OptionProps<any>) => {
+  return (
+    <components.Option {...props}>
+      <CategoryLabel data={props.data.categoryData}/>
+    </components.Option>
+  )
+};
+
+const CategorySelect: React.FC<CategorySelectProps> = ({categories, onSelect}) => {
+  const [selected, setSelected] = useState<MultiValue<CategoryDataOption>>();
+
+  const handleChange = (selection: MultiValue<CategoryDataOption>, actionMeta: ActionMeta<CategoryDataOption>) => {
+    setSelected(selection)
+    onSelect(selection.map(data => data.value))
+  }
+
+  const options: CategoryDataOption[] = [];
   Object.entries(categories).forEach(([value, data]) => {
     options.push({
+      categoryData: data,
       value: value,
-      label: data.name
+      label: data.name,
     })
   })
 
-  // const selectedOptions = [];
-  // selected.forEach(value => {
-  //   selectedOptions.push({
-  //     value: value,
-  //     labels: categories[value]
-  //   })
-  // })
-  console.log(options);
   return (
-    <div>
-      <pre>{JSON.stringify(selected)}</pre>
-      <StyledSelect
-        isMulti
-        options={options}
-        value={selected}
-        onChange={setSelected}
-      />
-    </div>
+    <StyledSelect
+      isMulti
+      options={options}
+      value={selected}
+      onChange={handleChange}
+      components={{ MultiValueLabel, Option }}
+    />
   )
 }
 
