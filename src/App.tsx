@@ -4,6 +4,7 @@ import GlobalStyles from './globalStyles';
 import { useDarkMode } from './useDarkMode';
 import Profile from './components/Profile';
 import Records from './components/Records';
+import CategoryFilters from './components/CategoryFilters';
 
 const StyledRecords = styled(Records)`
   min-height: 100vh;
@@ -18,6 +19,7 @@ const App = () => {
       <>
         <GlobalStyles />
         <Profile isDark={isDark} toggleTheme={toggleTheme}/>
+        <CategoryFilters/>
         <StyledRecords/>
       </>
     </ThemeProvider>

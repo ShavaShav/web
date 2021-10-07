@@ -1,12 +1,16 @@
 import styled from "styled-components";
 
+interface _COMPONENTProps {
+  readonly className?: string;
+}
+
 const Container = styled.div`
 
 `
 
-const _COMPONENT = (props: any) => {
+const _COMPONENT: React.FC<_COMPONENTProps> = ({className}) => {
   return (
-    <Container className={props.className}>
+    <Container className={className}>
       
     </Container>
   );
