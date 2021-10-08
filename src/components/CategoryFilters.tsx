@@ -14,13 +14,17 @@ interface CategoryFiltersProps {
 
 const Container = styled.div<CategoryFiltersProps>`
   background-color: ${({theme}) => theme.filterBackground};
-  height: ${({isExpanded}) => isExpanded ? 0 : 'auto'};
+  max-height: ${({isExpanded}) => isExpanded ? '500px' : '0px'};
   padding: 10px;
+  transition: max-height 0.5s ease-in-out;
+  overflow: hidden;
 `
 
-const CategoryFilters: React.FC<CategoryFiltersProps> = ({
-  className, isExpanded, onDatabasesFiltered, onFrameworksFiltered, onLanguagesFiltered, onLibrariesFiltered, onSkillsFiltered
-}) => {
+const CategoryFilters: React.FC<CategoryFiltersProps> = (props) => {
+  const {
+    className, isExpanded, 
+    onDatabasesFiltered, onFrameworksFiltered, onLanguagesFiltered, onLibrariesFiltered, onSkillsFiltered
+  } = props;
   return (
     <Container {...props} className={className}>
       <h5>Languages</h5>
