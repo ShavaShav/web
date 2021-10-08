@@ -4,15 +4,22 @@ import { faGooglePlay, faGithub, faNpm } from '@fortawesome/free-brands-svg-icon
 import { Link } from "../types";
 import Button, { ButtonProps } from "./Button";
 import styled from 'styled-components';
+import { MOBILE_BREAKPOINT_WIDTH } from '../utils';
+import { useMediaQuery } from 'react-responsive';
 
 interface LinkButtonProps extends ButtonProps {
   readonly link: Link;
 }
 
 const StyledButton = styled(Button)`
-  min-width: 175px;
-  min-height: 35px;
+  min-width: 30px;
+  max-width: 44px;
+  min-height: 44px;
   border-width: 0;
+  @media only screen and (min-width: ${MOBILE_BREAKPOINT_WIDTH}) {
+    min-width: 175px;
+    max-width: 250px;
+  }
 `
 
 const icon = {
@@ -43,8 +50,10 @@ const color = {
 }
 
 const LinkButton: React.FC<LinkButtonProps> = ({className, link}) => {
+  // Show an icon-only button when in a mobile resolution
+  const isMobile = useMediaQuery({ query: `(max-width: ${MOBILE_BREAKPOINT_WIDTH}px)` });
   return (
-    <StyledButton className={className} icon={icon[link.type]} url={link.url} title={text[link.type]} color={color[link.type]}/>
+    <StyledButton className={className} icon={icon[link.type]} url={link.url} title={isMobile ? '' : text[link.type]} color={color[link.type]}/>
   );
 }
 

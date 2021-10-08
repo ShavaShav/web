@@ -1,3 +1,5 @@
+export const MOBILE_BREAKPOINT_WIDTH = 760
+
 const getLinkIcon = (link: Link) => {
   switch (link.type) {
     case 'google_play':

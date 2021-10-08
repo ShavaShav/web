@@ -32,11 +32,11 @@ const Hider = styled.div<HeaderProps>`
   opacity: ${({isShowing}) => isShowing ? 1 : 0};
   top: ${({isShowing, height}) => isShowing ? 0 : `-${height}px`};
   height: ${({height}) => `${height}px`};
-  transition: all 0.3s linear;
+  transition: all 0.3s ease-in;
 `
 
 const HeaderTitle = styled.div`
-  font-size: 1.5em;
+  font-size: 2em;
   padding-left: 10px;
 `
 
@@ -62,15 +62,15 @@ const Header = (props: HeaderProps) => {
     <Container {...props}>
       <Hider {...props}>
         <Row>
-          <Headshot size={35}/>
+          <Headshot size={44}/>
           <HeaderTitle>Zach Shaver</HeaderTitle>
         </Row>
         <Row>
           <Link href="https://www.github.com/ShavaShav">
-            <LinkIcon size={'lg'} icon={faGithub}/>
+            <LinkIcon size={'2x'} icon={faGithub}/>
           </Link>
           <Link href="https://ca.linkedin.com/in/zach-shaver">
-            <LinkIcon size={'lg'} icon={faLinkedin}/>
+            <LinkIcon size={'2x'} icon={faLinkedin}/>
           </Link>
           <ThemeToggle isDark={props.isDark} onClick={props.toggleTheme}/>
         </Row>

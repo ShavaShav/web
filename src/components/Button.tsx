@@ -13,14 +13,15 @@ export interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElemen
   readonly url?: string;
 }
 
-const StyledIcon = styled(FontAwesomeIcon)`
-  padding-right: 5px;
+const Title = styled.span`
+  padding-left: 5px;
 `
 
 const StyledButton = styled.button<ButtonProps>`
   background-color: ${({color}) => color};
   color: ${({tintColor}) => tintColor};
   cursor: pointer;
+  align-content: center;
 `
 
 const Button = (props: ButtonProps) => {
@@ -32,8 +33,8 @@ const Button = (props: ButtonProps) => {
   }
   return (
     <StyledButton {...props} onClick={onClick}>
-      {props.icon && <StyledIcon size={'lg'} icon={props.icon} color={props.tintColor}/>}
-      {props.title}
+      {props.icon && <FontAwesomeIcon size={'lg'} icon={props.icon} color={props.tintColor}/>}
+      {props.title ? <Title>{props.title}</Title> : undefined}
     </StyledButton>
   )
 };

@@ -7,13 +7,14 @@ import Button from "./Button";
 import Header from "./Header";
 import Headshot from "./Headshot";
 import ThemeToggle from "./ThemeToggle";
+import { MOBILE_BREAKPOINT_WIDTH } from "../utils";
 
 type ProfileProps = {
   readonly isDark: boolean;
   readonly toggleTheme: Dispatch<SetStateAction<void>>;
 }
 
-const headerHeight = 50;
+const headerHeight = 60;
 
 const subtitles = [
   'Software Developer',
@@ -26,10 +27,10 @@ const Container = styled.div`
   background-color: ${({theme}) => theme.profile};
   flex-direction: column;
   display: flex;
-  transition: 0.50s linear;
+  transition: all 0.50s linear;
 `
 
-const ProfileWrapper = styled.div<ProfileProps>`
+const ProfileWrapper = styled.div<ProfileProps & {hide: boolean}>`
   width: '100%';
   display: flex;
   flex: 1;
@@ -37,6 +38,8 @@ const ProfileWrapper = styled.div<ProfileProps>`
   justify-content: center;
   align-items: center;
   flex-direction: column;
+  opacity: ${({hide}) => hide ? 0 : 1};
+  transition: opacity 0.3s linear;
 `
 
 const ProfileSection = styled.div`
@@ -44,7 +47,7 @@ const ProfileSection = styled.div`
   flex-direction: column;
   align-content: center;
   align-items: center;
-  @media only screen and (min-width: 600px) {
+  @media only screen and (min-width: ${MOBILE_BREAKPOINT_WIDTH}) {
     flex-direction: row;
   }
 `
@@ -58,7 +61,8 @@ const Row = styled.div`
 const PushedRight = styled.div`
   display: flex;
   justify-content: flex-end;
-  padding: 10px;
+  padding-top: 10px;
+  padding-top: 10px;
 `
 
 const Title = styled.div`
@@ -68,7 +72,7 @@ const Title = styled.div`
   align-content: center;
   align-items: center;
   padding: 20px;
-  @media only screen and (min-width: 600px) {
+  @media only screen and (min-width: ${MOBILE_BREAKPOINT_WIDTH}) {
     align-items: flex-start;
     width: 220px;
   }
@@ -86,7 +90,7 @@ const Profile = (props: ProfileProps) => {
   useEffect(() => {
     if (typeof window !== "undefined") {
       const checkHeader = () => {
-        setShowHeader(window.pageYOffset > window.innerHeight - headerHeight);
+        setShowHeader(window.pageYOffset > window.innerHeight - headerHeight - 50);
       }
       window.addEventListener("scroll", checkHeader);
       return () => window.removeEventListener("scroll", checkHeader);
@@ -99,7 +103,7 @@ const Profile = (props: ProfileProps) => {
         <PushedRight>
           <ThemeToggle isDark={props.isDark} onClick={props.toggleTheme}/>
         </PushedRight>
-        <ProfileWrapper {...props}>
+        <ProfileWrapper {...props} hide={showHeader}>
           <ProfileSection>
             <Headshot round size={150}/>
             <Title>

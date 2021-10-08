@@ -15,9 +15,10 @@ interface CategoryFiltersProps {
 const Container = styled.div<CategoryFiltersProps>`
   background-color: ${({theme}) => theme.filterBackground};
   max-height: ${({isExpanded}) => isExpanded ? '500px' : '0px'};
-  padding: 10px;
-  transition: max-height 0.5s ease-in-out;
-  overflow: hidden;
+  padding: ${({isExpanded}) => isExpanded ? '10px' : '0px'};
+  transition: all 0.5s ease-in-out;
+  overflow: ${({isExpanded}) => isExpanded ? 'initial' : 'hidden'};
+  opacity: ${({isExpanded}) => isExpanded ? '1' : '0'};
 `
 
 const CategoryFilters: React.FC<CategoryFiltersProps> = (props) => {
@@ -29,14 +30,14 @@ const CategoryFilters: React.FC<CategoryFiltersProps> = (props) => {
     <Container {...props} className={className}>
       <h5>Languages</h5>
       <CategorySelect categories={Languages} onSelect={onLanguagesFiltered}/>
-      <h5>Skills</h5>
-      <CategorySelect categories={Skills} onSelect={onSkillsFiltered}/>
       <h5>Libraries</h5>
       <CategorySelect categories={Libraries} onSelect={onLibrariesFiltered}/>
       <h5>Frameworks</h5>
       <CategorySelect categories={Frameworks} onSelect={onFrameworksFiltered}/>
       <h5>Databases</h5>
       <CategorySelect categories={Databases} onSelect={onDatabasesFiltered}/>
+      <h5>Skills</h5>
+      <CategorySelect categories={Skills} onSelect={onSkillsFiltered}/>
     </Container>
   );
 }

@@ -1,15 +1,16 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faMoon, faSun } from '@fortawesome/free-solid-svg-icons'
 import styled from 'styled-components';
+import Button from './Button';
 
 interface ThemeToggleProps {
   readonly isDark: boolean;
   readonly onClick: () => void;
 }
 
-const ToggleButton = styled.button`
-  height: 30px;
-  width: 30px;
+const ToggleButton = styled(Button)`
+  height: 44px;
+  width: 44px;
   color: ${({ theme }) => theme.text};
   background: ${({ theme }) => theme.body};
   border: 1px solid ${({ theme }) => theme.text};
@@ -18,9 +19,7 @@ const ToggleButton = styled.button`
 
 const ThemeToggle = (props: ThemeToggleProps) => {
   return (
-    <ToggleButton onClick={props.onClick}>
-      <FontAwesomeIcon icon={props.isDark ? faMoon : faSun}/>
-    </ToggleButton>
+    <ToggleButton onClick={props.onClick} icon={props.isDark ? faMoon : faSun}/>
   );
 }
 
