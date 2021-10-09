@@ -36,7 +36,7 @@ const Hider = styled.div<HeaderProps>`
 `
 
 const HeaderTitle = styled.div`
-  font-size: 2em;
+  font-size: 1.5em;
   padding-left: 10px;
 `
 

@@ -23,11 +23,17 @@ const subtitles = [
 ]
 
 const Container = styled.div`
+  scroll-snap-align: start;
   height: ${() => `calc(100vh - ${headerHeight}px)`};
   background-color: ${({theme}) => theme.profile};
   flex-direction: column;
   display: flex;
   transition: all 0.50s linear;
+`
+
+const StyledHeader = styled(Header)`
+  /* scroll-snap-align: end; */
+  scroll-snap-align: start end;
 `
 
 const ProfileWrapper = styled.div<ProfileProps & {hide: boolean}>`
@@ -47,7 +53,7 @@ const ProfileSection = styled.div`
   flex-direction: column;
   align-content: center;
   align-items: center;
-  @media only screen and (min-width: ${MOBILE_BREAKPOINT_WIDTH}) {
+  @media only screen and (min-width: ${MOBILE_BREAKPOINT_WIDTH + 'px'}) {
     flex-direction: row;
   }
 `
@@ -62,7 +68,7 @@ const PushedRight = styled.div`
   display: flex;
   justify-content: flex-end;
   padding-top: 10px;
-  padding-top: 10px;
+  padding-right: 10px;
 `
 
 const Title = styled.div`
@@ -72,7 +78,7 @@ const Title = styled.div`
   align-content: center;
   align-items: center;
   padding: 20px;
-  @media only screen and (min-width: ${MOBILE_BREAKPOINT_WIDTH}) {
+  @media only screen and (min-width: ${MOBILE_BREAKPOINT_WIDTH + 'px'}) {
     align-items: flex-start;
     width: 220px;
   }
@@ -88,14 +94,23 @@ const Profile = (props: ProfileProps) => {
   const [showHeader, setShowHeader] = useState(false);
 
   useEffect(() => {
-    if (typeof window !== "undefined") {
-      const checkHeader = () => {
-        setShowHeader(window.pageYOffset > window.innerHeight - headerHeight - 50);
+    if (typeof document?.body !== "undefined") {
+      const checkHeader = (e) => {
+        console.log("body", document.body)
+        console.log("body.pageYOffset", document.body.pageYOffset)
+        console.log("body.innerHeight", document.body.innerHeight)
+        console.log("window.pageYOffset", window.pageYOffset)
+        console.log("window.innerHeight", window.innerHeight)
+        console.log("offsetHeight", e.target.offsetHeight)
+        console.log("offsetHeight", e.target.scrollHeight)
+        console.log("offsetHeight", e.target.scrollTop)
+        console.log("offsetHeight", e.target.scrollTopMax)
+        setShowHeader(e.target.scrollTop > window.innerHeight - headerHeight - 50);
       }
-      window.addEventListener("scroll", checkHeader);
-      return () => window.removeEventListener("scroll", checkHeader);
+      document.body.addEventListener("scroll", checkHeader);
+      return () => document.body.removeEventListener("scroll", checkHeader);
     }
-  }, [window]);
+  }, [document.body]);
 
   return (
     <>
@@ -119,7 +134,7 @@ const Profile = (props: ProfileProps) => {
           </Row>
         </ProfileWrapper>
       </Container>
-      <Header height={headerHeight} isDark={props.isDark} isShowing={showHeader} toggleTheme={props.toggleTheme}/>
+      <StyledHeader height={headerHeight} isDark={props.isDark} isShowing={showHeader} toggleTheme={props.toggleTheme}/>
     </>
   );
 }

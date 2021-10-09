@@ -7,12 +7,13 @@ import Records from './components/Records';
 
 const StyledRecords = styled(Records)`
   /* scroll-snap-align: start; */
+  scroll-snap-align: end;
   min-height: 100vh;
 `
 
 const StyledProfile = styled(Profile)`
   /* scroll-snap-align: start; */
-  min-height: 100vh;
+  /* min-height: 100vh; */
 `
 
 const App = () => {
@@ -22,7 +23,7 @@ const App = () => {
   return (
     <ThemeProvider theme={theme === 'light' ? lightTheme : darkTheme}>
       <>
-        <GlobalStyles />
+        <GlobalStyles />   
         <StyledProfile isDark={isDark} toggleTheme={toggleTheme}/>
         <StyledRecords/>
       </>

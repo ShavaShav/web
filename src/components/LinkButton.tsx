@@ -16,7 +16,7 @@ const StyledButton = styled(Button)`
   max-width: 44px;
   min-height: 44px;
   border-width: 0;
-  @media only screen and (min-width: ${MOBILE_BREAKPOINT_WIDTH}) {
+  @media only screen and (min-width: ${MOBILE_BREAKPOINT_WIDTH + 'px'}) {
     min-width: 175px;
     max-width: 250px;
   }

@@ -1,4 +1,5 @@
-export const MOBILE_BREAKPOINT_WIDTH = 760
+export const MOBILE_BREAKPOINT_WIDTH = 740
+export const MOBILE_BREAKPOINT_WIDTH_PX = '740px'
 
 const getLinkIcon = (link: Link) => {
   switch (link.type) {

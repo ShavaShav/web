@@ -2,13 +2,13 @@ import { createGlobalStyle} from "styled-components"
 import { Theme } from "./themes"
 
 export default createGlobalStyle<{theme: Theme}>`
-  /* html, body {
+  html, body {
     height: 100vh;
     overflow: hidden;
-  } */
+  }
   body {
-    /* overflow: scroll;
-    scroll-snap-type: y mandatory; */
+    overflow: scroll;
+    scroll-snap-type: y proximity;
     background: ${({ theme }) => theme.body};
     color: ${({ theme }) => theme.text};
     font-family: Roboto, Tahoma, Helvetica, Arial, sans-serif;
