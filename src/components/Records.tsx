@@ -9,6 +9,9 @@ import RecordList from "./RecordList";
 
 
 const Container = styled.div`
+  /* scroll-snap-stop: always; */
+  /* scroll-snap-align: start;
+  scroll-margin-top: 60px; */
   display: flex;
   flex: 1;
   flex-direction: column;

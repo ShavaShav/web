@@ -4,6 +4,7 @@ import styled from 'styled-components';
 import Button from './Button';
 
 interface ThemeToggleProps {
+  readonly className?: string;
   readonly isDark: boolean;
   readonly onClick: () => void;
 }
@@ -19,7 +20,7 @@ const ToggleButton = styled(Button)`
 
 const ThemeToggle = (props: ThemeToggleProps) => {
   return (
-    <ToggleButton onClick={props.onClick} icon={props.isDark ? faMoon : faSun}/>
+    <ToggleButton className={props.className} onClick={props.onClick} icon={props.isDark ? faMoon : faSun}/>
   );
 }
 

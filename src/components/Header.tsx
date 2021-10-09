@@ -19,11 +19,13 @@ const Container = styled.div<HeaderProps>`
   top: 0;
   padding: 0px 10px;
   background-color: ${({theme}) => theme.profile};
-  z-index: 1;
+  display: flex;
+  flex-direction: row;
 `
 
 const Hider = styled.div<HeaderProps>`
   display: flex;
+  flex: 1;
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
@@ -57,6 +59,10 @@ const Row = styled.div`
   align-items: center;
 `
 
+const StyledThemeToggle = styled(ThemeToggle)`
+  margin-top: 8px;
+`
+
 const Header = (props: HeaderProps) => {
   return (
     <Container {...props}>
@@ -72,9 +78,9 @@ const Header = (props: HeaderProps) => {
           <Link href="https://ca.linkedin.com/in/zach-shaver">
             <LinkIcon size={'2x'} icon={faLinkedin}/>
           </Link>
-          <ThemeToggle isDark={props.isDark} onClick={props.toggleTheme}/>
         </Row>
       </Hider>
+      <StyledThemeToggle isDark={props.isDark} onClick={props.toggleTheme}/>
     </Container>
   );
 }

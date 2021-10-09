@@ -6,7 +6,6 @@ import { Typewriter } from 'react-simple-typewriter'
 import Button from "./Button";
 import Header from "./Header";
 import Headshot from "./Headshot";
-import ThemeToggle from "./ThemeToggle";
 import { MOBILE_BREAKPOINT_WIDTH } from "../utils";
 
 type ProfileProps = {
@@ -23,16 +22,17 @@ const subtitles = [
 ]
 
 const Container = styled.div`
-  scroll-snap-align: start;
   height: ${() => `calc(100vh - ${headerHeight}px)`};
   background-color: ${({theme}) => theme.profile};
   flex-direction: column;
   display: flex;
   transition: all 0.50s linear;
+  /* scroll-snap-align: start;
+  scroll-margin-top: 60px; */
 `
 
 const StyledHeader = styled(Header)`
-  scroll-snap-align: start end;
+  /* scroll-snap-align: start; */
 `
 
 const ProfileWrapper = styled.div<ProfileProps & {hide: boolean}>`
@@ -45,6 +45,10 @@ const ProfileWrapper = styled.div<ProfileProps & {hide: boolean}>`
   flex-direction: column;
   opacity: ${({hide}) => hide ? 0 : 1};
   transition: opacity 0.3s linear;
+  margin-bottom: ${headerHeight}px;
+  // Keep profile on top of sticky header, and allow click throughs
+  z-index: 10;
+  pointer-events: none;
 `
 
 const ProfileSection = styled.div`
@@ -61,13 +65,6 @@ const Row = styled.div`
   display: flex;
   flex-direction: row;
   align-items: center;
-`
-
-const PushedRight = styled.div`
-  display: flex;
-  justify-content: flex-end;
-  padding-top: 10px;
-  padding-right: 10px;
 `
 
 const Title = styled.div`
@@ -93,21 +90,29 @@ const Profile = (props: ProfileProps) => {
   const [showHeader, setShowHeader] = useState(false);
 
   useEffect(() => {
-    if (typeof document?.body !== "undefined") {
+    if (typeof window !== "undefined") {
       const checkHeader = (e) => {
-        setShowHeader(e.target.scrollTop > window.innerHeight - headerHeight - 50);
+        setShowHeader(window.pageYOffset > window.innerHeight - headerHeight - 25);
       }
-      document.body.addEventListener("scroll", checkHeader);
-      return () => document.body.removeEventListener("scroll", checkHeader);
+      window.addEventListener("scroll", checkHeader);
+      return () => window.removeEventListener("scroll", checkHeader);
     }
-  }, [document.body]);
+  }, [window]);
+
+  // useEffect(() => {
+  //   if (typeof document?.body !== "undefined") {
+  //     const checkHeader = (e) => {
+  //       setShowHeader(e.target.scrollTop > window.innerHeight - headerHeight - 50);
+  //     }
+  //     document.body.addEventListener("scroll", checkHeader);
+  //     return () => document.body.removeEventListener("scroll", checkHeader);
+  //   }
+  // }, [document.body]);
 
   return (
     <>
+      <StyledHeader height={headerHeight} isDark={props.isDark} isShowing={showHeader} toggleTheme={props.toggleTheme}/>
       <Container>
-        <PushedRight>
-          <ThemeToggle isDark={props.isDark} onClick={props.toggleTheme}/>
-        </PushedRight>
         <ProfileWrapper {...props} hide={showHeader}>
           <ProfileSection>
             <Headshot round size={150}/>
@@ -124,7 +129,6 @@ const Profile = (props: ProfileProps) => {
           </Row>
         </ProfileWrapper>
       </Container>
-      <StyledHeader height={headerHeight} isDark={props.isDark} isShowing={showHeader} toggleTheme={props.toggleTheme}/>
     </>
   );
 }
