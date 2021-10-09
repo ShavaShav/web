@@ -12,7 +12,7 @@ interface LinkButtonProps extends ButtonProps {
 }
 
 const StyledButton = styled(Button)`
-  min-width: 30px;
+  min-width: 44px;
   max-width: 44px;
   min-height: 44px;
   border-width: 0;

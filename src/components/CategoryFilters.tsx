@@ -14,7 +14,7 @@ interface CategoryFiltersProps {
 
 const Container = styled.div<CategoryFiltersProps>`
   background-color: ${({theme}) => theme.filterBackground};
-  max-height: ${({isExpanded}) => isExpanded ? '500px' : '0px'};
+  max-height: ${({isExpanded}) => isExpanded ? '3000px' : '0px'};
   padding: ${({isExpanded}) => isExpanded ? '10px' : '0px'};
   transition: all 0.5s ease-in-out;
   overflow: ${({isExpanded}) => isExpanded ? 'initial' : 'hidden'};

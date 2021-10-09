@@ -32,7 +32,6 @@ const Container = styled.div`
 `
 
 const StyledHeader = styled(Header)`
-  /* scroll-snap-align: end; */
   scroll-snap-align: start end;
 `
 
@@ -96,15 +95,6 @@ const Profile = (props: ProfileProps) => {
   useEffect(() => {
     if (typeof document?.body !== "undefined") {
       const checkHeader = (e) => {
-        console.log("body", document.body)
-        console.log("body.pageYOffset", document.body.pageYOffset)
-        console.log("body.innerHeight", document.body.innerHeight)
-        console.log("window.pageYOffset", window.pageYOffset)
-        console.log("window.innerHeight", window.innerHeight)
-        console.log("offsetHeight", e.target.offsetHeight)
-        console.log("offsetHeight", e.target.scrollHeight)
-        console.log("offsetHeight", e.target.scrollTop)
-        console.log("offsetHeight", e.target.scrollTopMax)
         setShowHeader(e.target.scrollTop > window.innerHeight - headerHeight - 50);
       }
       document.body.addEventListener("scroll", checkHeader);

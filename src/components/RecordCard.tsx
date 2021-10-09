@@ -65,7 +65,6 @@ const StyledLabel = styled(CategoryLabel)`
 const StyledLink = styled(LinkButton)`
   flex: 1;
   margin: 5px;
-  max-width: 225px;
 `
 
 const Body = styled.div`
