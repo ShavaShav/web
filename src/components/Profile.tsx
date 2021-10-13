@@ -99,7 +99,7 @@ const Profile = (props: ProfileProps) => {
 
   useEffect(() => {
     if (typeof window !== "undefined") {
-      const checkHeader = (e) => {
+      const checkHeader = () => {
         setShowHeader(window.pageYOffset > window.innerHeight - headerHeight - 25);
         setIsPastProfile(window.pageYOffset > window.innerHeight - headerHeight);
       }

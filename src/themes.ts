@@ -4,7 +4,7 @@ const Colors = {
   backgroundLight: '#FFF',
   secondaryBackgroundLight: '#DDD',
   action: '#6F652C',
-  primaryDark: '#1f2547',
+  primaryDark: '#28315e',
   primaryLight: '#3a4373',
   secondaryDark: '#353535',
   secondaryLight: '#C1C1C1',

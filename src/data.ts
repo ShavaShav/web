@@ -21,6 +21,7 @@ export const WorkRecords: Record[] = [
     languages: ['python','bash','javascript','html','css','cplusplus','python'],
     libraries: ['react','express','redux','sequelize'],
     frameworks: ['odoo'],
+    tools: [],
     isDesktop: true,
     isMobile: true,
     links: [
@@ -49,6 +50,7 @@ export const WorkRecords: Record[] = [
     languages: ['python','bash','javascript','html','css'],
     libraries: ['react'],
     frameworks: ['odoo'],
+    tools: [],
     isDesktop: true,
     isMobile: true,
     links: [],
@@ -69,6 +71,7 @@ export const ProjectRecords: Record[] = [
     languages: ['javascript'],
     libraries: ['reactnative'],
     frameworks: [],
+    tools: [],
     isMobile: true,
     links: [
       {

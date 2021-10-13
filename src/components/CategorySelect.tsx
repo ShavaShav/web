@@ -1,5 +1,5 @@
 import { useState } from "react";
-import Select, { ActionMeta, components, MultiValue, MultiValueGenericProps, OptionProps } from 'react-select';
+import Select, { ActionMeta, components, MultiValue, MultiValueGenericProps, OptionProps, StylesConfig, Props as SelectProps } from 'react-select';
 import { useTheme } from "styled-components";
 import { CategoryData } from "../types";
 import CategoryLabel from './CategoryLabel';
@@ -51,25 +51,25 @@ const CategorySelect: React.FC<CategorySelectProps> = ({categories, onSelect}) =
     })
   })
 
-  const customStyles = {
-    control: (styles, {selectProps, isFocused}) => ({
+  const customStyles: StylesConfig<CategoryDataOption, true> = {
+    control: (styles, {selectProps, isFocused}: any) => ({
       ...styles,
       background: selectProps._theme.filterDropdown,
     }),
-    menuList: (styles, {isFocused}) => ({
+    menuList: (styles, {isFocused}: any) => ({
       ...styles,
       // kill the white space on first and last option
       padding: 0,
     }),
-    option: (styles, {isFocused, selectProps}) => ({
+    option: (styles, {isFocused, selectProps}: any) => ({
       ...styles,
       background: isFocused ? selectProps._theme.filterOptionActive : selectProps._theme.filterDropdown,
     }),
-    multiValue: (styles, {selectProps}) => ({
+    multiValue: (styles, {selectProps}: any) => ({
       ...styles,
       background: 'transparent',
     }),
-    noOptionsMessage: (styles, {selectProps}) => ({
+    noOptionsMessage: (styles, {selectProps}: any) => ({
       ...styles,
       background: selectProps._theme.filterDropdown,
       // color: selectProps._theme.text
@@ -84,6 +84,7 @@ const CategorySelect: React.FC<CategorySelectProps> = ({categories, onSelect}) =
       value={selected}
       onChange={handleChange}
       components={{ MultiValueLabel, Option, DropdownIndicator: () => null, IndicatorSeparator: () => null}}
+      // @ts-ignore
       _theme={theme}
       closeMenuOnSelect={false}
     />

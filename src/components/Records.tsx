@@ -3,7 +3,6 @@ import { faCaretDown, faCaretUp } from '@fortawesome/free-solid-svg-icons'
 import { useEffect, useState } from "react";
 import styled from "styled-components";
 import { AllRecords } from "../data";
-import { Record } from "../types";
 import CategoryFilters from "./CategoryFilters";
 import RecordList from "./RecordList";
 import { MOBILE_BREAKPOINT_WIDTH } from "../utils";
@@ -41,10 +40,11 @@ const Records = (props: any) => {
   const [languages, setLanguages] = useState<string[]>([])
   const [libraries, setLibraries] = useState<string[]>([])
   const [skills, setSkills] = useState<string[]>([])
+  const [tools, setTools] = useState<string[]>([])
   const [showFilters, setShowFilters] = useState(false)
 
   useEffect(() => {
-    if (!databases.length && !frameworks.length && !languages.length && !libraries.length && !skills.length) {
+    if (!databases.length && !frameworks.length && !languages.length && !libraries.length && !skills.length && !tools.length) {
       setRecords(AllRecords)
     } else {
       setRecords(AllRecords.filter(record =>
@@ -53,9 +53,10 @@ const Records = (props: any) => {
         || record.libraries.some(l => libraries.includes(l))
         || record.databases.some(d => databases.includes(d))
         || record.skills.some(s => skills.includes(s))
+        || record.tools.some(t => tools.includes(t))
       ))
     }
-  }, [databases, frameworks, languages, libraries, skills])
+  }, [databases, frameworks, languages, libraries, skills, tools])
 
   return (
     <Container className={props.className}>
@@ -72,6 +73,7 @@ const Records = (props: any) => {
         onLanguagesFiltered={setLanguages}
         onLibrariesFiltered={setLibraries}
         onSkillsFiltered={setSkills}
+        onToolsFiltered={setTools}
       />
       <RecordList records={records}/>
     </Container>

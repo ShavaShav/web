@@ -1,4 +1,4 @@
-import { CategoryData, Framework, Language, Library, Database, Skill } from './types'
+import { CategoryData, Framework, Language, Library, Database, Skill, Tool } from './types'
 
 import { 
   faNetworkWired, 
@@ -23,6 +23,73 @@ import iconLiferay from './img/icons/odoo.png';
 const DEV_ICON_PATH = 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons'
 const devIcon = (name: string) => `${DEV_ICON_PATH}/${name}/${name}-original.svg`
 const devIconPlain = (name: string) => `${DEV_ICON_PATH}/${name}/${name}-plain.svg`
+
+export const Tools: Record<Tool, CategoryData> = {
+  selenium: {
+    name: 'Selenium',
+    image: devIcon('selenium'),
+  },
+  docker: {
+    name: 'Docker',
+    image: devIcon('docker'),
+  },
+  cucumber: {
+    name: 'Cucumber',
+    image: devIcon('cucumber'),
+  },
+  gradle: {
+    name: 'Gradle',
+    image: devIcon('gradle'),
+  },
+  birt: {
+    name: 'BIRT',
+    image: devIcon('birt'),
+  },
+  tomcat: {
+    name: 'Tomcat',
+    image: devIcon('tomcat'),
+  },
+  jenkins: {
+    name: 'Jenkins',
+    image: devIcon('jenkins'),
+  },
+  node: {
+    name: 'Node',
+    image: devIcon('node'),
+  },
+  aws: {
+    name: 'AWS',
+    image: devIcon('aws'),
+  },
+  gimp: {
+    name: 'GIMP',
+    image: devIcon('gimp'),
+  },
+  heroku: {
+    name: 'Heroku',
+    image: devIcon('heroku'),
+  },
+  jira: {
+    name: 'Jira',
+    image: devIcon('jira'),
+  },
+  nginx: {
+    name: 'nginx',
+    image: devIcon('nginx'),
+  },
+  npm: {
+    name: 'npm',
+    image: devIcon('npm'),
+  },
+  oracle: {
+    name: 'Oracle',
+    image: devIcon('oracle'),
+  },
+  slack: {
+    name: 'Slack',
+    image: devIcon('slack'),
+  }
+}
 
 export const Skills: Record<Skill, CategoryData> = {
   devops: {
@@ -94,7 +161,7 @@ export const Databases: Record<Database, CategoryData> = {
   },
   sqlserver: {
     name: 'SQL Server',
-    image: devIcon('microsoftsqlserver'),
+    image: devIconPlain('microsoftsqlserver'),
   },
   realm: {
     name: 'Realm',
@@ -113,7 +180,7 @@ export const Frameworks: Record<Framework, CategoryData> = {
   },
   firebase: {
     name: 'Firebase',
-    image: devIcon('firebase'),
+    image: devIconPlain('firebase'),
   },
   qt: {
     name: 'Qt',

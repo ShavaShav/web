@@ -17,7 +17,7 @@ export type CategoryData = {
 }
 
 export type Link = {
-  type: 'google_play' | 'executable' | 'website' | 'source_code' | 'docs'
+  type: 'google_play' | 'executable' | 'website' | 'source_code' | 'docs' | 'npm'
   url: string,
   text?: string,
 }
@@ -35,6 +35,7 @@ export type Record = {
   languages: Language[],
   frameworks: Framework[],
   libraries: Library[],
+  tools: Tool[],
   isDesktop?: boolean,
   isMobile?: boolean,
   links: Link[],

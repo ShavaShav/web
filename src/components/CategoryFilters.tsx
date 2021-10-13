@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { Databases, Frameworks, Languages, Libraries, Skills } from "../categories";
+import { Databases, Frameworks, Languages, Libraries, Skills, Tools } from "../categories";
 import { MOBILE_BREAKPOINT_WIDTH } from "../utils";
 import CategorySelect from "./CategorySelect";
 
@@ -11,6 +11,7 @@ interface CategoryFiltersProps {
   readonly onLanguagesFiltered: (languages: string[]) => void;
   readonly onLibrariesFiltered: (libraries: string[]) => void;
   readonly onSkillsFiltered: (skills: string[]) => void;
+  readonly onToolsFiltered: (tools: string[]) => void;
 }
 
 const Container = styled.div<CategoryFiltersProps>`
@@ -32,7 +33,7 @@ const Container = styled.div<CategoryFiltersProps>`
 const CategoryFilters: React.FC<CategoryFiltersProps> = (props) => {
   const {
     className, isExpanded, 
-    onDatabasesFiltered, onFrameworksFiltered, onLanguagesFiltered, onLibrariesFiltered, onSkillsFiltered
+    onDatabasesFiltered, onFrameworksFiltered, onLanguagesFiltered, onLibrariesFiltered, onSkillsFiltered, onToolsFiltered
   } = props;
   return (
     <Container {...props} className={className}>
@@ -44,6 +45,8 @@ const CategoryFilters: React.FC<CategoryFiltersProps> = (props) => {
       <CategorySelect categories={Frameworks} onSelect={onFrameworksFiltered}/>
       <h5>Databases</h5>
       <CategorySelect categories={Databases} onSelect={onDatabasesFiltered}/>
+      {/* <h5>Tools</h5>
+      <CategorySelect categories={Tools} onSelect={onToolsFiltered}/> */}
       <h5>Skills</h5>
       <CategorySelect categories={Skills} onSelect={onSkillsFiltered}/>
     </Container>
