@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import { Databases, Frameworks, Languages, Libraries, Skills } from "../categories";
+import { MOBILE_BREAKPOINT_WIDTH } from "../utils";
 import CategorySelect from "./CategorySelect";
 
 interface CategoryFiltersProps {
@@ -19,6 +20,12 @@ const Container = styled.div<CategoryFiltersProps>`
   transition: all 0.5s ease-in-out;
   overflow: ${({isExpanded}) => isExpanded ? 'initial' : 'hidden'};
   opacity: ${({isExpanded}) => isExpanded ? '1' : '0'};
+  @media only screen and (min-width: ${MOBILE_BREAKPOINT_WIDTH + 'px'}) {
+    opacity: 1;
+    max-height: 100%;
+    padding: 10px;
+    flex: 0 0 250px;
+  }
 `
 
 const CategoryFilters: React.FC<CategoryFiltersProps> = (props) => {

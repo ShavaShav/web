@@ -53,9 +53,13 @@ const ProfileWrapper = styled.div<ProfileProps & {hide: boolean}>`
 
 const ProfileSection = styled.div`
   display: flex;
-  flex-direction: column;
   align-content: center;
   align-items: center;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  flex-wrap: wrap;
+  width: 100%;
   @media only screen and (min-width: ${MOBILE_BREAKPOINT_WIDTH + 'px'}) {
     flex-direction: row;
   }
@@ -69,14 +73,13 @@ const Row = styled.div`
 
 const Title = styled.div`
   display: flex;
-  flex: 1;
   flex-direction: column;
   align-content: center;
   align-items: center;
   padding: 20px;
+  min-width: 220px;
   @media only screen and (min-width: ${MOBILE_BREAKPOINT_WIDTH + 'px'}) {
     align-items: flex-start;
-    width: 220px;
   }
 `
 

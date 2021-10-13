@@ -68,6 +68,7 @@ const StyledLink = styled(LinkButton)`
 `
 
 const Body = styled.div`
+  flex: 1;
   background-color: ${({theme}) => theme.body};
   padding: 10px;
   margin-top: 5px;

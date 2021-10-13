@@ -6,6 +6,7 @@ import { AllRecords } from "../data";
 import { Record } from "../types";
 import CategoryFilters from "./CategoryFilters";
 import RecordList from "./RecordList";
+import { MOBILE_BREAKPOINT_WIDTH } from "../utils";
 
 
 const Container = styled.div`
@@ -16,6 +17,10 @@ const Container = styled.div`
   flex: 1;
   flex-direction: column;
   width: 100%;
+  min-height: 100vh;
+  @media only screen and (min-width: ${MOBILE_BREAKPOINT_WIDTH + 'px'}) {
+    flex-direction: row;
+  }
 `
 
 const FilterHeader = styled.button`
@@ -24,6 +29,9 @@ const FilterHeader = styled.button`
   justify-content: space-between;
   padding: 10px;
   margin: 5px;
+  @media only screen and (min-width: ${MOBILE_BREAKPOINT_WIDTH + 'px'}) {
+    display: none;
+  }
 `
 
 const Records = (props: any) => {

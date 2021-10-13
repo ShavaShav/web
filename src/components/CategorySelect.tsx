@@ -83,7 +83,7 @@ const CategorySelect: React.FC<CategorySelectProps> = ({categories, onSelect}) =
       options={options}
       value={selected}
       onChange={handleChange}
-      components={{ MultiValueLabel, Option }}
+      components={{ MultiValueLabel, Option, DropdownIndicator: () => null, IndicatorSeparator: () => null}}
       _theme={theme}
     />
   )
