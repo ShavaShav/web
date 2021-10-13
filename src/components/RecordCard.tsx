@@ -26,6 +26,8 @@ const Headline = styled.div`
   flex: 1;
   flex-direction: column;
   padding: 5px;
+  color: ${({theme}) => theme.cardTint};
+
 `
 
 const Container = styled.div`
@@ -33,9 +35,10 @@ const Container = styled.div`
   flex-direction: column;
   background-color: ${({theme}) => theme.cardBackground};
   color: ${({theme}) => theme.cardTint};
-  padding: 5px;
   justify-content: center;
   align-items: stretch;
+  border-radius: 5px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 `
 
 const CategorySection = styled.div`
@@ -47,6 +50,10 @@ const CategorySection = styled.div`
 const Row = styled.div`
   display: flex;
   flex-direction: row;
+`
+
+const PaddedRow = styled(Row)`
+  padding: 10px;
 `
 
 const SpacedRow = styled(Row)`
@@ -69,7 +76,7 @@ const StyledLink = styled(LinkButton)`
 
 const Body = styled.div`
   flex: 1;
-  background-color: ${({theme}) => theme.body};
+  background-color: ${({theme}) => theme.cardBody};
   padding: 10px;
   margin-top: 5px;
   margin-bottom: 5px;
@@ -83,6 +90,10 @@ const PlatformIcon = styled(FontAwesomeIcon)`
   padding-left: 5px;
 `
 
+const Logo = styled.img`
+  border-radius: 5px;
+`
+
 const RecordCard : React.FC<RecordCardProps & DivProps> = ({className, record}) => {
   const {
     type, title, employer, summary, bullets, start, end, logo, 
@@ -91,8 +102,8 @@ const RecordCard : React.FC<RecordCardProps & DivProps> = ({className, record}) 
   } = record;
   return (
     <Container className={className}>
-      <Row>
-        <img alt={employer} src={logo} width={100} height={100}/>
+      <PaddedRow>
+        <Logo alt={employer} src={logo} width={100} height={100}/>
         <Headline>
           <SpacedRow>
             <Title>{title}</Title>
@@ -119,7 +130,7 @@ const RecordCard : React.FC<RecordCardProps & DivProps> = ({className, record}) 
             </Subtitle>
           </Row>
         </Headline>
-      </Row>
+      </PaddedRow>
       <Body>
         <Description>
           <span>{summary}</span>

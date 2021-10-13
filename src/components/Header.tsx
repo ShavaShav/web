@@ -8,7 +8,8 @@ import Headshot from "./Headshot";
 
 interface HeaderProps {
   readonly height: number;
-  readonly isShowing: boolean;
+  readonly isAtTop: boolean; // If profile is not longer visible, and only header is showing
+  readonly isShowing: boolean; // whether we should show the header or not
   readonly isDark: boolean;
   readonly toggleTheme: Dispatch<SetStateAction<void>>;
 }
@@ -21,6 +22,8 @@ const Container = styled.div<HeaderProps>`
   background-color: ${({theme}) => theme.profile};
   display: flex;
   flex-direction: row;
+  z-index: 2;
+  box-shadow: ${({isAtTop}) => isAtTop ? '0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)' : 0};
 `
 
 const Hider = styled.div<HeaderProps>`
@@ -29,12 +32,13 @@ const Hider = styled.div<HeaderProps>`
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
-  color: ${({theme}) => theme.text};
+  color: ${({theme}) => theme.profileTint};
   position: relative;
   opacity: ${({isShowing}) => isShowing ? 1 : 0};
   top: ${({isShowing, height}) => isShowing ? 0 : `-${height}px`};
   height: ${({height}) => `${height}px`};
   transition: all 0.3s ease-in;
+
 `
 
 const HeaderTitle = styled.div`

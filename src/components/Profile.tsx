@@ -22,8 +22,11 @@ const subtitles = [
 ]
 
 const Container = styled.div`
+  min-height: ${() => `calc(340px - ${headerHeight}px)`};
   height: ${() => `calc(100vh - ${headerHeight}px)`};
   background-color: ${({theme}) => theme.profile};
+  color: ${({theme}) => theme.profileTint};
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
   flex-direction: column;
   display: flex;
   transition: all 0.50s linear;
@@ -87,15 +90,18 @@ const LinkButton = styled(Button)`
   height: 40px;
   width: 100px;
   margin: 5px;
+  border-color: ${({theme}) => theme.profileTint};
 `
 
 const Profile = (props: ProfileProps) => {
   const [showHeader, setShowHeader] = useState(false);
+  const [isPastProfile, setIsPastProfile] = useState(false);
 
   useEffect(() => {
     if (typeof window !== "undefined") {
       const checkHeader = (e) => {
         setShowHeader(window.pageYOffset > window.innerHeight - headerHeight - 25);
+        setIsPastProfile(window.pageYOffset > window.innerHeight - headerHeight);
       }
       window.addEventListener("scroll", checkHeader);
       return () => window.removeEventListener("scroll", checkHeader);
@@ -114,7 +120,7 @@ const Profile = (props: ProfileProps) => {
 
   return (
     <>
-      <StyledHeader height={headerHeight} isDark={props.isDark} isShowing={showHeader} toggleTheme={props.toggleTheme}/>
+      <StyledHeader height={headerHeight} isDark={props.isDark} isShowing={showHeader} isAtTop={isPastProfile} toggleTheme={props.toggleTheme}/>
       <Container>
         <ProfileWrapper {...props} hide={showHeader}>
           <ProfileSection>

@@ -24,6 +24,7 @@ const Container = styled.div`
 
 const StyledRecordCard = styled(RecordCard)`
   margin: 8px;
+  margin-bottom: 15px;
   /* width: 0; */
   /* margin-left: 50px; */
   /* margin-right: 50px; */

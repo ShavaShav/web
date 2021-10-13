@@ -20,6 +20,7 @@ const Container = styled.div<CategoryFiltersProps>`
   transition: all 0.5s ease-in-out;
   overflow: ${({isExpanded}) => isExpanded ? 'initial' : 'hidden'};
   opacity: ${({isExpanded}) => isExpanded ? '1' : '0'};
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
   @media only screen and (min-width: ${MOBILE_BREAKPOINT_WIDTH + 'px'}) {
     opacity: 1;
     max-height: 100%;

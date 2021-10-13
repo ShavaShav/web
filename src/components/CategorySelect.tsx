@@ -1,6 +1,6 @@
 import { useState } from "react";
 import Select, { ActionMeta, components, MultiValue, MultiValueGenericProps, OptionProps } from 'react-select';
-import styled, { useTheme } from "styled-components";
+import { useTheme } from "styled-components";
 import { CategoryData } from "../types";
 import CategoryLabel from './CategoryLabel';
 
@@ -85,6 +85,7 @@ const CategorySelect: React.FC<CategorySelectProps> = ({categories, onSelect}) =
       onChange={handleChange}
       components={{ MultiValueLabel, Option, DropdownIndicator: () => null, IndicatorSeparator: () => null}}
       _theme={theme}
+      closeMenuOnSelect={false}
     />
   )
 }
