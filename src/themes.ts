@@ -59,7 +59,7 @@ export const lightTheme: Theme = {
   cardTint: Colors.textLight,
   labelBackground: Colors.secondaryLight,
   labelTint: Colors.textLight,
-  themeToggleBackground: 'lightblue',
+  themeToggleBackground: '#7781bb',
   themeToggleTint: 'yellow',
 }
 
@@ -85,6 +85,6 @@ export const darkTheme: Theme = {
   cardTint: Colors.textDark,
   labelBackground: Colors.primaryDark,
   labelTint: Colors.textDark,
-  themeToggleBackground: 'black',
-  themeToggleTint: 'white',
+  themeToggleBackground: Colors.secondaryBackgroundDark,
+  themeToggleTint: 'yellow',
 }

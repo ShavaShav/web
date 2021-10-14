@@ -12,8 +12,8 @@ interface ThemeToggleProps {
 const ToggleButton = styled(Button)`
   height: 44px;
   width: 44px;
-  color: ${({ theme }) => theme.text};
-  background: ${({ theme }) => theme.body};
+  color: ${({ theme }) => theme.themeToggleTint};
+  background: ${({ theme }) => theme.themeToggleBackground};
   border: 1px solid ${({ theme }) => theme.text};
   border-radius: 10%;
 ` 

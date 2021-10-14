@@ -100,11 +100,11 @@ const DateBanner = styled.div`
   background-color: ${({theme}) => theme.dateBannerBackground};
   border: 3px solid ${({theme}) => theme.cardBackground};
   border-top-width: 2px;
-  margin-top: -10px;
+  margin-top: -15px;
   margin-left: auto;
   margin-right: auto;
   margin-bottom: 2px;
-  padding: 3px;
+  padding: 5px;
   font-size: 0.75em;
   border-radius: 5px;
 `
