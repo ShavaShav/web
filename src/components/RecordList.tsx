@@ -8,14 +8,13 @@ interface RecordListProps {
 }
 
 const Container = styled.div`
-  padding: 0px;
-  padding-top: 15px;
-  padding-bottom: 15px;
+  padding: 15px 5px 15px;
+  /* background-color: ${({theme}) => theme.body}; */
   @media only screen and (min-width: ${MOBILE_BREAKPOINT_WIDTH + 'px'}) {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(450px, 1fr));
     /* grid-template-rows: repeat(auto-fill, minmax(450px, auto)); */
-    padding: 7px;
+    padding: 20px 10px 10px 20px;
     /* display:flex;
     flex-direction: row;
     flex-wrap: wrap; */
@@ -24,7 +23,7 @@ const Container = styled.div`
 
 const StyledRecordCard = styled(RecordCard)`
   margin: 8px;
-  margin-bottom: 15px;
+  margin-bottom: 30px;
   /* width: 0; */
   /* margin-left: 50px; */
   /* margin-right: 50px; */

@@ -1,6 +1,6 @@
 const Colors = {
-  backgroundDark: '#212022',
-  secondaryBackgroundDark: '#161517',
+  backgroundDark: '#161517',
+  secondaryBackgroundDark: '#212022',
   backgroundLight: '#FFF',
   secondaryBackgroundLight: '#DDD',
   action: '#6F652C',
@@ -18,6 +18,7 @@ export type Theme = {
   body: string,
   text: string,
   toggleBorder: string,
+  dateBannerBackground: string,
   filterBackground: string,
   filterDropdown: string,
   filterOptionActive: string,
@@ -26,11 +27,14 @@ export type Theme = {
   buttonBorder: string,
   buttonBorderActive: string,
   buttonTint: string,
+  cardBackdrop: string,
   cardBackground: string,
   cardBody: string,
   cardTint: string,
   labelBackground: string,
   labelTint: string,
+  themeToggleBackground: string,
+  themeToggleTint: string,
 }
 
 export const lightTheme: Theme = {
@@ -38,6 +42,7 @@ export const lightTheme: Theme = {
   profileTint: Colors.textDark,
   body: Colors.backgroundLight,
   text: Colors.textLight,
+  dateBannerBackground: Colors.secondaryBackgroundLight,
   filterBackground: Colors.secondaryBackgroundLight,
   filterDropdown: Colors.backgroundLight,
   filterOptionActive: Colors.secondaryLight,
@@ -48,11 +53,14 @@ export const lightTheme: Theme = {
   buttonBorder: Colors.textLight,
   buttonBorderActive: '#161517',
   buttonTint: '#FAFAFA',
+  cardBackdrop: '#99918A',
   cardBackground: Colors.secondaryLight,
   cardBody: Colors.secondaryBackgroundLight,
   cardTint: Colors.textLight,
   labelBackground: Colors.secondaryLight,
   labelTint: Colors.textLight,
+  themeToggleBackground: 'lightblue',
+  themeToggleTint: 'yellow',
 }
 
 export const darkTheme: Theme = {
@@ -60,6 +68,7 @@ export const darkTheme: Theme = {
   profileTint: Colors.textDark,
   body: Colors.backgroundDark,
   text: Colors.textDark,
+  dateBannerBackground: Colors.secondaryBackgroundDark,
   filterBackground: Colors.secondaryBackgroundDark,
   filterDropdown: Colors.backgroundDark,
   filterOptionActive: Colors.secondaryDark,
@@ -70,9 +79,12 @@ export const darkTheme: Theme = {
   buttonBorder: '#CCC',
   buttonBorderActive: Colors.textDark,
   buttonTint: Colors.textDark,
+  cardBackdrop: '#5e5528',
   cardBackground: Colors.secondaryDark,
   cardBody: Colors.secondaryBackgroundDark,
   cardTint: Colors.textDark,
   labelBackground: Colors.primaryDark,
   labelTint: Colors.textDark,
+  themeToggleBackground: 'black',
+  themeToggleTint: 'white',
 }

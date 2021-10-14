@@ -53,7 +53,7 @@ const Row = styled.div`
 `
 
 const PaddedRow = styled(Row)`
-  padding: 10px;
+  padding: 0px 10px 10px;
 `
 
 const SpacedRow = styled(Row)`
@@ -94,6 +94,21 @@ const Logo = styled.img`
   border-radius: 5px;
 `
 
+const DateBanner = styled.div`
+  position: relative;
+  top: 0;
+  background-color: ${({theme}) => theme.dateBannerBackground};
+  border: 3px solid ${({theme}) => theme.cardBackground};
+  border-top-width: 2px;
+  margin-top: -10px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 2px;
+  padding: 3px;
+  font-size: 0.75em;
+  border-radius: 5px;
+`
+
 const RecordCard : React.FC<RecordCardProps & DivProps> = ({className, record}) => {
   const {
     type, title, employer, summary, bullets, start, end, logo, 
@@ -102,6 +117,17 @@ const RecordCard : React.FC<RecordCardProps & DivProps> = ({className, record}) 
   } = record;
   return (
     <Container className={className}>
+      <DateBanner>
+        <FontAwesomeIcon title="Date" icon={faCalendar}/>
+        <Subtitle>
+
+          {start.toLocaleDateString('default', { month: 'long', year: 'numeric'})}
+          {end           
+            ? ` to ${end.toLocaleDateString('default', { month: 'long', year: 'numeric'})}`
+            : type === 'work' && ' to Present'
+          }
+        </Subtitle>
+      </DateBanner>
       <PaddedRow>
         <Logo alt={employer} src={logo} width={100} height={100}/>
         <Headline>
@@ -119,16 +145,6 @@ const RecordCard : React.FC<RecordCardProps & DivProps> = ({className, record}) 
               </Row>
             : undefined
           }
-          <Row>
-            <FontAwesomeIcon title="Date" icon={faCalendar} color='#286086'/>
-            <Subtitle>
-              {start.toLocaleDateString('default', { month: 'long', year: 'numeric'})}
-              {end           
-                ? ` to ${end.toLocaleDateString('default', { month: 'long', year: 'numeric'})}`
-                : type === 'work' && ' to Present'
-              }
-            </Subtitle>
-          </Row>
         </Headline>
       </PaddedRow>
       <Body>
