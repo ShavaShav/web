@@ -27,7 +27,7 @@ const Headline = styled.div`
   flex-direction: column;
   padding: 5px;
   color: ${({theme}) => theme.cardTint};
-
+  transition: all 0.50s linear;
 `
 
 const Container = styled.div`
@@ -39,6 +39,7 @@ const Container = styled.div`
   align-items: stretch;
   border-radius: 5px;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  transition: all 0.50s linear;
 `
 
 const CategorySection = styled.div`
@@ -81,6 +82,7 @@ const Body = styled.div`
   margin-top: 5px;
   margin-bottom: 5px;
   border: 1px solid ${({theme}) => theme.cardBackground};
+  transition: all 0.50s linear;
 `
 
 const Description = styled.div`
@@ -107,6 +109,7 @@ const DateBanner = styled.div`
   padding: 5px;
   font-size: 0.75em;
   border-radius: 5px;
+  transition: all 0.50s linear;
 `
 
 const RecordCard : React.FC<RecordCardProps & DivProps> = ({className, record}) => {

@@ -55,6 +55,7 @@ const CategorySelect: React.FC<CategorySelectProps> = ({categories, onSelect}) =
     control: (styles, {selectProps, isFocused}: any) => ({
       ...styles,
       background: selectProps._theme.filterDropdown,
+      transition: 'all 0.50s linear',
     }),
     menuList: (styles, {isFocused}: any) => ({
       ...styles,

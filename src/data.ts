@@ -66,12 +66,12 @@ export const ProjectRecords: Record[] = [
     start: new Date('2021/09/01'),
     end: new Date(), // today
     logo: logoIndepocket,
-    skills: [],
+    skills: ['frontend'],
     databases: [],
-    languages: ['javascript'],
-    libraries: ['reactnative'],
-    frameworks: [],
-    tools: [],
+    languages: ['css','typescript'],
+    libraries: ['reactnative','redux'],
+    frameworks: ['firebase'],
+    tools: ['npm','node','gradle'],
     isMobile: true,
     links: [
       {
@@ -80,7 +80,7 @@ export const ProjectRecords: Record[] = [
       }
     ],
     screenshot: '',
-  }
+  },
 ];
 
 export const AllRecords = [...WorkRecords, ...ProjectRecords];

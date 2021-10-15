@@ -16,6 +16,7 @@ const ToggleButton = styled(Button)`
   background: ${({ theme }) => theme.themeToggleBackground};
   border: 1px solid ${({ theme }) => theme.text};
   border-radius: 10%;
+  transition: background-color 0.3s linear;
 ` 
 
 const ThemeToggle = (props: ThemeToggleProps) => {

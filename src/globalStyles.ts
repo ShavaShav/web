@@ -24,7 +24,7 @@ export default createGlobalStyle<{theme: Theme}>`
     color: ${({theme}) => theme.buttonTint};
     border-radius: 2px;
     padding: 5px;
-    transition: all 0.2s linear;
+    transition: all 0.50s linear;
     pointer-events: auto;
   }
   button:hover, button:active {

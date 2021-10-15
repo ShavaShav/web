@@ -24,6 +24,7 @@ const Container = styled.div<HeaderProps>`
   flex-direction: row;
   z-index: 2;
   box-shadow: ${({isAtTop}) => isAtTop ? '0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)' : 0};
+  transition: all 0.50s linear;
 `
 
 const Hider = styled.div<HeaderProps>`
@@ -37,8 +38,7 @@ const Hider = styled.div<HeaderProps>`
   opacity: ${({isShowing}) => isShowing ? 1 : 0};
   top: ${({isShowing, height}) => isShowing ? 0 : `-${height}px`};
   height: ${({height}) => `${height}px`};
-  transition: all 0.3s ease-in;
-
+  transition: all 0.3s ease-in, color 0.50s linear;
 `
 
 const HeaderTitle = styled.div`

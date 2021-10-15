@@ -36,6 +36,9 @@ const FilterContainer = styled.div<CategoryFiltersProps & {showFilters: boolean}
 const Container = styled.div`
   background-color: ${({theme}) => theme.filterBackground};
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  height: 100%;
+  margin-bottom: 10px;
+  transition: background-color 0.50s linear;
 `
 
 const FilterHeader = styled.button`
@@ -76,8 +79,8 @@ const CategoryFilters: React.FC<CategoryFiltersProps> = (props) => {
         <CategorySelect categories={Frameworks} onSelect={onFrameworksFiltered}/>
         <h5>Databases</h5>
         <CategorySelect categories={Databases} onSelect={onDatabasesFiltered}/>
-        {/* <h5>Tools</h5>
-        <CategorySelect categories={Tools} onSelect={onToolsFiltered}/> */}
+        <h5>Tools</h5>
+        <CategorySelect categories={Tools} onSelect={onToolsFiltered}/>
         <h5>Skills</h5>
         <CategorySelect categories={Skills} onSelect={onSkillsFiltered}/>
       </FilterContainer>

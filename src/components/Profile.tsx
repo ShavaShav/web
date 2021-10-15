@@ -91,6 +91,7 @@ const LinkButton = styled(Button)`
   width: 100px;
   margin: 5px;
   border-color: ${({theme}) => theme.profileTint};
+  transition: all 0.50s linear;
 `
 
 const Profile = (props: ProfileProps) => {

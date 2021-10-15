@@ -1,5 +1,3 @@
-import { CategoryData, Framework, Language, Library, Database, Skill, Tool } from './types'
-
 import { 
   faNetworkWired, 
   faVial, 
@@ -16,58 +14,52 @@ import {
   faRobot,
   faHardHat
 } from '@fortawesome/free-solid-svg-icons'
+import { faAws } from '@fortawesome/free-brands-svg-icons'
+
+import { CategoryData, Framework, Language, Library, Database, Skill, Tool } from './types'
 
 import iconOdoo from './img/icons/odoo.png';
-import iconLiferay from './img/icons/odoo.png';
+import iconLiferay from './img/icons/liferay.png';
+import iconSelenium from './img/icons/selenium.png';
+import iconBIRT from './img/icons/birt.png';
 
 const DEV_ICON_PATH = 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons'
 const devIcon = (name: string) => `${DEV_ICON_PATH}/${name}/${name}-original.svg`
 const devIconPlain = (name: string) => `${DEV_ICON_PATH}/${name}/${name}-plain.svg`
+const devIconWordmark = (name: string) => `${DEV_ICON_PATH}/${name}/${name}-original-wordmark.svg`
 
 export const Tools: Record<Tool, CategoryData> = {
-  selenium: {
-    name: 'Selenium',
-    image: devIcon('selenium'),
+  aws: {
+    name: 'AWS',
+    icon: faAws,
+  },
+  birt: {
+    name: 'BIRT',
+    image: iconBIRT,
+  },
+  cucumber: {
+    name: 'Cucumber',
+    image: devIconPlain('cucumber'),
   },
   docker: {
     name: 'Docker',
     image: devIcon('docker'),
   },
-  cucumber: {
-    name: 'Cucumber',
-    image: devIcon('cucumber'),
-  },
-  gradle: {
-    name: 'Gradle',
-    image: devIcon('gradle'),
-  },
-  birt: {
-    name: 'BIRT',
-    image: devIcon('birt'),
-  },
-  tomcat: {
-    name: 'Tomcat',
-    image: devIcon('tomcat'),
-  },
-  jenkins: {
-    name: 'Jenkins',
-    image: devIcon('jenkins'),
-  },
-  node: {
-    name: 'Node',
-    image: devIcon('node'),
-  },
-  aws: {
-    name: 'AWS',
-    image: devIcon('aws'),
-  },
   gimp: {
     name: 'GIMP',
     image: devIcon('gimp'),
   },
+  gradle: {
+    name: 'Gradle',
+    image: devIconPlain('gradle'),
+  },
   heroku: {
     name: 'Heroku',
     image: devIcon('heroku'),
+  },
+  jenkins: {
+    name: 'Jenkins',
+    image: devIcon('jenkins'),
   },
   jira: {
     name: 'Jira',
@@ -77,60 +69,72 @@ export const Tools: Record<Tool, CategoryData> = {
     name: 'nginx',
     image: devIcon('nginx'),
   },
+  node: {
+    name: 'Node',
+    image: devIcon('nodejs'),
+  },
   npm: {
     name: 'npm',
-    image: devIcon('npm'),
+    image: devIconWordmark('npm'),
   },
   oracle: {
     name: 'Oracle',
     image: devIcon('oracle'),
   },
+  selenium: {
+    name: 'Selenium',
+    image: iconSelenium,
+  },
   slack: {
     name: 'Slack',
     image: devIcon('slack'),
-  }
+  },
+  tomcat: {
+    name: 'Tomcat',
+    image: devIcon('tomcat'),
+  },
 }
 
 export const Skills: Record<Skill, CategoryData> = {
-  devops: {
-    name: 'DevOps',
-    icon: faHardHat,
-  },
-  tdd: {
-    name: 'TDD',
-    icon: faRecycle,
-  },
-  bdd: {
-    name: 'BDD',
-    icon: faChalkboardTeacher,
+  agile: {
+    name: 'Agile',
+    icon: faRunning,
   },
   algorithms: {
     name: 'Algorithms',
     icon: faPuzzlePiece,
   },
-  networking: {
-    name: 'Networks',
-    icon: faNetworkWired,
-  },
-  rest: {
-    name: 'REST',
-    icon: faPaperPlane,
-  },
-  frontend: {
-    name: 'Frontend',
-    icon: faPalette,
-  },
   backend: {
     name: 'Backend',
     icon: faCogs,
+  },
+  bdd: {
+    name: 'BDD',
+    icon: faChalkboardTeacher,
   },
   concurrent: {
     name: 'Concurrency',
     icon: faBezierCurve,
   },
-  agile: {
-    name: 'Agile',
-    icon: faRunning,
+  devops: {
+    name: 'DevOps',
+    icon: faHardHat,
+  },
+  frontend: {
+    name: 'Frontend',
+    icon: faPalette,
+  },
+  networking: {
+    name: 'Networks',
+    icon: faNetworkWired,
+  },
+  qa: {
+    name: 'QA',
+    icon: faSearch,
+  },
+  rest: {
+    name: 'REST',
+    icon: faPaperPlane,
   },
   robotics: {
     name: 'Robotics',
@@ -140,9 +144,9 @@ export const Skills: Record<Skill, CategoryData> = {
     name: 'Testing',
     icon: faVial,
   },
-  qa: {
-    name: 'QA',
-    icon: faSearch,
+  tdd: {
+    name: 'TDD',
+    icon: faRecycle,
   },
 }
 
