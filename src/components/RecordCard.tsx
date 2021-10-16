@@ -116,7 +116,7 @@ const RecordCard : React.FC<RecordCardProps & DivProps> = ({className, record}) 
   const {
     type, title, employer, summary, bullets, start, end, logo, 
     skills, databases, languages, frameworks, libraries, isMobile, isDesktop, 
-    links, screenshot
+    links
   } = record;
   return (
     <Container className={className}>

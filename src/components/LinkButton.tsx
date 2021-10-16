@@ -13,7 +13,7 @@ interface LinkButtonProps extends ButtonProps {
 
 const StyledButton = styled(Button)`
   min-width: 44px;
-  max-width: 44px;
+  max-width: 55px;
   min-height: 44px;
   border-width: 0;
   @media only screen and (min-width: ${MOBILE_BREAKPOINT_WIDTH + 'px'}) {
@@ -53,7 +53,7 @@ const LinkButton: React.FC<LinkButtonProps> = ({className, link}) => {
   // Show an icon-only button when in a mobile resolution
   const isMobile = useMediaQuery({ query: `(max-width: ${MOBILE_BREAKPOINT_WIDTH}px)` });
   return (
-    <StyledButton className={className} icon={icon[link.type]} url={link.url} title={isMobile ? '' : text[link.type]} color={color[link.type]}/>
+    <StyledButton className={className} icon={icon[link.type]} url={link.url} title={link.text ? link.text : (isMobile ? '' : text[link.type])} color={color[link.type]}/>
   );
 }
 
