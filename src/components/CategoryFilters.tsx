@@ -1,10 +1,11 @@
+import { useState } from "react";
 import styled from "styled-components";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faCaretDown, faCaretUp } from '@fortawesome/free-solid-svg-icons'
+import { faCaretDown, faCaretUp, faFilter } from '@fortawesome/free-solid-svg-icons'
 import { Databases, Frameworks, Languages, Libraries, Skills, Tools } from "../categories";
 import { MOBILE_BREAKPOINT_WIDTH } from "../utils";
 import CategorySelect from "./CategorySelect";
-import { useState } from "react";
+import Button from "./Button";
 
 interface CategoryFiltersProps {
   readonly className?: string;
@@ -41,7 +42,7 @@ const Container = styled.div`
   transition: background-color 0.50s linear;
 `
 
-const FilterHeader = styled.button`
+const FilterHeader = styled(Button)`
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -64,10 +65,7 @@ const CategoryFilters: React.FC<CategoryFiltersProps> = (props) => {
 
   return (
     <Container>
-      <FilterHeader onClick={() => setShowFilters(!showFilters)}>
-        <span>
-          {showFilters ? 'Hide' : 'Show'} Filters
-        </span>
+      <FilterHeader icon={faFilter} onClick={() => setShowFilters(!showFilters)} title={showFilters ? 'Hide Filters' : 'Show Filters'}>
         <FontAwesomeIcon icon={showFilters ? faCaretUp : faCaretDown}/>
       </FilterHeader>
       <FilterContainer {...props} className={className} showFilters={showFilters}>

@@ -8,6 +8,7 @@ import CategoryLabel from "./CategoryLabel";
 import LinkButton from "./LinkButton";
 
 interface RecordCardProps {
+  readonly key?: string;
   readonly className?: string;
   readonly record: Record;
 }
@@ -112,14 +113,14 @@ const DateBanner = styled.div`
   transition: all 0.50s linear;
 `
 
-const RecordCard : React.FC<RecordCardProps & DivProps> = ({className, record}) => {
+const RecordCard : React.FC<RecordCardProps & DivProps> = ({className, record, key}) => {
   const {
     type, title, employer, summary, bullets, start, end, logo, 
     skills, databases, languages, frameworks, libraries, isMobile, isDesktop, 
     links
   } = record;
   return (
-    <Container className={className}>
+    <Container className={className} key={key}>
       <DateBanner>
         <FontAwesomeIcon title="Date" icon={faCalendar}/>
         <Subtitle>

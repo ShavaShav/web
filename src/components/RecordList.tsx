@@ -36,7 +36,7 @@ const StyledRecordCard = styled(RecordCard)`
 const RecordList : React.FC<RecordListProps & DivProps> = ({records, className}) => {
   return (
     <Container className={className}>
-      {records.map(record => <StyledRecordCard record={record}/>)}
+      {records.map((record, index) => <StyledRecordCard key={`record_${index}`} record={record}/>)}
     </Container>
   );
 }
