@@ -37,25 +37,30 @@ export const WorkRecords: Record[] = [
   },
   {
     type: 'work',
-    employer: '',
-    title: '',
-    summary: '',
+    employer: 'Eramosa Engineering',
+    title: 'Full-stack Software Developer',
+    summary: 'Worked with a small team to develop, test and deliver a mature enterprise SCADA reporting product, along with custom web and mobile applications.',
     bullets: [],
     start: new Date('2020/01/01'),
     end: new Date(), // today
     logo: KITTY,
     skills: [],
-    databases: [],
-    languages: [],
-    libraries: [],
-    frameworks: [],
-    tools: [],
+    databases: ['sqlserver','realm','postgresql','mysql'],
+    languages: ['bash','css','java','javascript','html'],
+    libraries: ['reactnative','sequelize','redux','jquery'],
+    frameworks: ['liferay'],
+    tools: ['birt','gimp','nginx','node','npm','oracle','tomcat'],
     isMobile: true,
     isDesktop: true,
     links: [
       {
         type: 'website', 
-        url: ''
+        url: 'https://eramosa.com/'
+      },
+      {
+        type: 'google_play', 
+        url: 'https://play.google.com/store/apps/details?id=com.eramosa.eris',
+        text: 'e.RIS'
       }
     ],
   },
