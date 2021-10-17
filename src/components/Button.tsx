@@ -17,6 +17,16 @@ const Title = styled.span`
   text-align: center;
 `
 
+const TitleIcon = styled.div`
+  display: flex;
+  flex: 1;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: center;
+  align-content: center;
+  justify-content: center;
+`
+
 const StyledIcon = styled(FontAwesomeIcon)`
   padding-right: 5px;
   padding-left: 5px;
@@ -38,8 +48,11 @@ const Button = (props: ButtonProps) => {
   }
   return (
     <StyledButton {...props} onClick={onClick}>
-      {props.icon && <StyledIcon size={'lg'} icon={props.icon} color={props.tintColor}/>}
-      {props.title ? <Title>{props.title}</Title> : undefined}
+      <TitleIcon>
+        {props.icon && <StyledIcon size={'lg'} icon={props.icon} color={props.tintColor}/>}
+        {props.title ? <Title>{props.title}</Title> : undefined}
+      </TitleIcon>
+      {props.children}
     </StyledButton>
   )
 };

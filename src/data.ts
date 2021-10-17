@@ -454,5 +454,3 @@ export const ProjectRecords: Record[] = [
     ],
   },
 ];
-
-export const AllRecords = [...ProjectRecords, ...WorkRecords];

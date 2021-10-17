@@ -1,10 +1,11 @@
+import { useState } from "react";
 import styled from "styled-components";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faCaretDown, faCaretUp } from '@fortawesome/free-solid-svg-icons'
+import { faCaretDown, faCaretUp, faFilter } from '@fortawesome/free-solid-svg-icons'
 import { Databases, Frameworks, Languages, Libraries, Skills, Tools } from "../categories";
 import { MOBILE_BREAKPOINT_WIDTH } from "../utils";
 import CategorySelect from "./CategorySelect";
-import { useState } from "react";
+import Button from "./Button";
 
 interface CategoryFiltersProps {
   readonly className?: string;
@@ -19,17 +20,20 @@ interface CategoryFiltersProps {
 const FilterContainer = styled.div<CategoryFiltersProps & {showFilters: boolean}>`
   max-height: ${({showFilters}) => showFilters ? '3000px' : '0px'};
   padding: ${({showFilters}) => showFilters ? '10px' : '0px'};
+  margin-bottom: 10px;
   padding-top: 0px;
   transition: all 0.5s ease-in-out;
   overflow: ${({showFilters}) => showFilters ? 'initial' : 'hidden'};
   opacity: ${({showFilters}) => showFilters ? '1' : '0'};
   min-width: 220px;
   overflow: visible;
+  pointer-events: ${({showFilters}) => showFilters ? 'initial' : 'none'};
   @media only screen and (min-width: ${MOBILE_BREAKPOINT_WIDTH + 'px'}) {
     opacity: 1;
     max-height: 100%;
     padding: 10px;
     flex: 0 0 250px;
+    pointer-events: none;
   }
 `
 
@@ -39,9 +43,10 @@ const Container = styled.div`
   height: 100%;
   margin-bottom: 10px;
   transition: background-color 0.50s linear;
+  z-index: 1;
 `
 
-const FilterHeader = styled.button`
+const FilterHeader = styled(Button)`
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -64,10 +69,7 @@ const CategoryFilters: React.FC<CategoryFiltersProps> = (props) => {
 
   return (
     <Container>
-      <FilterHeader onClick={() => setShowFilters(!showFilters)}>
-        <span>
-          {showFilters ? 'Hide' : 'Show'} Filters
-        </span>
+      <FilterHeader icon={faFilter} onClick={() => setShowFilters(!showFilters)} title={showFilters ? 'Hide Filters' : 'Show Filters'}>
         <FontAwesomeIcon icon={showFilters ? faCaretUp : faCaretDown}/>
       </FilterHeader>
       <FilterContainer {...props} className={className} showFilters={showFilters}>

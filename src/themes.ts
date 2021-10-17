@@ -35,6 +35,7 @@ export type Theme = {
   labelTint: string,
   themeToggleBackground: string,
   themeToggleTint: string,
+  recordListHeader: string,
 }
 
 export const lightTheme: Theme = {
@@ -61,6 +62,7 @@ export const lightTheme: Theme = {
   labelTint: Colors.textLight,
   themeToggleBackground: '#7781bb',
   themeToggleTint: 'yellow',
+  recordListHeader: '#5e5528',
 }
 
 export const darkTheme: Theme = {
@@ -87,4 +89,5 @@ export const darkTheme: Theme = {
   labelTint: Colors.textDark,
   themeToggleBackground: Colors.secondaryBackgroundDark,
   themeToggleTint: 'yellow',
+  recordListHeader: '#5e5528',
 }

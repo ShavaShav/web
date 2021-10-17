@@ -1,9 +1,16 @@
 import { useEffect, useState } from "react";
 import styled from "styled-components";
-import { AllRecords } from "../data";
+import { faBriefcase, faProjectDiagram, faSortAmountDown, faSortAmountUp } from '@fortawesome/free-solid-svg-icons'
+import { ProjectRecords, WorkRecords } from "../data";
 import CategoryFilters from "./CategoryFilters";
 import RecordList from "./RecordList";
 import { MOBILE_BREAKPOINT_WIDTH } from "../utils";
+import { Record } from "../types";
+import Button from "./Button";
+
+interface ToggleButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
+  readonly isActive: boolean;
+}
 
 const Container = styled.div`
   /* scroll-snap-stop: always; */
@@ -19,8 +26,47 @@ const Container = styled.div`
   }
 `
 
+const Main = styled.div`
+  flex: 1;
+`
+
+const RecordHeader = styled.div`
+  display: flex;
+  flex: 1;
+  flex-direction: row;
+  width: 100%;
+  margin-bottom: 15px;
+`
+
+const ToggleButtons = styled.div`
+  display: flex;
+  flex: 1;
+  flex-direction: row;
+  background-color: ${({theme}) => theme.recordListHeader};
+  height: 50px;
+`
+
+const ToggleButton = styled(Button)<ToggleButtonProps>`
+  background-color: ${({theme, isActive}) => isActive ? theme.body : 'initial'};
+  color: ${({theme, isActive}) => isActive ? theme.text : theme.buttonTint};
+  transition: all 0.5s linear;
+  border-radius: 0;
+  border: none;
+  flex: 1;
+`
+
+const SortButton = styled(Button)`
+  background-color: ${({theme}) => theme.cardBackground};
+  color: ${({theme}) => theme.text};
+  border-radius: 0;
+  border: none;
+  width: 44px;
+`
+
 const Records = (props: any) => {
-  const [records, setRecords] = useState(AllRecords)
+  const [records, setRecords] = useState<Record[]>([])
+  const [isShowingWork, setIsShowingWork] = useState(false)
+  const [isAscending, setIsAscending] = useState(false)
   const [databases, setDatabases] = useState<string[]>([])
   const [frameworks, setFrameworks] = useState<string[]>([])
   const [languages, setLanguages] = useState<string[]>([])
@@ -29,10 +75,16 @@ const Records = (props: any) => {
   const [tools, setTools] = useState<string[]>([])
 
   useEffect(() => {
+    const records: Record[] = isShowingWork ? WorkRecords : ProjectRecords;
+    if (isAscending)
+      records.sort((a,b) => a.start.getTime() - b.start.getTime())
+    else
+      records.sort((a,b) => b.start.getTime() - a.start.getTime())
+
     if (!databases.length && !frameworks.length && !languages.length && !libraries.length && !skills.length && !tools.length) {
-      setRecords(AllRecords)
+      setRecords([...records])
     } else {
-      setRecords(AllRecords.filter(record =>
+      setRecords(records.filter(record =>
         record.languages.some(l => languages.includes(l))
         || record.frameworks.some(f => frameworks.includes(f))
         || record.libraries.some(l => libraries.includes(l))
@@ -41,7 +93,7 @@ const Records = (props: any) => {
         || record.tools.some(t => tools.includes(t))
       ))
     }
-  }, [databases, frameworks, languages, libraries, skills, tools])
+  }, [isShowingWork, isAscending, databases, frameworks, languages, libraries, skills, tools])
 
   return (
     <Container className={props.className}>
@@ -53,7 +105,16 @@ const Records = (props: any) => {
         onSkillsFiltered={setSkills}
         onToolsFiltered={setTools}
       />
-      <RecordList records={records}/>
+      <Main>
+        <RecordHeader>
+          <ToggleButtons>
+            <ToggleButton isActive={!isShowingWork} onClick={() => {console.log('projects'); setIsShowingWork(false)}} title="Projects" icon={faProjectDiagram}/>
+            <ToggleButton isActive={isShowingWork} onClick={() => {console.log('work'); setIsShowingWork(true)}} title="Work" icon={faBriefcase}/>
+          </ToggleButtons>
+          <SortButton icon={isAscending ? faSortAmountUp : faSortAmountDown} onClick={() => {console.log('sort'); setIsAscending(!isAscending)}}/>
+        </RecordHeader>
+        <RecordList records={records}/> 
+      </Main>
     </Container>
   );
 }

@@ -13,8 +13,9 @@ interface RecordCardProps {
 }
 
 const Title = styled.span`
-  font-size: 1.2em;
+  font-size: 1.25em;
   font-weight: bold;
+  padding-left: 5px;
 `
 
 const Subtitle = styled.span`
@@ -71,7 +72,6 @@ const StyledLabel = styled(CategoryLabel)`
 `
 
 const StyledLink = styled(LinkButton)`
-  flex: 1;
   margin: 5px;
 `
 
@@ -112,7 +112,7 @@ const DateBanner = styled.div`
   transition: all 0.50s linear;
 `
 
-const RecordCard : React.FC<RecordCardProps & DivProps> = ({className, record}) => {
+const RecordCard : React.FC<RecordCardProps & DivProps> = ({className, record, key}) => {
   const {
     type, title, employer, summary, bullets, start, end, logo, 
     skills, databases, languages, frameworks, libraries, isMobile, isDesktop, 
@@ -123,7 +123,6 @@ const RecordCard : React.FC<RecordCardProps & DivProps> = ({className, record}) 
       <DateBanner>
         <FontAwesomeIcon title="Date" icon={faCalendar}/>
         <Subtitle>
-
           {start.toLocaleDateString('default', { month: 'long', year: 'numeric'})}
           {end           
             ? ` to ${end.toLocaleDateString('default', { month: 'long', year: 'numeric'})}`
@@ -154,20 +153,20 @@ const RecordCard : React.FC<RecordCardProps & DivProps> = ({className, record}) 
         <Description>
           <span>{summary}</span>
           <ul>
-            {bullets.map(bullet => <li>{bullet}</li>)}
+            {bullets.map(bullet => <li key={bullet}>{bullet}</li>)}
           </ul>
         </Description>
         <ItemsGroup>
-          {links.map(link => <StyledLink link={link}/>)}
+          {links.map(link => <StyledLink key={link.url} link={link}/>)}
         </ItemsGroup>
       </Body>
       <CategorySection>
         <ItemsGroup>
-          {skills.map(id => <StyledLabel data={Skills[id]}/>)}
-          {languages.map(id => <StyledLabel data={Languages[id]}/>)}
-          {libraries.map(id => <StyledLabel data={Libraries[id]}/>)}
-          {frameworks.map(id => <StyledLabel data={Frameworks[id]}/>)}
-          {databases.map(id => <StyledLabel data={Databases[id]}/>)}
+          {skills.map(id => <StyledLabel key={id} data={Skills[id]}/>)}
+          {languages.map(id => <StyledLabel key={id} data={Languages[id]}/>)}
+          {libraries.map(id => <StyledLabel key={id} data={Libraries[id]}/>)}
+          {frameworks.map(id => <StyledLabel key={id} data={Frameworks[id]}/>)}
+          {databases.map(id => <StyledLabel key={id} data={Databases[id]}/>)}
         </ItemsGroup>
         {/* <Row>
           <CategoryHeader>Languages</CategoryHeader>
