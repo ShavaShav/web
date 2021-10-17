@@ -1,5 +1,5 @@
 import { faDownload, faLink, faNewspaper } from '@fortawesome/free-solid-svg-icons'
-import { faGooglePlay, faGithub, faNpm } from '@fortawesome/free-brands-svg-icons'
+import { faGooglePlay, faGithub, faNpm, faYoutube } from '@fortawesome/free-brands-svg-icons'
 
 import { Link } from "../types";
 import Button, { ButtonProps } from "./Button";
@@ -29,6 +29,7 @@ const icon = {
   'website': faLink,
   'source_code': faGithub,
   'docs': faNewspaper,
+  'youtube': faYoutube,
 }
 
 const text = {
@@ -38,6 +39,7 @@ const text = {
   'website': 'Link',
   'source_code': 'Source',
   'docs': 'Documentation',
+  'youtube': 'Demo',
 }
 
 const color = {
@@ -47,6 +49,7 @@ const color = {
   'website': 'grey',
   'source_code': 'black',
   'docs': 'brown',
+  'youtube': 'orange',
 }
 
 const LinkButton: React.FC<LinkButtonProps> = ({className, link}) => {

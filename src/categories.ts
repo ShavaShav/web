@@ -12,7 +12,10 @@ import {
   faSearch, 
   faDatabase,
   faRobot,
-  faHardHat
+  faHardHat,
+  faLaptopCode,
+  faSchool,
+  faFeather
 } from '@fortawesome/free-solid-svg-icons'
 import { faAws } from '@fortawesome/free-brands-svg-icons'
 
@@ -140,6 +143,10 @@ export const Skills: Record<Skill, CategoryData> = {
     name: 'Robotics',
     icon: faRobot,
   },
+  teaching: {
+    name: 'Teaching',
+    icon: faSchool,
+  },
   testing: {
     name: 'Testing',
     icon: faVial,
@@ -167,6 +174,10 @@ export const Databases: Record<Database, CategoryData> = {
     name: 'SQL Server',
     image: devIconPlain('microsoftsqlserver'),
   },
+  sqlite: {
+    name: 'SQLite',
+    icon: faFeather,
+  },
   realm: {
     name: 'Realm',
     icon: faDatabase,
@@ -174,6 +185,10 @@ export const Databases: Record<Database, CategoryData> = {
 }
 
 export const Frameworks: Record<Framework, CategoryData> = {
+  android: {
+    name: 'Android',
+    image: devIcon('android'),
+  },
   odoo: {
     name: 'Odoo',
     image: iconOdoo,
@@ -189,6 +204,10 @@ export const Frameworks: Record<Framework, CategoryData> = {
   qt: {
     name: 'Qt',
     image: devIcon('qt'),
+  },
+  javafx: {
+    name: 'JavaFX',
+    image: devIcon('java'),
   }
 }
 
@@ -224,6 +243,10 @@ export const Libraries: Record<Library, CategoryData> = {
 }
 
 export const Languages: Record<Language, CategoryData> = {
+  assembly: {
+    name: 'Assembly',
+    icon: faLaptopCode,
+  },
   bash: {
     name: 'Bash',
     image: devIcon('bash')
@@ -235,6 +258,10 @@ export const Languages: Record<Language, CategoryData> = {
   cplusplus: {
     name: 'C++',
     image: devIcon('cplusplus')
+  },
+  csharp: {
+    name: 'C#',
+    image: devIcon('csharp')
   },
   css: {
     name: 'CSS',
@@ -251,6 +278,10 @@ export const Languages: Record<Language, CategoryData> = {
   javascript: {
     name: 'Javascript',
     image: devIcon('javascript')
+  },
+  jsp: {
+    name: 'JSP',
+    image: devIcon('java')
   },
   python: {
     name: 'Python',

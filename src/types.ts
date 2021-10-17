@@ -2,11 +2,11 @@ import { IconDefinition } from "@fortawesome/fontawesome-common-types"
 
 export type DivProps = React.DetailedHTMLProps<React.HTMLAttributes<HTMLDivElement>, HTMLDivElement>
 
-export type Skill = 'robotics' | 'devops' | 'tdd' | 'bdd' | 'algorithms' | 'networking' | 'rest' | 'frontend' | 'backend' | 'concurrent' | 'agile' | 'testing' | 'qa'
-export type Language = 'java' | 'javascript' | 'typescript' | 'python' | 'c' | 'bash' | 'cplusplus' | 'html' | 'css'
-export type Database = 'postgresql' | 'mysql' | 'neo4j' | 'realm' | 'sqlserver'
+export type Skill = 'robotics' | 'devops' | 'tdd' | 'bdd' | 'algorithms' | 'networking' | 'rest' | 'frontend' | 'backend' | 'concurrent' | 'agile' | 'testing' | 'qa' | 'teaching'
+export type Language = 'assembly' | 'java' | 'javascript' | 'typescript' | 'python' | 'c' | 'bash' | 'cplusplus' | 'html' | 'css' | 'jsp' | 'csharp'
+export type Database = 'postgresql' | 'mysql' | 'neo4j' | 'realm' | 'sqlserver' | 'sqlite'
 export type Tool =  'selenium' | 'docker' | 'cucumber' | 'gradle' | 'birt' | 'tomcat' | 'jenkins' | 'node' | 'aws' | 'gimp' | 'heroku' | 'jira' | 'nginx' | 'npm' | 'oracle' | 'slack'
-export type Framework = 'liferay' | 'odoo' | 'firebase' | 'qt'
+export type Framework = 'android' | 'liferay' | 'odoo' | 'firebase' | 'qt' | 'javafx'
 export type Library =  'jquery' | 'react' | 'reactnative' | 'express' | 'jest' | 'redux' | 'sequelize'
 export type Platform = 'android' | 'ios' | 'windows' | 'macos' | 'linux' | 'browser'
 
@@ -17,7 +17,7 @@ export type CategoryData = {
 }
 
 export type Link = {
-  type: 'google_play' | 'executable' | 'website' | 'source_code' | 'docs' | 'npm'
+  type: 'google_play' | 'executable' | 'website' | 'source_code' | 'docs' | 'npm' | 'youtube'
   url: string,
   text?: string,
 }
