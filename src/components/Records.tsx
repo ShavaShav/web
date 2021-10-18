@@ -7,7 +7,6 @@ import RecordList from "./RecordList";
 import { MOBILE_BREAKPOINT_WIDTH } from "../utils";
 import { Record } from "../types";
 import Button from "./Button";
-
 interface ToggleButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   readonly isActive: boolean;
 }
@@ -76,6 +75,7 @@ const Records = (props: any) => {
 
   useEffect(() => {
     const records: Record[] = isShowingWork ? WorkRecords : ProjectRecords;
+
     if (isAscending)
       records.sort((a,b) => a.start.getTime() - b.start.getTime())
     else

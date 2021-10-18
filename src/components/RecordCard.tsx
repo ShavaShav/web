@@ -8,6 +8,7 @@ import CategoryLabel from "./CategoryLabel";
 import LinkButton from "./LinkButton";
 
 interface RecordCardProps {
+  readonly key?: string;
   readonly className?: string;
   readonly record: Record;
 }
@@ -119,7 +120,7 @@ const RecordCard : React.FC<RecordCardProps & DivProps> = ({className, record, k
     links
   } = record;
   return (
-    <Container className={className}>
+    <Container className={className} key={key}>
       <DateBanner>
         <FontAwesomeIcon title="Date" icon={faCalendar}/>
         <Subtitle>
