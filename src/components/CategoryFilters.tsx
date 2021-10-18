@@ -33,7 +33,7 @@ const FilterContainer = styled.div<CategoryFiltersProps & {showFilters: boolean}
     max-height: 100%;
     padding: 10px;
     flex: 0 0 250px;
-    pointer-events: none;
+    pointer-events: initial;
   }
 `
 

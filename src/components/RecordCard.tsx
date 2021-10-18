@@ -30,6 +30,8 @@ const Headline = styled.div`
   padding: 5px;
   color: ${({theme}) => theme.cardTint};
   transition: all 0.50s linear;
+  font-size: 1.1em;
+  word-wrap: anywhere;
 `
 
 const Container = styled.div`

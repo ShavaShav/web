@@ -41,21 +41,21 @@ const ToggleButtons = styled.div`
   display: flex;
   flex: 1;
   flex-direction: row;
-  background-color: ${({theme}) => theme.recordListHeader};
   height: 50px;
 `
 
 const ToggleButton = styled(Button)<ToggleButtonProps>`
-  background-color: ${({theme, isActive}) => isActive ? theme.body : 'initial'};
+  background-color: ${({theme, isActive}) => isActive ? theme.body : theme.button};
   color: ${({theme, isActive}) => isActive ? theme.text : theme.buttonTint};
   transition: all 0.5s linear;
   border-radius: 0;
   border: none;
   flex: 1;
+  border-right: ${({theme, isActive}) => `1px solid ${theme.filterBackground}`};
 `
 
 const SortButton = styled(Button)`
-  background-color: ${({theme}) => theme.cardBackground};
+  background-color: transparent;
   color: ${({theme}) => theme.text};
   border-radius: 0;
   border: none;
