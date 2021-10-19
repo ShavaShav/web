@@ -29,7 +29,7 @@ export default createGlobalStyle<{theme: Theme}>`
   }
   button:hover, button:active {
     background-position:bottom;
-    /* border-color: ${({theme}) => theme.buttonBorderActive}; */
+    border-color: ${({theme}) => theme.buttonBorderActive};
   }
   h1, h2, h3, h4, h5 { 
     line-height: 1em;

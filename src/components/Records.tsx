@@ -46,19 +46,23 @@ const ToggleButtons = styled.div`
 
 const ToggleButton = styled(Button)<ToggleButtonProps>`
   background: ${({theme, isActive}) => isActive ? 'none' : 'linear-gradient(transparent,rgba(0, 0, 0, 0.2)) top/100% 800%'};
-  background-color: ${({theme, isActive}) => isActive ? theme.body : theme.button};
-  color: ${({theme, isActive}) => isActive ? theme.text : theme.buttonTint};
+  background-color: ${({theme, isActive}) => isActive ? theme.body : theme.recordListHeader};
+  color: ${({theme, isActive}) => isActive ? theme.text : theme.recordListHeaderTint};
   transition: all 0.5s linear;
   border-radius: 0;
   border: none;
   flex: 1;
   border-right: ${({theme, isActive}) => `1px solid ${theme.filterBackground}`};
+  border-left: ${({theme, isActive}) => `1px solid ${theme.filterBackground}`};
+  /* &:active{
+    border-left: #e6007e;
+  } */
 `
 
 const SortButton = styled(Button)`
-  background: none;
-  background-color: transparent;
+  background-color: ${({theme}) => theme.recordListHeader};
   color: ${({theme}) => theme.text};
+  transition: all 0.5s linear;
   border-radius: 0;
   border: none;
   width: 44px;

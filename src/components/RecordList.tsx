@@ -23,7 +23,8 @@ const Container = styled.div`
 
 const StyledRecordCard = styled(RecordCard)`
   margin: 8px;
-  margin-bottom: 30px;
+  /* margin-top: 15px; */
+  margin-bottom: 45px;
   /* width: 0; */
   /* margin-left: 50px; */
   /* margin-right: 50px; */
@@ -31,6 +32,17 @@ const StyledRecordCard = styled(RecordCard)`
   /* @media only screen and (min-width: ${MOBILE_BREAKPOINT_WIDTH + 'px'}) {
     min-width: 500px;
   } */
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  position: relative;
+  top: 0;
+  transition: top ease 0.5s, box-shadow 0.5s linear;
+  @media (hover: hover) and (pointer: fine) {
+    &:hover { 
+      top: -8px;
+      border: 1px solid ${({theme}) => theme.cardBorderActive};
+      box-shadow: 0 6px 16px 0 rgba(0, 0, 0, 0.2), 0 10px 30px 0 rgba(0, 0, 0, 0.19);
+    }
+  }
 `
 
 const RecordList : React.FC<RecordListProps & DivProps> = ({records, className}) => {

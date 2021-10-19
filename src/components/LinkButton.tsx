@@ -44,13 +44,13 @@ const text = {
 }
 
 const color = {
-  'google_play': '#009688',
-  'npm': '#F44336',
-  'executable': '#00897B',
+  'google_play': '#388E3C',
+  'npm': '#E53935',
+  'executable': '#757575',
   'website': '#3F51B5',
-  'source_code': '#455A64',
-  'docs': '#AB47BC',
-  'youtube': '#FF7043',
+  'source_code': '#37474F',
+  'docs': '#795548',
+  'youtube': '#B71C1C',
 }
 
 const LinkButton: React.FC<LinkButtonProps> = ({className, link}) => {

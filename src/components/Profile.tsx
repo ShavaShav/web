@@ -63,9 +63,12 @@ const ProfileSection = styled.div`
   flex-direction: row;
   flex-wrap: wrap;
   width: 100%;
-  @media only screen and (min-width: ${MOBILE_BREAKPOINT_WIDTH + 'px'}) {
-    flex-direction: row;
+  @media (orientation: portrait) {    
+    flex-direction: column;
   }
+`
+
+const ResizingHeadshot = styled(Headshot)`
 `
 
 const Row = styled.div`
@@ -90,9 +93,12 @@ const LinkButton = styled(Button)`
   height: 40px;
   width: 100px;
   margin: 5px;
-  border: 0;
-  /* border-color: ${({theme}) => theme.profileTint}; */
+  /* border: 0; */
+  border-color: ${({theme}) => theme.profileBtn};
   transition: all 0.50s linear;
+  &:hover {
+    border-color: ${({theme}) => theme.profileBtnActive};
+  }
 `
 
 const Profile = (props: ProfileProps) => {
@@ -126,7 +132,7 @@ const Profile = (props: ProfileProps) => {
       <Container>
         <ProfileWrapper {...props} hide={showHeader}>
           <ProfileSection>
-            <Headshot round size={150}/>
+            <ResizingHeadshot round size={150}/>
             <Title>
               <h1>Zach Shaver</h1>
               <h2>
