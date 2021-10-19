@@ -40,7 +40,12 @@ export const WorkRecords: Record[] = [
     tools: ['aws','docker','gradle','gimp','nginx','node','npm'],
     isDesktop: true,
     isMobile: true,
-    links: [],
+    links: [
+      {
+        type: 'website', 
+        url: 'https://www.ttpowergroup.com/'
+      }
+    ],
   },
   {
     type: 'work',
@@ -138,7 +143,7 @@ export const WorkRecords: Record[] = [
     links: [
       {
         type: 'website', 
-        url: ''
+        url: 'https://www.uwindsor.ca/science/computerscience/'
       }
     ],
   }
@@ -148,7 +153,7 @@ export const ProjectRecords: Record[] = [
   {
     type: 'project',
     title: 'zachshaver.com',
-    summary: 'You\'re looking at it!',
+    summary: 'You\'re looking at it! A portfolio of my projects and work, with a mobile-first design. Built with very few dependencies and using React best practises that I\'ve learnt over the years.',
     bullets: [],
     start: new Date('2021/10/01'),
     logo: logoWebsite,
@@ -170,8 +175,8 @@ export const ProjectRecords: Record[] = [
   {
     type: 'project',
     title: 'Indepocket',
-    summary: 'A real-time collborative list manager for mobile.',
-    bullets: [],
+    summary: 'A flexible real-time collborative list manager for mobile. Can do anything you would want a todo list app to do and more:',
+    bullets: ['Share and work on lists together with friends','Add custom backgrounds and icons', 'Group lists into categories', 'Reload lists on schedules'],
     start: new Date('2021/09/01'),
     logo: logoIndepocket,
     skills: ['frontend'],
@@ -191,8 +196,8 @@ export const ProjectRecords: Record[] = [
   {
     type: 'project',
     title: 'Midio',
-    summary: 'Play sounds using midi controllers plugged into your phone. Built using 2 of my other projects: react-native-midi and react-native-soundfont.',
-    bullets: [],
+    summary: 'Play sounds from a variety of preloaded instruments, using MIDI controllers connected to your phone. Built using 2 of my other projects:',
+    bullets: ['react-native-midi','react-native-soundfont'],
     start: new Date('2020/12/01'),
     logo: logoMidio,
     skills: ['frontend'],
@@ -212,7 +217,7 @@ export const ProjectRecords: Record[] = [
   {
     type: 'project',
     title: 'react-native-midi',
-    summary: 'A midi driver for react-native',
+    summary: 'A MIDI driver for react-native. Allows developers to write mobile applications that can connect and listen to MIDI controllers.',
     bullets: [],
     start: new Date('2020/04/01'),
     logo: logoRNMidi,
@@ -241,7 +246,7 @@ export const ProjectRecords: Record[] = [
   {
     type: 'project',
     title: 'react-native-soundfont',
-    summary: 'A react-native library for playing music from notes of equal temperament',
+    summary: 'A react-native library for playing musical notes with sound files. Has support for rudimentary sound envelopes.',
     bullets: [],
     start: new Date('2020/04/01'),
     logo: logoRNSoundfont,
@@ -270,8 +275,11 @@ export const ProjectRecords: Record[] = [
   {
     type: 'project',
     title: 'Juzahach',
-    summary: 'Vehicle tracking system',
-    bullets: [],
+    summary: 'An Internet of Things system for tracking vehicles. Comprised of:',
+    bullets: [
+      'Edge devices which can be registered and stream their location,',
+      'A Manager web app for managing the edge devices, and tracking their locations on a map,',
+      'A cloud server which stores data and handles communications between the Manager app and the Edge devices over REST.'],
     start: new Date('2018/11/01'),
     logo: logoJuzahach,
     skills: ['backend','frontend','networking','rest'],
@@ -311,7 +319,7 @@ export const ProjectRecords: Record[] = [
   {
     type: 'project',
     title: 'Smartcampus',
-    summary: 'Social network for the University of Windsor',
+    summary: 'Social event-planning network for the University of Windsor (a.k.a a facebook clone). The client web app and the server were written as seperate applications, which communicate through a REST API.',
     bullets: [],
     start: new Date('2018/09/01'),
     logo: logoSmartcampus,
@@ -349,8 +357,8 @@ export const ProjectRecords: Record[] = [
   {
     type: 'project',
     title: 'Cream',
-    summary: 'Android money manager app',
-    bullets: [],
+    summary: 'A money management application for Android. Users can do things like',
+    bullets: ['Record income and expenses','Categorize transactions','Get alerts for high spending','View historical reports in the form of charts and graphs'],
     start: new Date('2018/04/01'),
     logo: logoCream,
     skills: ['frontend'],
@@ -378,7 +386,7 @@ export const ProjectRecords: Record[] = [
   {
     type: 'project',
     title: 'OS Process Synchronization Simulation',
-    summary: 'A visualization of CPU task scheduling for teaching purposes',
+    summary: 'A visual simulation of CPU task scheduling for teaching purposes. Users can choose scheduling algorithm, create processes and watch how they would be allocated to a CPU. Complete with I/O and ready queues!',
     bullets: [],
     start: new Date('2017/04/01'),
     logo: logoOSPRocessSync,
@@ -399,12 +407,17 @@ export const ProjectRecords: Record[] = [
         type: 'source_code', 
         url: 'https://github.com/ShavaShav/Process_Synchronization'
       },
+      {
+        type: 'docs', 
+        url: 'https://www.geeksforgeeks.org/cpu-scheduling-in-operating-systems/',
+        text: 'CPU Scheduling'
+      },
     ],
   },
   {
     type: 'project',
     title: 'Mail Jar',
-    summary: 'A desktop email-client written in JavaFX',
+    summary: 'A desktop email-client written in JavaFX. Supports GMail, Outlook, Hotmail, and more. You\'ll never have to open a browser to check your email again!',
     bullets: [],
     start: new Date('2017/03/01'),
     logo: logoMailjar,
@@ -424,13 +437,13 @@ export const ProjectRecords: Record[] = [
       {
         type: 'source_code', 
         url: 'https://github.com/ShavaShav/MailJar'
-      }
+      },
     ],
   },
   {
     type: 'project',
     title: 'N-Queens Hill Climbing Visualization',
-    summary: 'Visualization of the Hill Climbing local search algorithm on the N-Queens problem',
+    summary: 'A visualization of the Hill Climbing local search algorithm on the N-Queens problem. Customize the algorithm\'s parameters and watch the N-Queens get solved in real time!',
     bullets: [],
     start: new Date('2017/02/10'),
     logo: logoNQueens,
@@ -450,6 +463,11 @@ export const ProjectRecords: Record[] = [
       {
         type: 'source_code', 
         url: 'https://github.com/ShavaShav/NQueens_HillClimbing'
+      },
+      {
+        type: 'docs', 
+        url: 'https://www.geeksforgeeks.org/n-queen-problem-local-search-using-hill-climbing-with-random-neighbour/',
+        text: 'N-Queens Problem'
       },
     ],
   },

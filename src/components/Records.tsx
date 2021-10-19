@@ -53,10 +53,6 @@ const ToggleButton = styled(Button)<ToggleButtonProps>`
   border: none;
   flex: 1;
   border-right: ${({theme, isActive}) => `1px solid ${theme.filterBackground}`};
-  border-left: ${({theme, isActive}) => `1px solid ${theme.filterBackground}`};
-  /* &:active{
-    border-left: #e6007e;
-  } */
 `
 
 const SortButton = styled(Button)`

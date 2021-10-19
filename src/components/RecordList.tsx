@@ -36,10 +36,11 @@ const StyledRecordCard = styled(RecordCard)`
   position: relative;
   top: 0;
   transition: top ease 0.5s, box-shadow 0.5s linear;
+  border: 1px solid transparent;
   @media (hover: hover) and (pointer: fine) {
     &:hover { 
-      top: -8px;
-      border: 1px solid ${({theme}) => theme.cardBorderActive};
+      top: -7px;
+      border-color: ${({theme}) => theme.cardBorderActive};
       box-shadow: 0 6px 16px 0 rgba(0, 0, 0, 0.2), 0 10px 30px 0 rgba(0, 0, 0, 0.19);
     }
   }

@@ -42,7 +42,7 @@ const StyledButton = styled.button<ButtonProps>`
 const Button = (props: ButtonProps) => {
   const onClick = (ev: any) => { 
     if (props.url)
-      window.location.href = props.url
+      window.open(props.url,'_blank') // open in new tab
     else if (props.onClick)
       props.onClick(ev)
   }

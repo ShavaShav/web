@@ -7,6 +7,7 @@ import Button from "./Button";
 import Header from "./Header";
 import Headshot from "./Headshot";
 import { MOBILE_BREAKPOINT_WIDTH } from "../utils";
+import { faEnvelope, faFile, faFileContract, faFilePdf, faMailBulk } from "@fortawesome/free-solid-svg-icons";
 
 type ProfileProps = {
   readonly isDark: boolean;
@@ -63,12 +64,21 @@ const ProfileSection = styled.div`
   flex-direction: row;
   flex-wrap: wrap;
   width: 100%;
+  padding-bottom: 10px;
   @media (orientation: portrait) {    
     flex-direction: column;
   }
 `
 
 const ResizingHeadshot = styled(Headshot)`
+`
+
+const ButtonGroup = styled.div`
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
 `
 
 const Row = styled.div`
@@ -140,10 +150,16 @@ const Profile = (props: ProfileProps) => {
               </h2>
             </Title>
           </ProfileSection>
-          <Row>
-            <LinkButton icon={faGithub} color={'#333'} url='https://www.github.com/ShavaShav' title="Github"/>
-            <LinkButton icon={faLinkedin} color={'#3F51B5'} url='https://ca.linkedin.com/in/zach-shaver' title="LinkedIn"/>
-          </Row>
+          <ButtonGroup>
+            <Row>
+              <LinkButton icon={faGithub} color={'#333'} url='https://www.github.com/ShavaShav' title="Github"/>
+              <LinkButton icon={faLinkedin} color={'#3F51B5'} url='https://ca.linkedin.com/in/zach-shaver' title="LinkedIn"/>
+            </Row>
+            <Row>
+              <LinkButton icon={faFilePdf} color={'#F44336'} url='https://ca.linkedin.com/in/zach-shaver' title="Resume"/>
+              <LinkButton icon={faEnvelope} color={'#607D8B'} url='https://ca.linkedin.com/in/zach-shaver' title="Contact"/>
+            </Row>
+          </ButtonGroup>
         </ProfileWrapper>
       </Container>
     </>
