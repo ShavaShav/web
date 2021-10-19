@@ -162,8 +162,8 @@ export const ProjectRecords: Record[] = [
     isMobile: true,
     links: [
       {
-        type: 'website', 
-        url: 'https://www.zachshaver.com/'
+        type: 'source_code', 
+        url: 'https://github.com/ShavaShav/web'
       }
     ],
   },

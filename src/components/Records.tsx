@@ -45,6 +45,7 @@ const ToggleButtons = styled.div`
 `
 
 const ToggleButton = styled(Button)<ToggleButtonProps>`
+  background: ${({theme, isActive}) => isActive ? 'none' : 'linear-gradient(transparent,rgba(0, 0, 0, 0.2)) top/100% 800%'};
   background-color: ${({theme, isActive}) => isActive ? theme.body : theme.button};
   color: ${({theme, isActive}) => isActive ? theme.text : theme.buttonTint};
   transition: all 0.5s linear;
@@ -55,6 +56,7 @@ const ToggleButton = styled(Button)<ToggleButtonProps>`
 `
 
 const SortButton = styled(Button)`
+  background: none;
   background-color: transparent;
   color: ${({theme}) => theme.text};
   border-radius: 0;
@@ -108,8 +110,8 @@ const Records = (props: any) => {
       <Main>
         <RecordHeader>
           <ToggleButtons>
-            <ToggleButton isActive={!isShowingWork} onClick={() => {console.log('projects'); setIsShowingWork(false)}} title="Projects" icon={faProjectDiagram}/>
-            <ToggleButton isActive={isShowingWork} onClick={() => {console.log('work'); setIsShowingWork(true)}} title="Work" icon={faBriefcase}/>
+            <ToggleButton isActive={!isShowingWork} onClick={() => setIsShowingWork(false)} title="Projects" icon={faProjectDiagram}/>
+            <ToggleButton isActive={isShowingWork} onClick={() => setIsShowingWork(true)} title="Work" icon={faBriefcase}/>
           </ToggleButtons>
           <SortButton icon={isAscending ? faSortAmountUp : faSortAmountDown} onClick={() => {console.log('sort'); setIsAscending(!isAscending)}}/>
         </RecordHeader>

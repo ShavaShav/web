@@ -15,7 +15,7 @@ export default createGlobalStyle<{theme: Theme}>`
     background: ${({ theme }) => theme.body};
     color: ${({ theme }) => theme.text};
     font-family: Roboto, Tahoma, Helvetica, Arial, sans-serif;
-    transition: all 0.50s linear;
+    transition: background 0.50s linear, color 0.50s linear;
   }
   button {
     border: ${({theme}) => `1px solid ${theme.buttonBorder}`};
@@ -24,7 +24,7 @@ export default createGlobalStyle<{theme: Theme}>`
     color: ${({theme}) => theme.buttonTint};
     border-radius: 2px;
     padding: 5px;
-    transition: all 0.50s linear;
+    transition: all 0.50s linear, background 0.1s linear;
     pointer-events: auto;
   }
   button:hover, button:active {

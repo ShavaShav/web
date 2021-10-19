@@ -90,7 +90,8 @@ const LinkButton = styled(Button)`
   height: 40px;
   width: 100px;
   margin: 5px;
-  border-color: ${({theme}) => theme.profileTint};
+  border: 0;
+  /* border-color: ${({theme}) => theme.profileTint}; */
   transition: all 0.50s linear;
 `
 
@@ -135,7 +136,7 @@ const Profile = (props: ProfileProps) => {
           </ProfileSection>
           <Row>
             <LinkButton icon={faGithub} color={'#333'} url='https://www.github.com/ShavaShav' title="Github"/>
-            <LinkButton icon={faLinkedin} color={'#0077b5'} url='https://ca.linkedin.com/in/zach-shaver' title="LinkedIn"/>
+            <LinkButton icon={faLinkedin} color={'#3F51B5'} url='https://ca.linkedin.com/in/zach-shaver' title="LinkedIn"/>
           </Row>
         </ProfileWrapper>
       </Container>
