@@ -1,5 +1,5 @@
 import { Dispatch, SetStateAction } from "react";
-import styled from "styled-components";
+import styled, { keyframes } from "styled-components";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faGithub, faLinkedin } from '@fortawesome/free-brands-svg-icons'
 
@@ -62,6 +62,41 @@ const Row = styled.div`
   align-items: center;
 `
 
+
+const rotateAnimation = keyframes`
+  0% {transform: rotate(0deg)}
+  100% {transform: rotate(360deg)}
+`
+
+const HeadshotRays = styled.div`
+  position: relative;
+  display: grid;
+  animation-name: ${rotateAnimation};
+  animation-duration: 20s;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+  z-index: -1;
+  transform-origin: 200px;
+  &:before {
+    content:"";
+    background-image: repeating-conic-gradient(#FFF59D 0 9deg, transparent 9deg 18deg);
+    position: absolute;
+    top:0;
+    right:0;
+    bottom:0;
+    left:0;
+    width: 400px;
+    height: 400px;
+    /* transform: translateX(-50%) translateY(-50%); */
+    box-shadow: inset 125px -125px 100px 0px ${({theme}) => theme.profile}, 
+              inset -125px 125px 100px 0px ${({theme}) => theme.profile};
+    transition: box-shadow 0.50s linear;
+  }
+  &:after {
+
+  }
+`
+
 const StyledThemeToggle = styled(ThemeToggle)`
   margin-top: 8px;
 `
@@ -83,6 +118,7 @@ const Header = (props: HeaderProps) => {
           </Link>
         </Row>
       </Hider>
+      {/* <HeadshotRays/> */}
       <StyledThemeToggle isDark={props.isDark} onClick={props.toggleTheme}/>
     </Container>
   );

@@ -1,5 +1,5 @@
 import { Dispatch, SetStateAction, useEffect, useState } from "react";
-import styled from "styled-components";
+import styled, { keyframes } from "styled-components";
 import { faGithub, faLinkedin } from '@fortawesome/free-brands-svg-icons'
 import { Typewriter } from 'react-simple-typewriter'
 
@@ -8,6 +8,7 @@ import Header from "./Header";
 import Headshot from "./Headshot";
 import { MOBILE_BREAKPOINT_WIDTH } from "../utils";
 import { faEnvelope, faFile, faFileContract, faFilePdf, faMailBulk } from "@fortawesome/free-solid-svg-icons";
+
 
 type ProfileProps = {
   readonly isDark: boolean;
@@ -70,7 +71,17 @@ const ProfileSection = styled.div`
   }
 `
 
-const ResizingHeadshot = styled(Headshot)`
+const rockingAnimation = keyframes`
+  0%, 100%{transform: rotate(5deg) scale(1.03)}
+  25%, 75%{transform: rotate(0deg) scale(1)}
+  50%{transform: rotate(-5deg) scale(1.03)}
+`
+
+const AnimatedHeadshot = styled(Headshot)`
+  animation-name: ${rockingAnimation};
+  animation-duration: 8s;
+  animation-iteration-count: infinite;
+  border: none;
 `
 
 const ButtonGroup = styled.div`
@@ -79,6 +90,9 @@ const ButtonGroup = styled.div`
   align-items: center;
   justify-content: center;
   flex-wrap: wrap;
+  @media only screen and (min-width: '480px'}) {
+    flex-direction: column;
+  }
 `
 
 const Row = styled.div`
@@ -104,10 +118,11 @@ const LinkButton = styled(Button)`
   width: 100px;
   margin: 5px;
   /* border: 0; */
-  border-color: ${({theme}) => theme.profileBtn};
+  /* border-color: ${({theme}) => theme.profileBtn}; */
   transition: all 0.50s linear;
+  border-color: transparent;
   &:hover {
-    border-color: ${({theme}) => theme.profileBtnActive};
+    border-color: ${({theme}) => theme.profileBtn};
   }
 `
 
@@ -142,7 +157,7 @@ const Profile = (props: ProfileProps) => {
       <Container>
         <ProfileWrapper {...props} hide={showHeader}>
           <ProfileSection>
-            <ResizingHeadshot round size={150}/>
+            <AnimatedHeadshot round size={150}/>
             <Title>
               <h1>Zach Shaver</h1>
               <h2>
@@ -152,12 +167,12 @@ const Profile = (props: ProfileProps) => {
           </ProfileSection>
           <ButtonGroup>
             <Row>
-              <LinkButton icon={faGithub} color={'#333'} url='https://www.github.com/ShavaShav' title="Github"/>
-              <LinkButton icon={faLinkedin} color={'#3F51B5'} url='https://ca.linkedin.com/in/zach-shaver' title="LinkedIn"/>
+              <LinkButton icon={faGithub} tintColor={'#9E9E9E'} url='https://www.github.com/ShavaShav' title="Github"/>
+              <LinkButton icon={faEnvelope} tintColor={'#26A69A'} url='https://ca.linkedin.com/in/zach-shaver' title="Contact"/>
             </Row>
             <Row>
-              <LinkButton icon={faFilePdf} color={'#F44336'} url='https://ca.linkedin.com/in/zach-shaver' title="Resume"/>
-              <LinkButton icon={faEnvelope} color={'#607D8B'} url='https://ca.linkedin.com/in/zach-shaver' title="Contact"/>
+              <LinkButton icon={faLinkedin} tintColor={'#2196F3'} url='https://ca.linkedin.com/in/zach-shaver' title="LinkedIn"/>
+              <LinkButton icon={faFilePdf} tintColor={'#F44336'} url='https://ca.linkedin.com/in/zach-shaver' title="Resume"/>
             </Row>
           </ButtonGroup>
         </ProfileWrapper>
