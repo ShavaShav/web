@@ -79,8 +79,9 @@ const rockingAnimation = keyframes`
 
 const AnimatedHeadshot = styled(Headshot)`
   animation-name: ${rockingAnimation};
-  animation-duration: 8s;
+  animation-duration: 4s;
   animation-iteration-count: infinite;
+  animation-timing-function: linear;
   border: none;
 `
 

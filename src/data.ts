@@ -28,16 +28,16 @@ export const WorkRecords: Record[] = [
     summary: 'Worked on multiple customer and internal facing projects.',
     bullets: [
       'Developed a full-stack solution for remote monitoring of power generators over MODBUS.',
-      'Worked on development of an internal ERP system.'
+      'Worked on development of an internal ERP system. Responsible for complete implentation of business critical features such as service scheduling and timesheet management.'
     ],
     start: new Date('2021/03/01'),
     logo: logoTTPowerGroup,
-    skills: ['algorithms','backend','frontend','devops','concurrent'],
+    skills: ['algorithms','backend','frontend','devops','concurrent','testing','tdd','vpn'],
     databases: ['postgresql'],
     languages: ['python','bash','javascript','html','css'],
-    libraries: ['react'],
-    frameworks: ['odoo'],
-    tools: ['aws','docker','gradle','gimp','nginx','node','npm'],
+    libraries: ['react','pytest'],
+    frameworks: ['odoo','grafana'],
+    tools: ['aws','docker','gradle','gimp','nginx','node','npm','swagger'],
     isDesktop: true,
     isMobile: true,
     links: [
@@ -51,8 +51,8 @@ export const WorkRecords: Record[] = [
     type: 'work',
     employer: 'Eramosa Engineering',
     title: 'Full-stack Software Developer',
-    summary: 'Worked with a small team to develop, test and deliver a mature enterprise SCADA reporting product, along with custom web and mobile applications.',
-    bullets: [],
+    summary: 'Woked with a small team to develop, test and deliver various products. Some of the highlights are:',
+    bullets: ['Maintained a mature enterprise SCADA reporting product called eRIS.', 'Implemented a mobile companion application for eRIS.', 'Developed a custom work reporting mobile application for a customer, used by over 100 employees daily.'],
     start: new Date('2019/01/01'),
     end: new Date('2020/03/01'),
     logo: logoERIS,
@@ -60,7 +60,7 @@ export const WorkRecords: Record[] = [
     databases: ['sqlserver','realm','postgresql','mysql'],
     languages: ['bash','css','java','javascript','html','jsp'],
     libraries: ['reactnative','sequelize','redux','jquery'],
-    frameworks: ['liferay'],
+    frameworks: ['liferay','android','ios'],
     tools: ['birt','gimp','gradle','nginx','node','npm','oracle','tomcat','jenkins'],
     isMobile: true,
     isDesktop: true,
@@ -80,8 +80,8 @@ export const WorkRecords: Record[] = [
     type: 'work',
     employer: 'Revision Military',
     title: 'Head Tracking Application Developer',
-    summary: 'Internship where I designed and developed an automated robotic testing system for development of a novel smart-helmet.',
-    bullets: [],
+    summary: 'Internship where I designed and developed an automated robotic testing system for aiding in test development of a novel smart-helmet\'s sensor fusion system. I wrote a desktop application to:',
+    bullets: ['Run tests by sending commands to a robotic arm over serial that moved a phone (a mock helmet) on a set path.','Assert that the phone\'s calculated orientation matched against the robot\'s actual orientation to product quantifiable results on sensor fusion effectiveness'],
     start: new Date('2018/06/01'),
     end: new Date('2018/08/31'),
     logo: logoRevision,
@@ -104,8 +104,8 @@ export const WorkRecords: Record[] = [
     type: 'work',
     employer: 'GE Digital',
     title: 'Software Test Developer',
-    summary: 'Internship where I developed end-to-end intergration testing for a network security device and an embedded OS.',
-    bullets: [],
+    summary: 'Internship where I worked as part of a QA team across several large enterprise software projects, where I:',
+    bullets: ['Developed end-to-end integration testing for a network security device using BDD test methods', 'Lead development of a test plan for a new embedded OS.'],
     start: new Date('2017/05/01'),
     end: new Date('2017/12/20'),
     logo: logoGE,
@@ -114,7 +114,7 @@ export const WorkRecords: Record[] = [
     languages: ['javascript','html','bash','c'],
     libraries: [],
     frameworks: [],
-    tools: ['gradle','jenkins','jira','node','npm','selenium','cucumber'],
+    tools: ['gradle','jenkins','jira','node','npm','selenium','cucumber','swagger'],
     isDesktop: true,
     links: [
       {
@@ -210,7 +210,7 @@ export const ProjectRecords: Record[] = [
     links: [
       {
         type: 'google_play', 
-        url: 'https://play.google.com/store/apps/details?id=com.shaver.indepocket'
+        url: 'https://play.google.com/store/apps/details?id=com.shaver.midio'
       }
     ],
   },

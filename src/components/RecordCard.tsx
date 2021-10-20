@@ -2,7 +2,7 @@ import styled from "styled-components";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCalendar, faBriefcase, faDesktop, faMobileAlt } from '@fortawesome/free-solid-svg-icons';
 
-import { Databases, Frameworks, Languages, Libraries, Skills } from "../categories";
+import { Databases, Frameworks, Languages, Libraries, Skills, Tools } from "../categories";
 import { DivProps, Record } from "../types";
 import CategoryLabel from "./CategoryLabel";
 import LinkButton from "./LinkButton";
@@ -118,7 +118,7 @@ const DateBanner = styled.div`
 const RecordCard : React.FC<RecordCardProps & DivProps> = ({className, record, key}) => {
   const {
     type, title, employer, summary, bullets, start, end, logo, 
-    skills, databases, languages, frameworks, libraries, isMobile, isDesktop, 
+    skills, databases, languages, frameworks, libraries, tools, isMobile, isDesktop, 
     links
   } = record;
   return (
@@ -170,6 +170,7 @@ const RecordCard : React.FC<RecordCardProps & DivProps> = ({className, record, k
           {libraries.map(id => <StyledLabel key={id} data={Libraries[id]}/>)}
           {frameworks.map(id => <StyledLabel key={id} data={Frameworks[id]}/>)}
           {databases.map(id => <StyledLabel key={id} data={Databases[id]}/>)}
+          {tools.map(id => <StyledLabel key={id} data={Tools[id]}/>)}
         </ItemsGroup>
         {/* <Row>
           <CategoryHeader>Languages</CategoryHeader>

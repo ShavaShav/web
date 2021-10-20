@@ -15,9 +15,10 @@ import {
   faHardHat,
   faLaptopCode,
   faSchool,
-  faFeather
+  faFeather,
+  faPlug
 } from '@fortawesome/free-solid-svg-icons'
-import { faAws } from '@fortawesome/free-brands-svg-icons'
+import { faAppStoreIos, faAws } from '@fortawesome/free-brands-svg-icons'
 
 import { CategoryData, Framework, Language, Library, Database, Skill, Tool } from './types'
 
@@ -96,6 +97,10 @@ export const Tools: Record<Tool, CategoryData> = {
     name: 'Tomcat',
     image: devIcon('tomcat'),
   },
+  swagger: {
+    name: 'Swagger',
+    image: 'https://api.iconify.design/logos/swagger.svg',
+  },
 }
 
 export const Skills: Record<Skill, CategoryData> = {
@@ -155,6 +160,10 @@ export const Skills: Record<Skill, CategoryData> = {
     name: 'TDD',
     icon: faRecycle,
   },
+  vpn: {
+    name: 'VPN',
+    icon: faPlug,
+  },
 }
 
 export const Databases: Record<Database, CategoryData> = {
@@ -189,6 +198,10 @@ export const Frameworks: Record<Framework, CategoryData> = {
     name: 'Android',
     image: devIcon('android'),
   },
+  ios: {
+    name: 'iOS',
+    icon: faAppStoreIos
+  },
   odoo: {
     name: 'Odoo',
     image: iconOdoo,
@@ -208,7 +221,11 @@ export const Frameworks: Record<Framework, CategoryData> = {
   javafx: {
     name: 'JavaFX',
     image: devIcon('java'),
-  }
+  },
+  grafana: {
+    name: 'Grafana',
+    image: 'https://api.iconify.design/logos/grafana.svg?color=yellow',
+  },
 }
 
 export const Libraries: Record<Library, CategoryData> = {
@@ -226,19 +243,23 @@ export const Libraries: Record<Library, CategoryData> = {
   },
   express: {
     name: 'Express',
-    image:  devIcon('express'),
+    image: devIcon('express'),
   },
   jest: {
     name: 'Jest',
-    image:  devIconPlain('jest'),
+    image: devIconPlain('jest'),
   },
   redux: {
     name: 'Redux',
-    image:  devIcon('redux'),
+    image: devIcon('redux'),
   },
   sequelize: {
     name: 'Sequelize',
-    image:  devIcon('sequelize'),
+    image: devIcon('sequelize'),
+  },
+  pytest: {
+    name: 'PyTest',
+    image: 'https://api.iconify.design/simple-icons/pytest.svg?color=yellow'
   }
 }
 
