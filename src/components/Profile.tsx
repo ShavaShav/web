@@ -167,12 +167,12 @@ const Profile = (props: ProfileProps) => {
           </ProfileSection>
           <ButtonGroup>
             <Row>
-              <LinkButton icon={faGithub} tintColor={'#9E9E9E'} url='https://www.github.com/ShavaShav' title="Github"/>
-              <LinkButton icon={faEnvelope} tintColor={'#26A69A'} url='https://ca.linkedin.com/in/zach-shaver' title="Contact"/>
+              <LinkButton icon={faGithub} color={'#555'} url='https://www.github.com/ShavaShav' title="Github"/>
+              <LinkButton icon={faEnvelope} color={'#607D8B'} url='mailto:zachshaver@gmail.com' title="Contact"/>
             </Row>
             <Row>
-              <LinkButton icon={faLinkedin} tintColor={'#2196F3'} url='https://ca.linkedin.com/in/zach-shaver' title="LinkedIn"/>
-              <LinkButton icon={faFilePdf} tintColor={'#F44336'} url='https://ca.linkedin.com/in/zach-shaver' title="Resume"/>
+              <LinkButton icon={faLinkedin} color={'#2196F3'} url='https://ca.linkedin.com/in/zach-shaver' title="LinkedIn"/>
+              <LinkButton icon={faFilePdf} color={'#388E3C'} url='docs/resume.pdf' title="Resume"/>
             </Row>
           </ButtonGroup>
         </ProfileWrapper>

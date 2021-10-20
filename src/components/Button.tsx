@@ -34,7 +34,7 @@ const StyledIcon = styled(FontAwesomeIcon)`
 
 const StyledButton = styled.button<ButtonProps>`
   background-color: ${({color}) => color};
-  /* color: ${({tintColor}) => tintColor}; */
+  color: ${({tintColor}) => tintColor};
   cursor: pointer;
   align-content: center;
 `
