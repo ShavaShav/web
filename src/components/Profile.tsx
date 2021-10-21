@@ -91,7 +91,7 @@ const ButtonGroup = styled.div`
   align-items: center;
   justify-content: center;
   flex-wrap: wrap;
-  @media only screen and (min-width: '480px'}) {
+  @media (orientation: portrait) {    
     flex-direction: column;
   }
 `

@@ -7,6 +7,7 @@ import RecordList from "./RecordList";
 import { MOBILE_BREAKPOINT_WIDTH } from "../utils";
 import { Record } from "../types";
 import Button from "./Button";
+import NoRecordsMessage from "./NoRecordsMessage";
 interface ToggleButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   readonly isActive: boolean;
 }
@@ -115,7 +116,10 @@ const Records = (props: any) => {
           </ToggleButtons>
           <SortButton icon={isAscending ? faSortAmountUp : faSortAmountDown} onClick={() => {console.log('sort'); setIsAscending(!isAscending)}}/>
         </RecordHeader>
-        <RecordList records={records}/> 
+        {records.length
+          ? <RecordList records={records}/>
+          : <NoRecordsMessage/>
+        } 
       </Main>
     </Container>
   );

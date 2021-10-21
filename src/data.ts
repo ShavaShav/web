@@ -284,7 +284,7 @@ export const ProjectRecords: Record[] = [
     logo: logoJuzahach,
     skills: ['backend','frontend','networking','rest'],
     databases: ['mysql'],
-    languages: ['javascript','css','html'],
+    languages: ['javascript','css','html','cplusplus'],
     libraries: ['sequelize','react','express','redux'],
     frameworks: ['qt','android'],
     tools: ['heroku','gradle','node','npm','slack'],
@@ -298,7 +298,7 @@ export const ProjectRecords: Record[] = [
       {
         type: 'source_code', 
         url: 'https://github.com/ShavaShav/juzahach-manager',
-        text: 'App'
+        text: 'Manager'
       },
       {
         type: 'source_code', 
@@ -410,7 +410,7 @@ export const ProjectRecords: Record[] = [
       {
         type: 'docs', 
         url: 'https://www.geeksforgeeks.org/cpu-scheduling-in-operating-systems/',
-        text: 'CPU Scheduling'
+        text: 'CPU Schedules'
       },
     ],
   },

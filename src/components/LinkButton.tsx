@@ -12,9 +12,11 @@ interface LinkButtonProps extends ButtonProps {
 }
 
 const StyledButton = styled(Button)`
+  /* flex-grow: 1; */
   min-width: 44px;
-  max-width: 55px;
+  max-width: 60px;
   min-height: 44px;
+  max-height: 60px;
   border-width: 0;
   border-radius: 5px;
   @media only screen and (min-width: ${MOBILE_BREAKPOINT_WIDTH + 'px'}) {
