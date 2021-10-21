@@ -1,11 +1,12 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import styled from "styled-components";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faCaretDown, faCaretUp, faFilter } from '@fortawesome/free-solid-svg-icons'
+import { faCaretDown, faCaretUp, faDesktop, faFilter, faMobile, faMobileAlt } from '@fortawesome/free-solid-svg-icons'
 import { Databases, Frameworks, Languages, Libraries, Skills, Tools } from "../categories";
 import { MOBILE_BREAKPOINT_WIDTH } from "../utils";
 import CategorySelect from "./CategorySelect";
 import Button from "./Button";
+import Checkbox from "./Checkbox";
 
 interface CategoryFiltersProps {
   readonly className?: string;
@@ -15,6 +16,7 @@ interface CategoryFiltersProps {
   readonly onLibrariesFiltered: (libraries: string[]) => void;
   readonly onSkillsFiltered: (skills: string[]) => void;
   readonly onToolsFiltered: (tools: string[]) => void;
+  readonly onPlatformChange: (isMobile: boolean, isDesktop: boolean) => void;
 }
 
 const FilterContainer = styled.div<CategoryFiltersProps & {showFilters: boolean}>`
@@ -22,6 +24,8 @@ const FilterContainer = styled.div<CategoryFiltersProps & {showFilters: boolean}
   padding: ${({showFilters}) => showFilters ? '10px' : '0px'};
   margin-bottom: 10px;
   padding-top: 0px;
+  padding-left: 10px;
+  padding-right: 10px;
   transition: all 0.5s ease-in-out;
   overflow: ${({showFilters}) => showFilters ? 'initial' : 'hidden'};
   opacity: ${({showFilters}) => showFilters ? '1' : '0'};
@@ -31,8 +35,9 @@ const FilterContainer = styled.div<CategoryFiltersProps & {showFilters: boolean}
   @media only screen and (min-width: ${MOBILE_BREAKPOINT_WIDTH + 'px'}) {
     opacity: 1;
     max-height: 100%;
+    max-width: 175px;
     padding: 10px;
-    flex: 0 0 250px;
+    /* flex: 0 0 250px; */
     pointer-events: initial;
   }
 `
@@ -60,19 +65,47 @@ const FilterHeader = styled(Button)`
   }
 `
 
+const CheckboxGroup = styled.div`
+  display: flex;
+  flex: 1;
+  flex-direction: row;
+  flex-wrap: wrap;
+`
+
+const StyledCheckbox = styled(Checkbox)`
+  display: flex;
+  flex: 1;
+  border-radius: 0;
+  min-width: 150px;
+  background-color: ${({theme}) => theme.filterDropdown};
+  border: 1px solid ${({theme}) => theme.buttonBorder};
+  transition: all 0.50s linear;
+`
+
 const CategoryFilters: React.FC<CategoryFiltersProps> = (props) => {
   const {
     className, 
-    onDatabasesFiltered, onFrameworksFiltered, onLanguagesFiltered, onLibrariesFiltered, onSkillsFiltered, onToolsFiltered
+    onDatabasesFiltered, onFrameworksFiltered, onLanguagesFiltered, onLibrariesFiltered, onSkillsFiltered, onToolsFiltered, onPlatformChange
   } = props;
   const [showFilters, setShowFilters] = useState(false)
+  const [showMobile, setShowMobile] = useState(true)
+  const [showDesktop, setShowDesktop] = useState(true)
 
+  useEffect(() => {
+    onPlatformChange(showDesktop, showMobile)
+  }, [onPlatformChange, showDesktop, showMobile])
+  
   return (
     <Container>
       <FilterHeader icon={faFilter} onClick={() => setShowFilters(!showFilters)} title={showFilters ? 'Hide Filters' : 'Show Filters'}>
         <FontAwesomeIcon icon={showFilters ? faCaretUp : faCaretDown}/>
       </FilterHeader>
       <FilterContainer {...props} className={className} showFilters={showFilters}>
+        <h5>Platform</h5>
+        <CheckboxGroup>
+          <StyledCheckbox label="Mobile" value={showMobile} icon={faMobileAlt} onChange={setShowMobile}/>
+          <StyledCheckbox label="Desktop" value={showDesktop} icon={faDesktop} onChange={setShowDesktop}/>
+        </CheckboxGroup>
         <h5>Languages</h5>
         <CategorySelect categories={Languages} onSelect={onLanguagesFiltered}/>
         <h5>Libraries</h5>

@@ -53,7 +53,6 @@ const ToggleButton = styled(Button)<ToggleButtonProps>`
   border-radius: 0;
   border: none;
   flex: 1;
-  border-right: ${({theme, isActive}) => `1px solid ${theme.filterBackground}`};
 `
 
 const SortButton = styled(Button)`
@@ -69,6 +68,8 @@ const Records = (props: any) => {
   const [records, setRecords] = useState<Record[]>([])
   const [isShowingWork, setIsShowingWork] = useState(false)
   const [isAscending, setIsAscending] = useState(false)
+  const [isShowingDesktop, setIsShowingDesktop] = useState(false)
+  const [isShowingMobile, setIsShowingMobile] = useState(false)
   const [databases, setDatabases] = useState<string[]>([])
   const [frameworks, setFrameworks] = useState<string[]>([])
   const [languages, setLanguages] = useState<string[]>([])
@@ -76,13 +77,21 @@ const Records = (props: any) => {
   const [skills, setSkills] = useState<string[]>([])
   const [tools, setTools] = useState<string[]>([])
 
+  const onPlatformChange = (isDesktop: boolean, isMobile: boolean) => {
+    setIsShowingDesktop(isDesktop);
+    setIsShowingMobile(isMobile);
+  }
+
   useEffect(() => {
-    const records: Record[] = isShowingWork ? WorkRecords : ProjectRecords;
+    let records: Record[] = isShowingWork ? WorkRecords : ProjectRecords;
 
     if (isAscending)
       records.sort((a,b) => a.start.getTime() - b.start.getTime())
     else
       records.sort((a,b) => b.start.getTime() - a.start.getTime())
+
+    // Remove unwanted platforms
+    records = records.filter(record => (record.isDesktop && isShowingDesktop) || (record.isMobile && isShowingMobile)); 
 
     if (!databases.length && !frameworks.length && !languages.length && !libraries.length && !skills.length && !tools.length) {
       setRecords([...records])
@@ -96,7 +105,7 @@ const Records = (props: any) => {
         || record.tools.some(t => tools.includes(t))
       ))
     }
-  }, [isShowingWork, isAscending, databases, frameworks, languages, libraries, skills, tools])
+  }, [isShowingWork, isShowingDesktop, isShowingMobile, isAscending, databases, frameworks, languages, libraries, skills, tools])
 
   return (
     <Container className={props.className}>
@@ -107,6 +116,7 @@ const Records = (props: any) => {
         onLibrariesFiltered={setLibraries}
         onSkillsFiltered={setSkills}
         onToolsFiltered={setTools}
+        onPlatformChange={onPlatformChange}
       />
       <Main>
         <RecordHeader>

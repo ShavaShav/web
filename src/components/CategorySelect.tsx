@@ -57,6 +57,7 @@ const CategorySelect: React.FC<CategorySelectProps> = ({categories, onSelect}) =
       background: selectProps._theme.filterDropdown,
       transition: 'all 0.50s linear',
       border: `1px solid ${selectProps._theme.buttonBorder}`,
+      borderRadius: '0px',
       boxShadow: 'none',
       '&:hover': {
         border: `1px solid ${selectProps._theme.buttonBorderActive}`,
@@ -79,6 +80,11 @@ const CategorySelect: React.FC<CategorySelectProps> = ({categories, onSelect}) =
       ...styles,
       background: selectProps._theme.filterDropdown,
       // color: selectProps._theme.text
+    }),
+    placeholder: (styles, {selectProps}: any) => ({
+      ...styles,
+      color: selectProps._theme.buttonBorder,
+      fontSize: '1em'
     }),
   };
 

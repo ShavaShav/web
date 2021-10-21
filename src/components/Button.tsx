@@ -15,6 +15,8 @@ export interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElemen
 
 const Title = styled.span`
   text-align: center;
+  padding-left: 5px;
+  padding-right: 5px;
 `
 
 const TitleIcon = styled.div`
@@ -28,8 +30,8 @@ const TitleIcon = styled.div`
 `
 
 const StyledIcon = styled(FontAwesomeIcon)`
-  padding-right: 5px;
   padding-left: 5px;
+  padding-right: 5px;
 `
 
 const StyledButton = styled.button<ButtonProps>`

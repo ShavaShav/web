@@ -47,7 +47,6 @@ const StyledRecordCard = styled(RecordCard)`
 `
 
 const RecordList : React.FC<RecordListProps & DivProps> = ({records, className}) => {
-  console.log("render records: ", records)
   return (
     <Container className={className}>
       {records.map((record, index) => <StyledRecordCard key={`record_${record.start.toISOString}_${record.title}`} record={record}/>)}

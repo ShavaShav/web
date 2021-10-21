@@ -124,6 +124,7 @@ const LinkButton = styled(Button)`
   border-color: transparent;
   &:hover {
     border-color: ${({theme}) => theme.profileBtn};
+    box-shadow: 0 8px 12px 0 rgba(0,0,0,0.22), 0 15px 40px 0 rgba(0,0,0,0.19);
   }
 `
 
