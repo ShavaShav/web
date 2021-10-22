@@ -160,7 +160,7 @@ export const ProjectRecords: Record[] = [
     skills: ['frontend'],
     databases: [],
     languages: ['css','javascript','typescript'],
-    libraries: ['react'],
+    libraries: ['react','styledcomponents'],
     frameworks: [],
     tools: ['npm','node','gradle'],
     isDesktop: true,

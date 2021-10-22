@@ -260,6 +260,10 @@ export const Libraries: Record<Library, CategoryData> = {
   pytest: {
     name: 'PyTest',
     image: 'https://api.iconify.design/simple-icons/pytest.svg?color=yellow'
+  },
+  styledcomponents: {
+    name: 'styled components',
+    image: 'https://api.iconify.design/simple-icons/styledcomponents.svg?color=brown'
   }
 }
 
