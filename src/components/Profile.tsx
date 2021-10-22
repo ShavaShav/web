@@ -114,6 +114,10 @@ const Title = styled.div`
   }
 `
 
+const TypewriterContainer = styled.h2`
+  font-family: Ubuntu Mono;
+`
+
 const LinkButton = styled(Button)`
   height: 45px;
   width: 120px;
@@ -162,9 +166,9 @@ const Profile = (props: ProfileProps) => {
             <AnimatedHeadshot round size={150}/>
             <Title>
               <h1>Zach Shaver</h1>
-              <h2>
+              <TypewriterContainer>
                 <Typewriter cursor cursorStyle="|" words={subtitles} loop={0}/>
-              </h2>
+              </TypewriterContainer>
             </Title>
           </ProfileSection>
           <ButtonGroup>
