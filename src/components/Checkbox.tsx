@@ -25,6 +25,7 @@ const Label = styled.label<{active: boolean}>`
   align-content: center;
   align-items: center;
   color: ${({theme, active}) => active ? theme.text : theme.textInactive};
+  border-color: ${({theme, active}) => active ? theme.buttonBorderActive : theme.buttonBorder};
   transition: color 0.50s linear;
 `
 
@@ -33,7 +34,6 @@ const LabelWrapper = styled.span`
   flex: 1;
   flex-direction: row;
   justify-content: center;
-  align-items: center;
 `
 
 const Container = styled.button`
@@ -42,6 +42,12 @@ const Container = styled.button`
   padding: 5px;
   min-width: 44px;
   min-height: 44px;
+  display: flex;
+  flex: 1;
+  flex-direction: row;
+  align-content: center;
+  justify-content: center;
+  align-items: center;
 `
 
 const StyledIcon = styled(FontAwesomeIcon)`

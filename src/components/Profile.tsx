@@ -115,8 +115,8 @@ const Title = styled.div`
 `
 
 const LinkButton = styled(Button)`
-  height: 40px;
-  width: 100px;
+  height: 45px;
+  width: 120px;
   margin: 5px;
   /* border: 0; */
   /* border-color: ${({theme}) => theme.profileBtn}; */

@@ -28,6 +28,7 @@ const Container = styled.div`
 
 const Main = styled.div`
   flex: 1;
+  z-index: 1;
 `
 
 const RecordHeader = styled.div`

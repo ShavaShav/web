@@ -14,9 +14,9 @@ interface LinkButtonProps extends ButtonProps {
 const StyledButton = styled(Button)`
   /* flex-grow: 1; */
   min-width: 60px;
-  max-width: 60px;
+  max-width: 75px;
   min-height: 60px;
-  max-height: 60px;
+  max-height: 70px;
   border-width: 0;
   border-radius: 5px;
   &:hover {
