@@ -101,22 +101,22 @@ const CategoryFilters: React.FC<CategoryFiltersProps> = (props) => {
         <FontAwesomeIcon icon={showFilters ? faCaretUp : faCaretDown}/>
       </FilterHeader>
       <FilterContainer {...props} className={className} showFilters={showFilters}>
-        <h5>Platform</h5>
+        <h4>Platform</h4>
         <CheckboxGroup>
           <StyledCheckbox label="Mobile" value={showMobile} icon={faMobileAlt} onChange={setShowMobile}/>
           <StyledCheckbox label="Desktop" value={showDesktop} icon={faDesktop} onChange={setShowDesktop}/>
         </CheckboxGroup>
-        <h5>Languages</h5>
+        <h4>Languages</h4>
         <CategorySelect categories={Languages} onSelect={onLanguagesFiltered}/>
-        <h5>Libraries</h5>
+        <h4>Libraries</h4>
         <CategorySelect categories={Libraries} onSelect={onLibrariesFiltered}/>
-        <h5>Frameworks</h5>
+        <h4>Frameworks</h4>
         <CategorySelect categories={Frameworks} onSelect={onFrameworksFiltered}/>
-        <h5>Databases</h5>
+        <h4>Databases</h4>
         <CategorySelect categories={Databases} onSelect={onDatabasesFiltered}/>
-        <h5>Tools</h5>
+        <h4>Tools</h4>
         <CategorySelect categories={Tools} onSelect={onToolsFiltered}/>
-        <h5>Skills</h5>
+        <h4>Skills</h4>
         <CategorySelect categories={Skills} onSelect={onSkillsFiltered}/>
       </FilterContainer>
     </Container>

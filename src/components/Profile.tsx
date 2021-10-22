@@ -1,4 +1,4 @@
-import { Dispatch, SetStateAction, useEffect, useState } from "react";
+import { Dispatch, SetStateAction, useEffect, useLayoutEffect, useRef, useState } from "react";
 import styled, { keyframes } from "styled-components";
 import { faGithub, faLinkedin } from '@fortawesome/free-brands-svg-icons'
 import { Typewriter } from 'react-simple-typewriter'
@@ -24,8 +24,9 @@ const subtitles = [
 ]
 
 const Container = styled.div`
-  min-height: ${() => `calc(340px - ${headerHeight}px)`};
-  height: ${() => `calc(100vh - ${headerHeight}px)`};
+  /* min-height: 100%; */
+  /* min-height: ${() => `calc(340px - ${headerHeight}px)`}; */
+  min-height: ${() => `calc(100vh - ${headerHeight}px)`};
   background-color: ${({theme}) => theme.profile};
   color: ${({theme}) => theme.profileTint};
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
@@ -133,19 +134,26 @@ const LinkButton = styled(Button)`
 `
 
 const Profile = (props: ProfileProps) => {
+  const [profileHeight, setProfileHeight] = useState(0);
   const [showHeader, setShowHeader] = useState(false);
   const [isPastProfile, setIsPastProfile] = useState(false);
+  const profileRef = useRef<any>(null);
+
+  useEffect(() => {
+    if (profileRef?.current?.clientHeight)
+      setProfileHeight(profileRef.current.clientHeight)
+  }, [profileRef?.current?.clientHeight])
 
   useEffect(() => {
     if (typeof window !== "undefined") {
       const checkHeader = () => {
-        setShowHeader(window.pageYOffset > window.innerHeight - headerHeight - 25);
-        setIsPastProfile(window.pageYOffset > window.innerHeight - headerHeight);
+        setShowHeader(window.pageYOffset > profileHeight - 25);
+        setIsPastProfile(window.pageYOffset > profileHeight);
       }
       window.addEventListener("scroll", checkHeader);
       return () => window.removeEventListener("scroll", checkHeader);
     }
-  }, [window]);
+  }, [profileHeight]);
 
   // useEffect(() => {
   //   if (typeof document?.body !== "undefined") {
@@ -160,7 +168,7 @@ const Profile = (props: ProfileProps) => {
   return (
     <>
       <StyledHeader height={headerHeight} isDark={props.isDark} isShowing={showHeader} isAtTop={isPastProfile} toggleTheme={props.toggleTheme}/>
-      <Container>
+      <Container ref={profileRef}>
         <ProfileWrapper {...props} hide={showHeader}>
           <ProfileSection>
             <AnimatedHeadshot round size={150}/>
