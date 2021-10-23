@@ -68,13 +68,25 @@ const CategorySelect: React.FC<CategorySelectProps> = ({categories, onSelect}) =
       // kill the white space on first and last option
       padding: 0,
     }),
+    menuPortal: (styles) => ({
+      ...styles,
+      zIndex: 10
+    }),
     option: (styles, {isFocused, selectProps}: any) => ({
       ...styles,
       background: isFocused ? selectProps._theme.filterOptionActive : selectProps._theme.filterDropdown,
+      fontSize: '1em'
     }),
     multiValue: (styles, {selectProps}: any) => ({
       ...styles,
       background: 'transparent',
+      fontSize: '1.15em'
+    }),
+    multiValueRemove: (styles, {selectProps}: any) => ({
+      ...styles,
+      '&:hover': {
+        backgroundColor: 'transparent',
+      }
     }),
     noOptionsMessage: (styles, {selectProps}: any) => ({
       ...styles,
@@ -84,13 +96,14 @@ const CategorySelect: React.FC<CategorySelectProps> = ({categories, onSelect}) =
     placeholder: (styles, {selectProps}: any) => ({
       ...styles,
       color: selectProps._theme.buttonBorder,
-      fontSize: '1em'
+      fontSize: '0.8em'
     }),
   };
 
   return (
     <Select
       isMulti
+      menuPortalTarget={document.body} 
       styles={customStyles}
       options={options}
       value={selected}

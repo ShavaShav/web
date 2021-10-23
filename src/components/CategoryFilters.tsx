@@ -42,13 +42,16 @@ const FilterContainer = styled.div<CategoryFiltersProps & {showFilters: boolean}
   }
 `
 
-const Container = styled.div`
+const Container = styled.div<{showFilters: boolean}>`
   background-color: ${({theme}) => theme.filterBackground};
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
   height: 100%;
   margin-bottom: 10px;
   transition: background-color 0.50s linear;
-  z-index: 1;
+  @media only screen and (min-width: ${MOBILE_BREAKPOINT_WIDTH + 'px'}) {
+    // Bump filters up in z index so shadow is cast properly when in desktop mode
+    z-index: 2
+  }
 `
 
 const FilterHeader = styled(Button)`
@@ -96,7 +99,7 @@ const CategoryFilters: React.FC<CategoryFiltersProps> = (props) => {
   }, [onPlatformChange, showDesktop, showMobile])
   
   return (
-    <Container>
+    <Container showFilters={showFilters}>
       <FilterHeader icon={faFilter} onClick={() => setShowFilters(!showFilters)} title={showFilters ? 'Hide Filters' : 'Show Filters'}>
         <FontAwesomeIcon icon={showFilters ? faCaretUp : faCaretDown}/>
       </FilterHeader>

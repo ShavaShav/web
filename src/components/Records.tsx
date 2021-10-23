@@ -28,7 +28,6 @@ const Container = styled.div`
 
 const Main = styled.div`
   flex: 1;
-  z-index: 1;
 `
 
 const RecordHeader = styled.div`
@@ -54,6 +53,7 @@ const ToggleButton = styled(Button)<ToggleButtonProps>`
   border-radius: 0;
   border: none;
   flex: 1;
+  font-size: 1.05em;
 `
 
 const SortButton = styled(Button)`

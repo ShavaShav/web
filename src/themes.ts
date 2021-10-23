@@ -11,6 +11,8 @@ const Colors = {
   secondaryLight: '#C1C1C1',
   textDark: '#FAFAFA',
   textLight: '#363537',
+  secondaryTextDark: '#AAA',
+  secondaryTextLight: '#555',
 }
 
 export type Theme = {
@@ -23,6 +25,7 @@ export type Theme = {
   textInactive: string,
   toggleBorder: string,
   dateBannerBackground: string,
+  dateBannerText: string,
   filterBackground: string,
   filterDropdown: string,
   filterOptionActive: string,
@@ -53,6 +56,7 @@ export const lightTheme: Theme = {
   text: Colors.textLight,
   textInactive: Colors.secondaryDark,
   dateBannerBackground: Colors.secondaryBackgroundLight,
+  dateBannerText: Colors.secondaryTextLight,
   filterBackground: Colors.secondaryBackgroundLight,
   filterDropdown: Colors.backgroundLight,
   filterOptionActive: Colors.secondaryLight,
@@ -85,6 +89,7 @@ export const darkTheme: Theme = {
   text: Colors.textDark,
   textInactive: Colors.secondaryLight,
   dateBannerBackground: Colors.secondaryBackgroundDark,
+  dateBannerText: Colors.secondaryTextDark,
   filterBackground: Colors.secondaryBackgroundDark,
   filterDropdown: Colors.backgroundDark,
   filterOptionActive: Colors.secondaryDark,

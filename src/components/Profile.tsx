@@ -53,7 +53,7 @@ const ProfileWrapper = styled.div<ProfileProps & {hide: boolean}>`
   transition: opacity 0.3s linear;
   margin-bottom: ${headerHeight}px;
   // Keep profile on top of sticky header, and allow click throughs
-  z-index: 10;
+  z-index: 5;
   pointer-events: none;
 `
 

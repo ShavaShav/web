@@ -13,10 +13,27 @@ interface RecordCardProps {
   readonly record: Record;
 }
 
+const Row = styled.div`
+  display: flex;
+  flex-direction: row;
+`
+
+const PaddedRow = styled(Row)`
+  padding: 0px 10px 10px;
+`
+
+const SpacedRow = styled(Row)`
+  justify-content: space-between;
+`
+
+const ItemsGroup = styled(Row)`
+  justify-content: center;
+  flex-wrap: wrap;
+`
+
 const Title = styled.span`
   font-size: 1.25em;
   font-weight: bold;
-  padding-left: 5px;
 `
 
 const Subtitle = styled.span`
@@ -32,6 +49,11 @@ const Headline = styled.div`
   transition: all 0.50s linear;
   font-size: 1.1em;
   word-wrap: anywhere;
+  padding-left: 5px;
+`
+
+const EmployerLine = styled(Row)`
+  padding-top: 5px;
 `
 
 const Container = styled.div`
@@ -50,24 +72,6 @@ const CategorySection = styled.div`
   display: flex;
   flex-direction: column;
   width: 100%;
-`
-
-const Row = styled.div`
-  display: flex;
-  flex-direction: row;
-`
-
-const PaddedRow = styled(Row)`
-  padding: 0px 10px 10px;
-`
-
-const SpacedRow = styled(Row)`
-  justify-content: space-between;
-`
-
-const ItemsGroup = styled(Row)`
-  justify-content: center;
-  flex-wrap: wrap;
 `
 
 const StyledLabel = styled(CategoryLabel)`
@@ -103,6 +107,7 @@ const DateBanner = styled.div`
   position: relative;
   top: 0;
   background-color: ${({theme}) => theme.dateBannerBackground};
+  color: ${({theme}) => theme.dateBannerText};
   border: 3px solid ${({theme}) => theme.cardBackground};
   border-top-width: 2px;
   margin-top: -15px;
@@ -110,7 +115,7 @@ const DateBanner = styled.div`
   margin-right: auto;
   margin-bottom: 2px;
   padding: 5px;
-  font-size: 0.75em;
+  font-size: 0.8em;
   border-radius: 5px;
   transition: all 0.50s linear;
 `
@@ -144,10 +149,10 @@ const RecordCard : React.FC<RecordCardProps & DivProps> = ({className, record, k
             </Row>
           </SpacedRow>
           {employer 
-            ? <Row>
-                <FontAwesomeIcon title="Employer" icon={faBriefcase} color='#C4A484' />
+            ? <EmployerLine>
+                <FontAwesomeIcon title="Employer" icon={faBriefcase} color='#a18162' />
                 <Subtitle>{employer}</Subtitle>
-              </Row>
+              </EmployerLine>
             : undefined
           }
         </Headline>
