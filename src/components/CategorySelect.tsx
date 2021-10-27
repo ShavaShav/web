@@ -103,6 +103,8 @@ const CategorySelect: React.FC<CategorySelectProps> = ({categories, onSelect}) =
   return (
     <Select
       isMulti
+      blurInputOnSelect={false}
+      isSearchable={false}
       menuPortalTarget={document.body} 
       styles={customStyles}
       options={options}

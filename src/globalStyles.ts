@@ -2,23 +2,10 @@ import { createGlobalStyle} from "styled-components"
 import { Theme } from "./themes"
 
 export default createGlobalStyle<{theme: Theme}>`
-  @font-face {
-    font-family: 'Ubuntu';
-    src: local('Ubuntu'), url(fonts/Ubuntu.woff) format('woff'), url(fonts/Ubuntu.woff2) format('woff2');
-    font-weight: 300;
-    font-style: normal;
-  }
-  @font-face {
-    font-family: 'Ubuntu Mono';
-    src: local('UbuntuMono'), url(fonts/UbuntuMono.woff) format('woff'), url(fonts/UbuntuMono.woff2) format('woff2');
-    font-weight: 300;
-    font-style: normal;
-  }
-  html, body, p, button {
-    /* height: 100vh;
-    overflow: hidden; */
-    font-family: Ubuntu;
-  }
+  /* html, body, p, button {
+    height: 100vh;
+    overflow: hidden;
+  } */
   body {
     /* overflow: scroll;
     scroll-behavior: smooth;
