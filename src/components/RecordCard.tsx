@@ -103,21 +103,25 @@ const Logo = styled.img`
   border-radius: 5px;
 `
 
-const DateBanner = styled.div`
+const DateWrapper = styled.div`
+  display: flex;
+  justify-content: center;
   position: relative;
   top: 0;
+  margin-top: -15px;
+  margin-bottom: 2px;
+`
+
+const DateBanner = styled.div`
   background-color: ${({theme}) => theme.dateBannerBackground};
   color: ${({theme}) => theme.dateBannerText};
   border: 3px solid ${({theme}) => theme.cardBackground};
   border-top-width: 2px;
-  margin-top: -15px;
-  margin-left: auto;
-  margin-right: auto;
-  margin-bottom: 2px;
   padding: 5px;
   font-size: 0.8em;
   border-radius: 5px;
   transition: all 0.50s linear;
+  text-align: center;
 `
 
 const RecordCard : React.FC<RecordCardProps & DivProps> = ({className, record, key}) => {
@@ -128,16 +132,18 @@ const RecordCard : React.FC<RecordCardProps & DivProps> = ({className, record, k
   } = record;
   return (
     <Container className={className} key={key}>
-      <DateBanner>
-        <FontAwesomeIcon title="Date" icon={faCalendar}/>
-        <Subtitle>
-          {start.toLocaleDateString('default', { month: 'long', year: 'numeric'})}
-          {end           
-            ? ` to ${end.toLocaleDateString('default', { month: 'long', year: 'numeric'})}`
-            : type === 'work' && ' to Present'
-          }
-        </Subtitle>
-      </DateBanner>
+      <DateWrapper>
+        <DateBanner>
+          <FontAwesomeIcon title="Date" icon={faCalendar}/>
+          <Subtitle>
+            {start.toLocaleDateString('default', { month: 'long', year: 'numeric'})}
+            {end           
+              ? ` to ${end.toLocaleDateString('default', { month: 'long', year: 'numeric'})}`
+              : type === 'work' && ' to Present'
+            }
+          </Subtitle>
+        </DateBanner>
+      </DateWrapper>
       <PaddedRow>
         <Logo alt={employer} src={logo} width={100} height={100}/>
         <Headline>

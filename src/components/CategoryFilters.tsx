@@ -63,6 +63,7 @@ const FilterHeader = styled(Button)`
   margin-top: 20px;
   min-width: 250px;
   width: 95%;
+  font-size: 1em;
   @media only screen and (min-width: ${MOBILE_BREAKPOINT_WIDTH + 'px'}) {
     display: none;
   }

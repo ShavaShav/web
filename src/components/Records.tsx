@@ -53,7 +53,7 @@ const ToggleButton = styled(Button)<ToggleButtonProps>`
   border-radius: 0;
   border: none;
   flex: 1;
-  font-size: 1.05em;
+  font-size: 1em;
 `
 
 const SortButton = styled(Button)`

@@ -54,6 +54,10 @@ const Link = styled.a`
 
 const LinkIcon = styled(FontAwesomeIcon)`
   margin-right: 15px;
+  opacity: 0.5;
+  &:focus, &:hover, &:active {
+    opacity: 1
+  }
 `
 
 const Row = styled.div`
@@ -99,6 +103,10 @@ const HeadshotRays = styled.div`
 
 const StyledThemeToggle = styled(ThemeToggle)`
   margin-top: 8px;
+  opacity: 0.7;
+  &:focus, &:hover, &:active {
+    opacity: 1
+  }
 `
 
 const Header = (props: HeaderProps) => {
