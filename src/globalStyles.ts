@@ -1,19 +1,22 @@
 import { createGlobalStyle} from "styled-components"
 import { Theme } from "./themes"
 
+// const Ubuntu = require('./fonts/Ubuntu.woff')
+
 export default createGlobalStyle<{theme: Theme}>`
-  @font-face {
+  /* @font-face {
     font-family: 'Ubuntu';
-    src: local('Ubuntu'), url(fonts/Ubuntu.woff) format('woff'), url(fonts/Ubuntu.woff2) format('woff2');
+    src: local('Ubuntu'), url('fonts/Ubuntu.woff') format('woff'), url('Ubuntu.woff2') format('woff2');
     font-weight: 300;
     font-style: normal;
+    font-display: optional;
   }
   @font-face {
     font-family: 'Ubuntu Mono';
-    src: local('UbuntuMono'), url(fonts/UbuntuMono.woff) format('woff'), url(fonts/UbuntuMono.woff2) format('woff2');
+    src: local('UbuntuMono'), local('Ubuntu Mono'), url('UbuntuMono.woff') format('woff'), url('UbuntuMono.woff2') format('woff2');
     font-weight: 300;
     font-style: normal;
-  }
+  } */
   html, body, p, button {
     /* height: 100vh;
     overflow: hidden; */
@@ -28,6 +31,7 @@ export default createGlobalStyle<{theme: Theme}>`
     background: ${({ theme }) => theme.body};
     color: ${({ theme }) => theme.text};
     transition: background 0.50s linear, color 0.50s linear;
+    font-family: Ubuntu;
   }
   button {
     border: ${({theme}) => `1px solid ${theme.buttonBorder}`};

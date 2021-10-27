@@ -1,0 +1,13 @@
+@font-face {
+    font-family: 'Ubuntu';
+    src: local('Ubuntu'), url('fonts/Ubuntu.woff') format('woff'), url('fonts/Ubuntu.woff2') format('woff2');
+    font-weight: 300;
+    font-style: normal;
+    /* font-display: optional; */
+}
+@font-face {
+    font-family: 'Ubuntu Mono';
+    src: local('UbuntuMono'), local('Ubuntu Mono'), url('./fonts/UbuntuMono.woff') format('woff'), url('./fonts/UbuntuMono.woff2') format('woff2');
+    font-weight: 300;
+    font-style: normal;
+}
