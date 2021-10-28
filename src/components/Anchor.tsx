@@ -29,7 +29,6 @@ const TitleIcon = styled.div<{isVertical: boolean}>`
   justify-content: center;
   height: 100%;
   color: white;
-  padding: 2px;
 `
 
 const StyledIcon = styled(FontAwesomeIcon)`

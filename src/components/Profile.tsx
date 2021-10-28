@@ -24,7 +24,7 @@ const subtitles = [
   'Dream Weaver',
   'Lord of the Files',
   'Master of Null',
-  'Python Charmer',
+  // 'Python Charmer',
   'Javascript Addict'
 ]
 

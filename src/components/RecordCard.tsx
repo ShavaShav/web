@@ -49,7 +49,7 @@ const Headline = styled.div`
   transition: all 0.50s linear;
   font-size: 1.1em;
   word-wrap: break-word;
-  padding-left: 15px;
+  padding-left: 10px;
 `
 
 const EmployerLine = styled(Row)`
