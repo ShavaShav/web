@@ -15,8 +15,7 @@ export interface AnchorProps extends React.AnchorHTMLAttributes<HTMLAnchorElemen
 
 const Title = styled.span`
   text-align: center;
-  padding-left: 5px;
-  padding-right: 5px;
+  padding: 2px;
   font-size: 0.9em;
 `
 
@@ -24,17 +23,17 @@ const TitleIcon = styled.div<{isVertical: boolean}>`
   display: flex;
   flex: 1;
   flex-direction: ${({isVertical}) => isVertical ? 'column' : 'row'};
-  flex-wrap: wrap;
+  /* flex-wrap: wrap; */
   align-items: center;
   align-content: center;
   justify-content: center;
   height: 100%;
   color: white;
+  padding: 2px;
 `
 
 const StyledIcon = styled(FontAwesomeIcon)`
-  padding-left: 5px;
-  padding-right: 5px;
+  padding: 2px;
 `
 
 const StyledAnchor = styled.a<AnchorProps>`
@@ -45,10 +44,9 @@ const StyledAnchor = styled.a<AnchorProps>`
   align-content: center;
   text-decoration: inherit;
   color: inherit;
-  cursor: auto;
   justify-content: center;
   display: block;
-  background: linear-gradient(transparent,rgba(0, 0, 0, 0.4)) top/100% 800%;
+  background: linear-gradient(transparent,rgba(124, 85, 85, 0.6)) top/100% 800%;
   padding: 5px;
   transition: all 0.50s linear, background 0.1s linear;
   &:hover, &:active {

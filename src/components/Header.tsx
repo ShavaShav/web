@@ -5,6 +5,7 @@ import { faGithub, faLinkedin } from '@fortawesome/free-brands-svg-icons'
 
 import ThemeToggle from "./ThemeToggle";
 import Headshot from "./Headshot";
+import { faEnvelope, faFilePdf } from "@fortawesome/free-solid-svg-icons";
 
 interface HeaderProps {
   readonly height: number;
@@ -54,7 +55,7 @@ const Link = styled.a`
 
 const LinkIcon = styled(FontAwesomeIcon)`
   margin-right: 15px;
-  opacity: 0.5;
+  opacity: 0.65;
   &:focus, &:hover, &:active {
     opacity: 1
   }
@@ -104,7 +105,7 @@ const HeadshotRays = styled.div`
 const StyledThemeToggle = styled(ThemeToggle)`
   margin-top: 8px;
   opacity: 0.7;
-  &:focus, &:hover, &:active {
+  &:hover, &:active {
     opacity: 1
   }
 `
