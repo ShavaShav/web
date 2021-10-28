@@ -3,7 +3,7 @@ import styled, { keyframes } from "styled-components";
 import { faGithub, faLinkedin } from '@fortawesome/free-brands-svg-icons'
 import { Typewriter } from 'react-simple-typewriter'
 
-import Button from "./Button";
+import Anchor from "./Anchor";
 import Header from "./Header";
 import Headshot from "./Headshot";
 import { MOBILE_BREAKPOINT_WIDTH } from "../utils";
@@ -119,7 +119,8 @@ const TypewriterContainer = styled.h2`
   font-family: Ubuntu Mono;
 `
 
-const LinkButton = styled(Button)`
+const LinkButton = styled(Anchor)`
+  pointer-events: auto;
   height: 45px;
   width: 120px;
   margin: 5px;
@@ -181,12 +182,12 @@ const Profile = (props: ProfileProps) => {
           </ProfileSection>
           <ButtonGroup>
             <Row>
-              <LinkButton icon={faGithub} color={'#555'} url='https://www.github.com/ShavaShav' title="Github"/>
-              <LinkButton icon={faEnvelope} color={'#607D8B'} url='mailto:zachshaver@gmail.com' title="Contact"/>
+              <LinkButton icon={faGithub} color={'#555'} href='https://www.github.com/ShavaShav' title="Github"/>
+              <LinkButton icon={faEnvelope} color={'#607D8B'} href='mailto:zachshaver@gmail.com' title="Contact"/>
             </Row>
             <Row>
-              <LinkButton icon={faLinkedin} color={'#2196F3'} url='https://ca.linkedin.com/in/zach-shaver' title="LinkedIn"/>
-              <LinkButton icon={faFilePdf} color={'#388E3C'} url='docs/resume.pdf' title="Resume"/>
+              <LinkButton icon={faLinkedin} color={'#2196F3'} href='https://ca.linkedin.com/in/zach-shaver' title="LinkedIn"/>
+              <LinkButton icon={faFilePdf} color={'#388E3C'} href='docs/resume.pdf' title="Resume"/>
             </Row>
           </ButtonGroup>
         </ProfileWrapper>

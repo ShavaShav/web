@@ -24,7 +24,6 @@ export default createGlobalStyle<{theme: Theme}>`
     border-radius: 2px;
     padding: 5px;
     transition: all 0.50s linear, background 0.1s linear;
-    /* pointer-events: auto; */
   }
   button:hover, button:active {
     background-position:bottom;

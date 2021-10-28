@@ -2,16 +2,16 @@ import { faDownload, faGlobe, faLink, faNewspaper } from '@fortawesome/free-soli
 import { faGooglePlay, faGithub, faNpm, faYoutube } from '@fortawesome/free-brands-svg-icons'
 
 import { Link } from "../types";
-import Button, { ButtonProps } from "./Button";
+import Anchor, { AnchorProps } from "./Anchor";
 import styled from 'styled-components';
 import { MOBILE_BREAKPOINT_WIDTH } from '../utils';
 import { useMediaQuery } from 'react-responsive';
 
-interface LinkButtonProps extends ButtonProps {
+interface LinkButtonProps extends AnchorProps {
   readonly link: Link;
 }
 
-const StyledButton = styled(Button)`
+const StyledAnchor = styled(Anchor)`
   /* flex-grow: 1; */
   min-width: 60px;
   max-width: 75px;
@@ -65,7 +65,7 @@ const LinkButton: React.FC<LinkButtonProps> = ({className, link}) => {
   // Show an icon-only button when in a mobile resolution
   const isMobile = useMediaQuery({ query: `(max-width: ${MOBILE_BREAKPOINT_WIDTH}px)` });
   return (
-    <StyledButton className={className} icon={icon[link.type]} url={link.url} title={link.text ? link.text : (isMobile ? '' : text[link.type])} color={color[link.type]}/>
+    <StyledAnchor isVertical={isMobile} className={className} icon={icon[link.type]} href={link.url} title={link.text ? link.text : (isMobile ? '' : text[link.type])} color={color[link.type]}/>
   );
 }
 
