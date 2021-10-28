@@ -20,7 +20,12 @@ const headerHeight = 60;
 const subtitles = [
   'Software Developer',
   'Git Guru',
-  'DevOps Demon'
+  'DevOps Demon',
+  'Dream Weaver',
+  'Lord of the Files',
+  'Master of Null',
+  'Python Charmer',
+  'Javascript Addict'
 ]
 
 const Container = styled.div`
@@ -127,6 +132,7 @@ const LinkButton = styled(Anchor)`
   /* border: 0; */
   /* border-color: ${({theme}) => theme.profileBtn}; */
   transition: all 0.50s linear;
+  background: linear-gradient(transparent,rgba(44, 44, 44, 0.25)) top/100% 800%;
   border-color: transparent;
   &:hover {
     border-color: ${({theme}) => theme.profileBtn};
@@ -186,7 +192,7 @@ const Profile = (props: ProfileProps) => {
               <LinkButton icon={faEnvelope} color={'#607D8B'} href='mailto:zachshaver@gmail.com' title="Contact"/>
             </Row>
             <Row>
-              <LinkButton icon={faLinkedin} color={'#2196F3'} href='https://ca.linkedin.com/in/zach-shaver' title="LinkedIn"/>
+              <LinkButton icon={faLinkedin} color={'#1a6fb4'} href='https://ca.linkedin.com/in/zach-shaver' title="LinkedIn"/>
               <LinkButton icon={faFilePdf} color={'#388E3C'} href='docs/resume.pdf' title="Resume"/>
             </Row>
           </ButtonGroup>

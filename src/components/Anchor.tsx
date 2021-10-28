@@ -37,7 +37,6 @@ const StyledIcon = styled(FontAwesomeIcon)`
 `
 
 const StyledAnchor = styled.a<AnchorProps>`
-  background-color: ${({color}) => color}!important;
   color: ${({tintColor}) => tintColor};
   cursor: pointer;
   text-align: center;
@@ -46,7 +45,8 @@ const StyledAnchor = styled.a<AnchorProps>`
   color: inherit;
   justify-content: center;
   display: block;
-  background: linear-gradient(transparent,rgba(124, 85, 85, 0.6)) top/100% 800%;
+  background: ${({theme}) => theme.buttonBackgroundGradient};
+  background-color: ${({color}) => color}!important;
   padding: 5px;
   transition: all 0.50s linear, background 0.1s linear;
   &:hover, &:active {

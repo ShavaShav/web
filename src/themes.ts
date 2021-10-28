@@ -45,6 +45,7 @@ export type Theme = {
   themeToggleTint: string,
   recordListHeader: string,
   recordListHeaderTint: string,
+  buttonBackgroundGradient: string,
 }
 
 export const lightTheme: Theme = {
@@ -78,6 +79,7 @@ export const lightTheme: Theme = {
   themeToggleTint: 'yellow',
   recordListHeader: Colors.secondaryLight,
   recordListHeaderTint: Colors.textLight,
+  buttonBackgroundGradient: 'linear-gradient(transparent,rgba(44, 44, 44, 0.3)) top/100% 800%',
 }
 
 export const darkTheme: Theme = {
@@ -111,4 +113,5 @@ export const darkTheme: Theme = {
   themeToggleTint: 'yellow',
   recordListHeader: Colors.secondaryDark,
   recordListHeaderTint: Colors.textDark,
+  buttonBackgroundGradient: 'linear-gradient(transparent,rgba(156, 156, 156, 0.25)) top/100% 800%',
 }

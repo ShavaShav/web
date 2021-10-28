@@ -48,8 +48,8 @@ const Headline = styled.div`
   color: ${({theme}) => theme.cardTint};
   transition: all 0.50s linear;
   font-size: 1.1em;
-  word-wrap: anywhere;
-  padding-left: 5px;
+  word-wrap: break-word;
+  padding-left: 15px;
 `
 
 const EmployerLine = styled(Row)`
@@ -93,6 +93,13 @@ const Body = styled.div`
 `
 
 const Description = styled.div`
+`
+
+const PlatformIconGroup = styled.div`
+  float: right;
+  display: flex;
+  flex: 1;
+  flex-direction: row;
 `
 
 const PlatformIcon = styled(FontAwesomeIcon)`
@@ -147,13 +154,13 @@ const RecordCard : React.FC<RecordCardProps & DivProps> = ({className, record, k
       <PaddedRow>
         <Logo alt={employer} src={logo} width={100} height={100}/>
         <Headline>
-          <SpacedRow>
-            <Title>{title}</Title>
-            <Row>
+          <div>
+            <PlatformIconGroup>
               {isDesktop && <PlatformIcon title="Desktop App" icon={faDesktop}/>}
               {isMobile && <PlatformIcon title="Mobile App" icon={faMobileAlt}/>}
-            </Row>
-          </SpacedRow>
+            </PlatformIconGroup>
+            <Title>{title}</Title>
+          </div>
           {employer 
             ? <EmployerLine>
                 <FontAwesomeIcon title="Employer" icon={faBriefcase} color='#a18162' />
