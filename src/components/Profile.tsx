@@ -151,26 +151,27 @@ const Profile = (props: ProfileProps) => {
       setProfileHeight(profileRef.current.clientHeight)
   }, [profileRef?.current?.clientHeight])
 
+  // useEffect(() => {
+  //   if (typeof window !== "undefined") {
+  //     const checkHeader = () => {
+  //       setShowHeader(window.pageYOffset > profileHeight - 25);
+  //       setIsPastProfile(window.pageYOffset > profileHeight);
+  //     }
+  //     window.addEventListener("scroll", checkHeader);
+  //     return () => window.removeEventListener("scroll", checkHeader);
+  //   }
+  // }, [profileHeight]);
+
   useEffect(() => {
-    if (typeof window !== "undefined") {
-      const checkHeader = () => {
-        setShowHeader(window.pageYOffset > profileHeight - 25);
-        setIsPastProfile(window.pageYOffset > profileHeight);
+    if (typeof document?.body !== "undefined") {
+      const checkHeader = (e: any) => {
+        setShowHeader(e.target.scrollTop > profileHeight - 25);
+        setIsPastProfile(e.target.scrollTop > profileHeight);
       }
-      window.addEventListener("scroll", checkHeader);
-      return () => window.removeEventListener("scroll", checkHeader);
+      document.body.addEventListener("scroll", checkHeader);
+      return () => document.body.removeEventListener("scroll", checkHeader);
     }
   }, [profileHeight]);
-
-  // useEffect(() => {
-  //   if (typeof document?.body !== "undefined") {
-  //     const checkHeader = (e) => {
-  //       setShowHeader(e.target.scrollTop > window.innerHeight - headerHeight - 50);
-  //     }
-  //     document.body.addEventListener("scroll", checkHeader);
-  //     return () => document.body.removeEventListener("scroll", checkHeader);
-  //   }
-  // }, [document.body]);
 
   return (
     <>

@@ -5,15 +5,6 @@ import { useDarkMode } from './useDarkMode';
 import Profile from './components/Profile';
 import Records from './components/Records';
 
-const ScrollContainer = styled.div`
-  max-height: 100vh;
-  overflow-y: auto;
-  -webkit-overflow-scrolling: touch;
-  scroll-snap-type: proximity;
-  scroll-snap-points-y: repeat(100vh);
-  scroll-snap-type: y proximity;
-`
-
 const StyledRecords = styled(Records)`
   scroll-margin-top: 60px;
   scroll-snap-align: start;
@@ -38,10 +29,8 @@ const App = () => {
     <ThemeProvider theme={theme === 'light' ? lightTheme : darkTheme}>
       <>
         <GlobalStyles />
-        <ScrollContainer>
-          <StyledProfile isDark={isDark} toggleTheme={toggleTheme}/>
-          <StyledRecords/>
-        </ScrollContainer>
+        <StyledProfile isDark={isDark} toggleTheme={toggleTheme}/>
+        <StyledRecords/>
       </>
     </ThemeProvider>
   );

@@ -2,16 +2,15 @@ import { createGlobalStyle} from "styled-components"
 import { Theme } from "./themes"
 
 export default createGlobalStyle<{theme: Theme}>`
-  /* html, body, p, button {
-    height: 100vh;
-    overflow: hidden;
-  } */
+  html, body {
+    overflow-y: auto;
+  }
   body {
-    /* overflow: scroll;
-    scroll-behavior: smooth;
-    scroll-snap-type: mandatory;
+    max-height: 100vh;
+    -webkit-overflow-scrolling: touch;
+    scroll-snap-type: proximity;
     scroll-snap-points-y: repeat(100vh);
-    scroll-snap-type: y mandatory; */
+    scroll-snap-type: y proximity;
     background: ${({ theme }) => theme.body};
     color: ${({ theme }) => theme.text};
     transition: background 0.50s linear, color 0.50s linear;
