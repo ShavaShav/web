@@ -1,23 +1,29 @@
 {
   "files": {
-    "main.css": "/static/css/main.a617e044.chunk.css",
-    "main.js": "/static/js/main.484f6355.chunk.js",
-    "main.js.map": "/static/js/main.484f6355.chunk.js.map",
-    "runtime-main.js": "/static/js/runtime-main.25b9b496.js",
-    "runtime-main.js.map": "/static/js/runtime-main.25b9b496.js.map",
-    "static/js/2.959b9203.chunk.js": "/static/js/2.959b9203.chunk.js",
-    "static/js/2.959b9203.chunk.js.map": "/static/js/2.959b9203.chunk.js.map",
-    "static/js/3.e7719442.chunk.js": "/static/js/3.e7719442.chunk.js",
-    "static/js/3.e7719442.chunk.js.map": "/static/js/3.e7719442.chunk.js.map",
+    "main.css": "/static/css/main.6dea0f05.chunk.css",
+    "main.js": "/static/js/main.2516dd5e.chunk.js",
+    "main.js.map": "/static/js/main.2516dd5e.chunk.js.map",
+    "runtime-main.js": "/static/js/runtime-main.58d0a326.js",
+    "runtime-main.js.map": "/static/js/runtime-main.58d0a326.js.map",
+    "static/js/2.e5a0af53.chunk.js": "/static/js/2.e5a0af53.chunk.js",
+    "static/js/2.e5a0af53.chunk.js.map": "/static/js/2.e5a0af53.chunk.js.map",
+    "static/js/3.4c5dd301.chunk.js": "/static/js/3.4c5dd301.chunk.js",
+    "static/js/3.4c5dd301.chunk.js.map": "/static/js/3.4c5dd301.chunk.js.map",
     "index.html": "/index.html",
-    "static/css/main.a617e044.chunk.css.map": "/static/css/main.a617e044.chunk.css.map",
-    "static/js/2.959b9203.chunk.js.LICENSE.txt": "/static/js/2.959b9203.chunk.js.LICENSE.txt",
-    "static/media/logo.6ce24c58.svg": "/static/media/logo.6ce24c58.svg"
+    "static/css/main.6dea0f05.chunk.css.map": "/static/css/main.6dea0f05.chunk.css.map",
+    "static/js/2.e5a0af53.chunk.js.LICENSE.txt": "/static/js/2.e5a0af53.chunk.js.LICENSE.txt",
+    "static/media/ge.e6b64602.png": "/static/media/ge.e6b64602.png",
+    "static/media/headshot_1.ab630625.png": "/static/media/headshot_1.ab630625.png",
+    "static/media/headshot_2.24f91733.png": "/static/media/headshot_2.24f91733.png",
+    "static/media/juzahach.4477b08d.png": "/static/media/juzahach.4477b08d.png",
+    "static/media/midio.87e046a6.png": "/static/media/midio.87e046a6.png",
+    "static/media/react-native-midi.ded77b0c.png": "/static/media/react-native-midi.ded77b0c.png",
+    "static/media/uwindsor.1dcc3751.png": "/static/media/uwindsor.1dcc3751.png"
   },
   "entrypoints": [
-    "static/js/runtime-main.25b9b496.js",
-    "static/js/2.959b9203.chunk.js",
-    "static/css/main.a617e044.chunk.css",
-    "static/js/main.484f6355.chunk.js"
+    "static/js/runtime-main.58d0a326.js",
+    "static/js/2.e5a0af53.chunk.js",
+    "static/css/main.6dea0f05.chunk.css",
+    "static/js/main.2516dd5e.chunk.js"
   ]
 }
