@@ -170,7 +170,7 @@ const Profile = (props: ProfileProps) => {
       <Container headerHeight={props.headerHeight} ref={profileRef}>
         <ProfileWrapper {...props} hide={showHeader}>
           <ProfileSection>
-            <AnimatedHeadshot round size={225} />
+            {/* <AnimatedHeadshot round size={225} /> */}
             <Title>
               <HeaderTitle>Zach Shaver</HeaderTitle>
               <TypewriterContainer>

@@ -7,10 +7,11 @@ interface LabelProps {
   readonly alt: string;
   readonly iconFA?: IconDefinition;
   readonly iconSrc?: string;
+  readonly Icon?: JSX.Element;
   readonly rounded?: boolean;
 }
 
-const Icon = styled.div`
+const IconWrapper = styled.div`
   padding-right: 5px;
 `;
 
@@ -36,15 +37,17 @@ const Label: React.FC<LabelProps & DivProps> = ({
   alt,
   iconFA,
   iconSrc,
+  Icon,
   title,
   children,
 }) => {
   return (
     <Container className={className}>
-      <Icon>
+      <IconWrapper>
         {iconFA && <StyledFontAwesomeIcon size={"sm"} icon={iconFA} />}
         {iconSrc ? <img alt={alt} src={iconSrc} height={18} width="auto" /> : undefined}
-      </Icon>
+        {Icon ? Icon : undefined}
+      </IconWrapper>
       {children}
     </Container>
   );

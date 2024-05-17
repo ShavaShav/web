@@ -20,7 +20,13 @@ export type Skill =
   | "testing"
   | "qa"
   | "teaching"
-  | "vpn";
+  | "vpn"
+  | "microservies"
+  | "eventDriven"
+  | "design"
+  | "auth"
+  | "distributed"
+  | "architecture";
 export type Language =
   | "assembly"
   | "java"
@@ -34,14 +40,19 @@ export type Language =
   | "css"
   | "jsp"
   | "csharp"
-  | "xml";
+  | "xml"
+  | "rust"
+  | "golang";
 export type Database =
   | "postgresql"
   | "mysql"
   | "neo4j"
   | "realm"
   | "sqlserver"
-  | "sqlite";
+  | "sqlite"
+  | "cockroachdb"
+  | "kinetica"
+  | "redis";
 export type Tool =
   | "selenium"
   | "docker"
@@ -59,7 +70,21 @@ export type Tool =
   | "npm"
   | "oracle"
   | "slack"
-  | "swagger";
+  | "swagger"
+  | "kubernetes"
+  | "keycloak"
+  | "pulsar"
+  | "graphql"
+  | "azure"
+  | "loki"
+  | "prometheus"
+  | "helm"
+  | "argo"
+  | "harbor"
+  | "garden"
+  | "wandb"
+  | "ceph"
+  | "langchain";
 export type Framework =
   | "android"
   | "ios"
@@ -68,7 +93,12 @@ export type Framework =
   | "firebase"
   | "qt"
   | "javafx"
-  | "grafana";
+  | "grafana"
+  | "graphql"
+  | "material"
+  | "nextJs"
+  | "threeJs"
+  | "openApi";
 export type Library =
   | "jquery"
   | "react"
@@ -78,7 +108,13 @@ export type Library =
   | "redux"
   | "sequelize"
   | "pytest"
-  | "styledcomponents";
+  | "styledcomponents"
+  | "pytorch"
+  | "prisma"
+  | "jest"
+  | "bullJs"
+  | "chartJs"
+  | "fastapi";
 export type Platform =
   | "android"
   | "ios"
@@ -91,6 +127,7 @@ export type CategoryData = {
   name: string;
   image?: string;
   icon?: IconDefinition;
+  Icon?: JSX.Element;
 };
 
 export type Link = {

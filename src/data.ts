@@ -19,6 +19,26 @@ import logoMailjar from "./img/logos/mailjar.png";
 import logoNQueens from "./img/logos/nqueens.png";
 import logoOSPRocessSync from "./img/logos/os_process_sync.png";
 import logoSmartcampus from "./img/logos/smartcampus.png";
+import { devIcon } from "./categories";
+
+// const logoTTPowerGroup = "./img/logos/ttpowergroup.png";
+// const logoERIS = "./img/logos/eris.png";
+// const logoRevision = "./img/logos/revision.png";
+// const logoGE = "./img/logos/ge.png";
+// const logoUWindsor = "./img/logos/uwindsor.png";
+
+// const logoWebsite = "./img/logos/zachshaver.png";
+// const logoIndepocket = "./img/logos/indepocket.png";
+// const logoMidio = "./img/logos/midio.png";
+// const logoRNMidi = "./img/logos/react-native-midi.png";
+// const logoRNSoundfont = "./img/logos/react-native-soundfont.png";
+// const logoCream = "./img/logos/cream.png";
+// const logoJuzahach = "./img/logos/juzahach.png";
+// const logoMailjar = "./img/logos/mailjar.png";
+// const logoNQueens = "./img/logos/nqueens.png";
+// const logoOSPRocessSync = "./img/logos/os_process_sync.png";
+// const logoSmartcampus = "./img/logos/smartcampus.png";
+
 
 export const Subtitles = [
   "Software Developer",
@@ -41,6 +61,70 @@ export const Subtitles = [
 export const WorkRecords: Record[] = [
   {
     type: "work",
+    employer: "Riskfuel Analytics",
+    title: "Software Engineer",
+    summary: "Worked on multiple customer and internal facing projects.",
+    bullets: [
+      "Developed numerous client and internal facing full stack applications utilizing a wide variety of technologies.",
+      "Managed data generation and machine learning model kubernetes cluster.",
+    ],
+    start: new Date("2022/02/01"),
+    logo: logoTTPowerGroup,
+    skills: [
+      "algorithms",
+      "backend",
+      "frontend",
+      "devops",
+      "concurrent",
+      "testing",
+      "rest",
+      "teaching",
+      "testing",
+      "agile",
+      "microservies",
+      "eventDriven",
+      "design",
+      "auth",
+      "distributed",
+      "architecture",
+    ],
+    databases: ["postgresql", "cockroachdb", "kinetica", "redis"],
+    languages: ["python", "bash", "typescript", "javascript", "html", "css", "rust", "golang"],
+    libraries: ["react", "pytest", "pytorch", "express", "react", "styledcomponents", "prisma", "jest", "bullJs", "chartJs", "fastapi"],
+    frameworks: ["grafana", "graphql", "material", "nextJs", "threeJs"],
+    tools: [
+      "aws",
+      "docker",
+      "nginx",
+      "node",
+      "npm",
+      "swagger",
+      "jira", 
+      "kubernetes",
+      "keycloak",
+      "pulsar",
+      "graphql",
+      "azure",
+      "loki",
+      "prometheus",
+      "helm",
+      "argo",
+      "harbor",
+      "garden",
+      "wandb",
+      "ceph",
+    ],
+    isDesktop: true,
+    isMobile: false,
+    links: [
+      {
+        type: "website",
+        url: "https://riskfuel.com/",
+      },
+    ],
+  },
+  {
+    type: "work",
     employer: "T&T Power Group",
     title: "Software Developer",
     summary: "Worked on multiple customer and internal facing projects.",
@@ -48,7 +132,8 @@ export const WorkRecords: Record[] = [
       "Developed a full-stack solution for remote monitoring of power generators over MODBUS.",
       "Worked on development of an internal ERP system. Responsible for complete implentation of business critical features such as service scheduling and timesheet management.",
     ],
-    start: new Date("2021/03/01"),
+    start: new Date("2020/03/01"),
+    end: new Date("2022/02/01"),
     logo: logoTTPowerGroup,
     skills: [
       "algorithms",
@@ -249,6 +334,90 @@ export const WorkRecords: Record[] = [
 ];
 
 export const ProjectRecords: Record[] = [
+  {
+    type: "project",
+    title: "chat.zachshaver.com",
+    summary:
+      "A chatbot designed for pre-interviewing Zach.",
+    bullets: [],
+    start: new Date("2024/05/17"),
+    logo: logoWebsite,
+    skills: ["frontend", "backend", "rest"],
+    databases: [],
+    languages: ["css", "typescript"],
+    libraries: ["fastapi", "react"],
+    frameworks: [],
+    tools: ["langchain"],
+    isDesktop: true,
+    isMobile: true,
+    links: [
+      {
+        type: "website",
+        url: "https://chat.zachshaver.com",
+      },
+      {
+        type: "source_code",
+        url: "https://github.com/ShavaShav/zs-bot",
+      },
+    ],
+  },
+  {
+    type: "project",
+    title: "express-openapi-zod",
+    summary:
+      "Use zod to generate openapi schemas and add type safety to Express routers.",
+    bullets: [
+      "Generate openapi specification from express routers and zod schemas.",
+      "Add types for express handler Request and Response objects."
+    ],
+    start: new Date("2023/10/04"),
+    logo: devIcon("express"),
+    skills: ["backend", "rest"],
+    databases: [],
+    languages: ["typescript"],
+    libraries: ["express"],
+    frameworks: ["openApi"],
+    tools: [],
+    isDesktop: true,
+    isMobile: false,
+    links: [
+      {
+        type: "npm",
+        url: "https://www.npmjs.com/package/express-openapi-zod",
+      },
+      {
+        type: "source_code",
+        url: "https://github.com/ShavaShav/express-openapi-zod",
+      },
+    ],
+  },
+  {
+    type: "project",
+    title: "express-openapi-typescript",
+    summary:
+      "Utilities for adding types to express routes according to an OpenAPI specification.",
+    bullets: [],
+    start: new Date("2023/10/04"),
+    logo: devIcon("openapi"),
+    skills: ["backend", "rest"],
+    databases: [],
+    languages: ["typescript"],
+    libraries: ["express"],
+    frameworks: ["openApi"],
+    tools: [],
+    isDesktop: true,
+    isMobile: false,
+    links: [
+      {
+        type: "npm",
+        url: "https://www.npmjs.com/package/express-openapi-typescript",
+      },
+      {
+        type: "source_code",
+        url: "https://github.com/ShavaShav/openapi-typescript-express",
+      },
+    ],
+  },
   {
     type: "project",
     title: "zachshaver.com",
@@ -601,3 +770,4 @@ export const ProjectRecords: Record[] = [
     ],
   },
 ];
+
