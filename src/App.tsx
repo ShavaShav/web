@@ -4,6 +4,7 @@ import GlobalStyles from "./globalStyles";
 import { useDarkMode } from "./hooks/useDarkMode";
 import Profile from "./components/Profile";
 import Records from "./components/Records";
+import ChatButton from "./components/ChatButton";
 
 const headerHeight = 70;
 
@@ -21,6 +22,13 @@ const StyledProfile = styled(Profile)`
   scroll-margin-top: ${headerHeight}px;
 `;
 
+const StyledChatButton = styled(ChatButton)`
+  position: absolute;
+  bottom: 10px;
+  right: 20px;
+  border-radius: 50%;
+`
+
 const App = () => {
   const [theme, toggleTheme] = useDarkMode();
   const isDark = theme === "dark";
@@ -35,6 +43,7 @@ const App = () => {
           toggleTheme={toggleTheme}
         />
         <StyledRecords />
+        <StyledChatButton />
       </>
     </ThemeProvider>
   );
