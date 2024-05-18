@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faComment } from "@fortawesome/free-solid-svg-icons";
@@ -8,9 +8,9 @@ const LinkButton = styled(Anchor)`
   pointer-events: auto;
   height: 45px;
   width: 45px;
-  border-radius: 50%;
+  border-radius: 30px;
   margin: 5px;
-  transition: all 0.5s linear;
+  transition: border-color 0.5s linear, border-color 0.5s linear, width 0.15s ease-in-out;
   background: linear-gradient(transparent, rgba(44, 44, 44, 0.25)) top/100% 800%;
   border-color: transparent;
   border-radius: 50%;
@@ -18,6 +18,8 @@ const LinkButton = styled(Anchor)`
     border-color: ${({ theme }) => theme.profileBtn};
     box-shadow: 0 8px 12px 0 rgba(0, 0, 0, 0.22),
       0 15px 40px 0 rgba(0, 0, 0, 0.19);
+    width: 100px;
+    border-radius: 30px;
   }
 `;
 
@@ -28,12 +30,19 @@ type ChatButtonProps = AnchorProps & {
 }
 
 const ChatButton = (props: ChatButtonProps) => {
-  return <LinkButton
-    {...props}
-    icon={faComment}
-    color={"#1a6fb4"}
-    href="https://chat.zachshaver.com"
-  />
+  const [ isHover, setHover ] = useState(false);
+
+  return (
+    <LinkButton
+      {...props}
+      icon={faComment}
+      color={"#1a6fb4"}
+      href="https://chat.zachshaver.com"
+      title={isHover ? "Chat with Zach!" : ""}
+      onMouseEnter={() => setTimeout(() => setHover(true), 150)}
+      onMouseLeave={() => setHover(false)}
+    />
+  )
 };
 
 export default ChatButton;

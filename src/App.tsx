@@ -25,8 +25,9 @@ const StyledProfile = styled(Profile)`
 const StyledChatButton = styled(ChatButton)`
   position: absolute;
   bottom: 10px;
-  right: 20px;
+  right: 25px;
   border-radius: 50%;
+  padding: 10px;
 `
 
 const App = () => {

@@ -57,7 +57,7 @@ const StyledAnchor = styled.a<AnchorProps>`
 
 const Anchor = (props: AnchorProps) => {
   return (
-    <StyledAnchor {...props} href={props.href}>
+    <StyledAnchor {...props} title={props.title} href={props.href}>
       <TitleIcon isVertical={props.isVertical || false}>
         {props.icon && (
           <StyledIcon size={"lg"} icon={props.icon} color={props.tintColor} />
