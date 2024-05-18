@@ -338,8 +338,10 @@ export const ProjectRecords: Record[] = [
     type: "project",
     title: "chat.zachshaver.com",
     summary:
-      "A chatbot designed for pre-interviewing Zach.",
-    bullets: [],
+      "A chatbot designed for pre-interviewing me. You can use this to ask questions about my work and project experience.",
+    bullets: [
+      "Uses retrieval augmented generation with LLMs to answer questions from a variety of my personal data."
+    ],
     start: new Date("2024/05/17"),
     logo: logoWebsite,
     skills: ["frontend", "backend", "rest"],
