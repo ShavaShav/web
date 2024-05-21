@@ -22,12 +22,13 @@ const StyledProfile = styled(Profile)`
   scroll-margin-top: ${headerHeight}px;
 `;
 
-const StyledChatButton = styled(ChatButton)`
+const StyledChatButton = styled(ChatButton)<{isScrollBarVisible: boolean}>`
   position: absolute;
   bottom: 10px;
-  right: 25px;
+  right: ${(props) => props.isScrollBarVisible ? '25px' : '10px' };
   border-radius: 50%;
   padding: 10px;
+  
 `
 
 const App = () => {
@@ -44,7 +45,9 @@ const App = () => {
           toggleTheme={toggleTheme}
         />
         <StyledRecords />
-        <StyledChatButton />
+        <StyledChatButton
+          isScrollBarVisible={window.visualViewport ? window.visualViewport.width < window.outerWidth : true} 
+        />
       </>
     </ThemeProvider>
   );

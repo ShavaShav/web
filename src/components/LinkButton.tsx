@@ -31,7 +31,10 @@ const StyledAnchor = styled(Anchor)`
     border-width: 1;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 12px 0 rgba(0, 0, 0, 0.19);
   }
-  transition: box-shadow 0.2s ease-in-out;
+  &:active {
+    box-shadow: initial;
+  }
+  transition: box-shadow 0.05s linear;
   @media only screen and (min-width: ${MOBILE_BREAKPOINT_WIDTH + "px"}) {
     min-width: 140px;
     max-width: 180px;

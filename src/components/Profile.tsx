@@ -122,14 +122,16 @@ const LinkButton = styled(Anchor)`
   height: 45px;
   width: 120px;
   margin: 5px;
-  transition: all 0.5s linear;
+  transition: border-color 0.5s linear, box-shadow: 0.1 linear;
   background: linear-gradient(transparent, rgba(44, 44, 44, 0.25)) top/100% 800%;
   border-color: transparent;
   border-radius: 5px;
   &:hover {
     border-color: ${({ theme }) => theme.profileBtn};
-    box-shadow: 0 8px 12px 0 rgba(0, 0, 0, 0.22),
-      0 15px 40px 0 rgba(0, 0, 0, 0.19);
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 12px 0 rgba(0, 0, 0, 0.19);
+  }
+  &:active {
+    box-shadow: initial;
   }
 `;
 
