@@ -10,16 +10,22 @@ const headerHeight = 70;
 
 const StyledRecords = styled(Records)`
   scroll-margin-top: ${headerHeight}px;
-  scroll-snap-align: start;
-  scroll-snap-stop: always;
-  height: 100%;
   scroll-margin-bottom: 50px;
+  height: 100%;
+
+  @media screen and (min-width: 780px) and (min-height: 600px) {
+    scroll-snap-align: start;
+    scroll-snap-stop: normal;
+  }
 `;
 
 const StyledProfile = styled(Profile)`
-  scroll-snap-align: start;
   height: 100vh;
   scroll-margin-top: ${headerHeight}px;
+
+  @media screen and (min-width: 780px) and (min-height: 600px) {
+    scroll-snap-align: start;
+  }
 `;
 
 const StyledChatButton = styled(ChatButton)<{isScrollBarVisible: boolean}>`
