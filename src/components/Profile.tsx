@@ -40,7 +40,7 @@ const ProfileWrapper = styled.div<ProfileProps & { hide: boolean }>`
   // Keep profile on top of sticky header, and allow click throughs
   z-index: 5;
   pointer-events: none;
-  padding-bottom: 33%;
+  padding-bottom: 15dvh;
 `;
 
 const ProfileSection = styled.div`
